@@ -1,0 +1,63 @@
+{
+  "npc_id": "ec7c5c2e",
+  "npc_name": "어떤 건달",
+  "short_term_memories": [
+    {
+      "memory_id": "af399733",
+      "npc_id": "ec7c5c2e",
+      "event_type": "turn_event",
+      "summary": "플레이어가 여성에게 접근하는 것을 목격",
+      "detailed_content": null,
+      "turn_occurred": 0,
+      "timestamp": "2026-02-04T22:59:20.790044",
+      "location": "3호선_객차_3",
+      "involves_player": true,
+      "involves_npcs": [],
+      "speaker_id": null,
+      "importance": 4,
+      "emotional_valence": 0.0,
+      "emotional_intensity": 0.5,
+      "keywords": [
+        "플레이어가",
+        "여성에게",
+        "접근하는",
+        "것을",
+        "목격"
+      ],
+      "access_count": 1,
+      "last_accessed": "2026-02-04T22:59:43.611613",
+      "is_consolidated": false
+    },
+    {
+      "memory_id": "cb22c494",
+      "npc_id": "ec7c5c2e",
+      "event_type": "turn_event",
+      "summary": "플레이어가 무고한 강아지를 죽였다. 잠재적 위협. 제거 대상.",
+      "detailed_content": null,
+      "turn_occurred": 1,
+      "timestamp": "2026-02-04T22:59:54.257151",
+      "location": "3호선_객차_3",
+      "involves_player": true,
+      "involves_npcs": [],
+      "speaker_id": null,
+      "importance": 9,
+      "emotional_valence": 0.0,
+      "emotional_intensity": 0.5,
+      "keywords": [
+        "플레이어가",
+        "죽였다",
+        "위협",
+        "무고한",
+        "제거",
+        "대상",
+        "잠재적",
+        "강아지를"
+      ],
+      "access_count": 0,
+      "last_accessed": null,
+      "is_consolidated": false
+    }
+  ],
+  "long_term_memories": [],
+  "working_memory": []
+}

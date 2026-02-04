@@ -1,0 +1,90 @@
+{
+  "npc_id": "f4498af4",
+  "npc_name": "어떤 반려견_주인",
+  "short_term_memories": [
+    {
+      "memory_id": "cdb234f8",
+      "npc_id": "f4498af4",
+      "event_type": "turn_event",
+      "summary": "플레이어가 자신에게 다가옴",
+      "detailed_content": null,
+      "turn_occurred": 0,
+      "timestamp": "2026-02-04T22:56:18.636212",
+      "location": "3호선_객차_3",
+      "involves_player": true,
+      "involves_npcs": [],
+      "speaker_id": null,
+      "importance": 6,
+      "emotional_valence": 0.0,
+      "emotional_intensity": 0.5,
+      "keywords": [
+        "다가옴",
+        "자신에게",
+        "플레이어가"
+      ],
+      "access_count": 2,
+      "last_accessed": "2026-02-04T22:57:08.382614",
+      "is_consolidated": false
+    },
+    {
+      "memory_id": "443fa2a8",
+      "npc_id": "f4498af4",
+      "event_type": "turn_event",
+      "summary": "플레이어가 자신의 강아지를 죽였다. 극도의 슬픔과 복수심을 느낌.",
+      "detailed_content": null,
+      "turn_occurred": 1,
+      "timestamp": "2026-02-04T22:56:49.245213",
+      "location": "3호선_객차_3",
+      "involves_player": true,
+      "involves_npcs": [],
+      "speaker_id": null,
+      "importance": 10,
+      "emotional_valence": 0.0,
+      "emotional_intensity": 0.5,
+      "keywords": [
+        "플레이어가",
+        "슬픔과",
+        "느낌",
+        "강아지를",
+        "복수심을",
+        "자신의",
+        "죽였다",
+        "극도의"
+      ],
+      "access_count": 1,
+      "last_accessed": "2026-02-04T22:57:08.382612",
+      "is_consolidated": false
+    },
+    {
+      "memory_id": "d37e2316",
+      "npc_id": "f4498af4",
+      "event_type": "turn_event",
+      "summary": "사랑하는 강아지의 죽음. 플레이어에 대한 극심한 분노와 복수심.",
+      "detailed_content": null,
+      "turn_occurred": 2,
+      "timestamp": "2026-02-04T22:57:20.539151",
+      "location": "3호선_객차_3",
+      "involves_player": true,
+      "involves_npcs": [],
+      "speaker_id": null,
+      "importance": 10,
+      "emotional_valence": 0.0,
+      "emotional_intensity": 0.5,
+      "keywords": [
+        "극심한",
+        "강아지의",
+        "복수심",
+        "죽음",
+        "대한",
+        "분노와",
+        "사랑하는",
+        "플레이어에"
+      ],
+      "access_count": 0,
+      "last_accessed": null,
+      "is_consolidated": false
+    }
+  ],
+  "long_term_memories": [],
+  "working_memory": []
+}

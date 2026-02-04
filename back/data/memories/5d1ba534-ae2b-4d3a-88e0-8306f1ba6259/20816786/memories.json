@@ -1,0 +1,60 @@
+{
+  "npc_id": "20816786",
+  "npc_name": "어떤 군인",
+  "short_term_memories": [
+    {
+      "memory_id": "4046deca",
+      "npc_id": "20816786",
+      "event_type": "turn_event",
+      "summary": "플레이어가 주변을 둘러봄",
+      "detailed_content": null,
+      "turn_occurred": 0,
+      "timestamp": "2026-02-04T16:07:44.145374",
+      "location": "3호선_객차_3",
+      "involves_player": true,
+      "involves_npcs": [],
+      "speaker_id": null,
+      "importance": 1,
+      "emotional_valence": 0.0,
+      "emotional_intensity": 0.5,
+      "keywords": [
+        "둘러봄",
+        "플레이어가",
+        "주변을"
+      ],
+      "access_count": 2,
+      "last_accessed": "2026-02-04T16:08:21.608806",
+      "is_consolidated": false
+    },
+    {
+      "memory_id": "3a41be81",
+      "npc_id": "20816786",
+      "event_type": "turn_event",
+      "summary": "처음 보는 사람이 말을 걸어왔다. 경계해야 한다.",
+      "detailed_content": null,
+      "turn_occurred": 1,
+      "timestamp": "2026-02-04T16:08:28.441085",
+      "location": "3호선_객차_3",
+      "involves_player": true,
+      "involves_npcs": [],
+      "speaker_id": null,
+      "importance": 3,
+      "emotional_valence": 0.0,
+      "emotional_intensity": 0.5,
+      "keywords": [
+        "경계해야",
+        "걸어왔다",
+        "한다",
+        "처음",
+        "보는",
+        "사람이",
+        "말을"
+      ],
+      "access_count": 0,
+      "last_accessed": null,
+      "is_consolidated": false
+    }
+  ],
+  "long_term_memories": [],
+  "working_memory": []
+}

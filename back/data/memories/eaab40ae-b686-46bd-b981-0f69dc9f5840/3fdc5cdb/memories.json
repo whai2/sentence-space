@@ -1,0 +1,39 @@
+{
+  "npc_id": "3fdc5cdb",
+  "npc_name": "견주 아줌마",
+  "short_term_memories": [
+    {
+      "memory_id": "b8175f8f",
+      "npc_id": "3fdc5cdb",
+      "event_type": "turn_event",
+      "summary": "지하철 객차 안, 사람이 많고 조금 불안함. 플레이어라는 사람이 시스템 창을 보고 있음.",
+      "detailed_content": null,
+      "turn_occurred": 0,
+      "timestamp": "2026-02-04T14:52:35.499166",
+      "location": "3호선_객차_3",
+      "involves_player": true,
+      "involves_npcs": [],
+      "speaker_id": null,
+      "importance": 3,
+      "emotional_valence": 0.0,
+      "emotional_intensity": 0.5,
+      "keywords": [
+        "지하철",
+        "객차",
+        "창을",
+        "사람이",
+        "시스템",
+        "불안함",
+        "있음",
+        "플레이어라는",
+        "조금",
+        "많고"
+      ],
+      "access_count": 0,
+      "last_accessed": null,
+      "is_consolidated": false
+    }
+  ],
+  "long_term_memories": [],
+  "working_memory": []
+}

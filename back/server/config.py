@@ -20,6 +20,15 @@ class Settings(BaseSettings):
     openrouter_api_key: str = ""
     llm_model: str = "anthropic/claude-3.5-sonnet"
 
+    # 데이터 저장 디렉토리 (기억 영속성)
+    data_dir: str = "data"
+
+    # Langfuse 설정 (비용 추적)
+    langfuse_public_key: str = ""
+    langfuse_secret_key: str = ""
+    langfuse_host: str = "https://cloud.langfuse.com"
+    langfuse_enabled: bool = True
+
 
 @lru_cache
 def get_settings() -> Settings:

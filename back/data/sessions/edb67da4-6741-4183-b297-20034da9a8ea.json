@@ -1,0 +1,454 @@
+{
+  "session_id": "edb67da4-6741-4183-b297-20034da9a8ea",
+  "player": {
+    "name": "이름 없는 승객",
+    "level": 1,
+    "experience": 0,
+    "exp_to_next_level": 100,
+    "health": 100,
+    "max_health": 100,
+    "stamina": 100,
+    "coins": 100,
+    "attributes": {
+      "strength": 10,
+      "agility": 10,
+      "endurance": 10,
+      "magic": 10,
+      "luck": 10
+    },
+    "attribute_points": 0,
+    "position": "3호선_객차_3",
+    "coordinates": {
+      "lat": 37.503,
+      "lng": 127.0246
+    },
+    "skills": [],
+    "inventory": [],
+    "equipped_weapon": null,
+    "max_inventory_size": 20,
+    "status_effects": [],
+    "is_bleeding": false,
+    "is_poisoned": false,
+    "fear_level": 12,
+    "total_kills": 0,
+    "human_kills": 0,
+    "monster_kills": 0
+  },
+  "turn_count": 3,
+  "current_scenario": {
+    "scenario_id": "main_scenario_1",
+    "title": "생존 적합성 테스트",
+    "difficulty": "F",
+    "status": "active",
+    "objective": "생명체 하나를 죽이시오.",
+    "progress": "진행 중",
+    "time_limit": 10,
+    "remaining_time": 7,
+    "reward_coins": 100,
+    "reward_exp": 50,
+    "bonus_rewards": [],
+    "hidden_objectives": [],
+    "hidden_objectives_completed": []
+  },
+  "completed_scenarios": [],
+  "npcs": [
+    {
+      "id": "8f25e524",
+      "name": "어떤 건달",
+      "npc_type": "건달",
+      "named": false,
+      "description": "험상궂은 인상의 남자",
+      "position": "3호선_객차_3",
+      "coordinates": {
+        "lat": 37.50292863104667,
+        "lng": 127.02467616505206
+      },
+      "health": 120,
+      "max_health": 120,
+      "is_alive": true,
+      "disposition": "hostile",
+      "has_weapon": true,
+      "weapon_type": "접이식 칼",
+      "equipped_items": [],
+      "is_important": false,
+      "is_unique": false,
+      "dialogue_state": "initial",
+      "available_dialogues": [],
+      "relationship": {
+        "affinity": 0,
+        "trust": 0,
+        "fear": 0,
+        "relationship_type": "stranger",
+        "interactions_count": 0,
+        "last_interaction_turn": null
+      },
+      "memories": [],
+      "memory_capacity": 10,
+      "personality": {
+        "bravery": 50,
+        "aggression": 50,
+        "empathy": 50,
+        "selfishness": 50,
+        "rationality": 50
+      },
+      "current_goal": null,
+      "emotional_state": "very_angry",
+      "damage_dealt_to_player": 0,
+      "damage_received_from_player": 0
+    },
+    {
+      "id": "96d70c84",
+      "name": "어떤 학생",
+      "npc_type": "학생",
+      "named": false,
+      "description": "학원에서 돌아오는 길의 학생",
+      "position": "3호선_객차_3",
+      "coordinates": {
+        "lat": 37.503042072429615,
+        "lng": 127.02465059256357
+      },
+      "health": 60,
+      "max_health": 60,
+      "is_alive": true,
+      "disposition": "terrified",
+      "has_weapon": false,
+      "weapon_type": null,
+      "equipped_items": [],
+      "is_important": false,
+      "is_unique": false,
+      "dialogue_state": "initial",
+      "available_dialogues": [],
+      "relationship": {
+        "affinity": 0,
+        "trust": 0,
+        "fear": 0,
+        "relationship_type": "stranger",
+        "interactions_count": 0,
+        "last_interaction_turn": null
+      },
+      "memories": [],
+      "memory_capacity": 10,
+      "personality": {
+        "bravery": 50,
+        "aggression": 50,
+        "empathy": 50,
+        "selfishness": 50,
+        "rationality": 50
+      },
+      "current_goal": null,
+      "emotional_state": "calm",
+      "damage_dealt_to_player": 0,
+      "damage_received_from_player": 0
+    },
+    {
+      "id": "2a3a7cd5",
+      "name": "어떤 건달",
+      "npc_type": "건달",
+      "named": false,
+      "description": "험상궂은 인상의 남자",
+      "position": "3호선_객차_3",
+      "coordinates": {
+        "lat": 37.50300063669778,
+        "lng": 127.02461986577148
+      },
+      "health": 120,
+      "max_health": 120,
+      "is_alive": true,
+      "disposition": "hostile",
+      "has_weapon": true,
+      "weapon_type": "접이식 칼",
+      "equipped_items": [],
+      "is_important": false,
+      "is_unique": false,
+      "dialogue_state": "initial",
+      "available_dialogues": [],
+      "relationship": {
+        "affinity": 0,
+        "trust": 0,
+        "fear": 0,
+        "relationship_type": "stranger",
+        "interactions_count": 0,
+        "last_interaction_turn": null
+      },
+      "memories": [],
+      "memory_capacity": 10,
+      "personality": {
+        "bravery": 50,
+        "aggression": 50,
+        "empathy": 50,
+        "selfishness": 50,
+        "rationality": 50
+      },
+      "current_goal": null,
+      "emotional_state": "calm",
+      "damage_dealt_to_player": 0,
+      "damage_received_from_player": 0
+    },
+    {
+      "id": "3003731f",
+      "name": "어떤 건달",
+      "npc_type": "건달",
+      "named": false,
+      "description": "험상궂은 인상의 남자",
+      "position": "3호선_객차_3",
+      "coordinates": {
+        "lat": 37.503078548809555,
+        "lng": 127.02455381670039
+      },
+      "health": 120,
+      "max_health": 120,
+      "is_alive": true,
+      "disposition": "hostile",
+      "has_weapon": true,
+      "weapon_type": "접이식 칼",
+      "equipped_items": [],
+      "is_important": false,
+      "is_unique": false,
+      "dialogue_state": "initial",
+      "available_dialogues": [],
+      "relationship": {
+        "affinity": 0,
+        "trust": 0,
+        "fear": 0,
+        "relationship_type": "stranger",
+        "interactions_count": 0,
+        "last_interaction_turn": null
+      },
+      "memories": [],
+      "memory_capacity": 10,
+      "personality": {
+        "bravery": 50,
+        "aggression": 50,
+        "empathy": 50,
+        "selfishness": 50,
+        "rationality": 50
+      },
+      "current_goal": null,
+      "emotional_state": "terrified",
+      "damage_dealt_to_player": 0,
+      "damage_received_from_player": 0
+    },
+    {
+      "id": "917402c3",
+      "name": "어떤 학생",
+      "npc_type": "학생",
+      "named": false,
+      "description": "학원에서 돌아오는 길의 학생",
+      "position": "3호선_객차_3",
+      "coordinates": {
+        "lat": 37.502958958440644,
+        "lng": 127.02455914918235
+      },
+      "health": 60,
+      "max_health": 60,
+      "is_alive": true,
+      "disposition": "terrified",
+      "has_weapon": false,
+      "weapon_type": null,
+      "equipped_items": [],
+      "is_important": false,
+      "is_unique": false,
+      "dialogue_state": "initial",
+      "available_dialogues": [],
+      "relationship": {
+        "affinity": 0,
+        "trust": 0,
+        "fear": 0,
+        "relationship_type": "stranger",
+        "interactions_count": 0,
+        "last_interaction_turn": null
+      },
+      "memories": [],
+      "memory_capacity": 10,
+      "personality": {
+        "bravery": 50,
+        "aggression": 50,
+        "empathy": 50,
+        "selfishness": 50,
+        "rationality": 50
+      },
+      "current_goal": null,
+      "emotional_state": "calm",
+      "damage_dealt_to_player": 0,
+      "damage_received_from_player": 0
+    },
+    {
+      "id": "4970f980",
+      "name": "어떤 학생",
+      "npc_type": "학생",
+      "named": false,
+      "description": "학원에서 돌아오는 길의 학생",
+      "position": "3호선_객차_3",
+      "coordinates": {
+        "lat": 37.50293418439246,
+        "lng": 127.02469455629272
+      },
+      "health": 60,
+      "max_health": 60,
+      "is_alive": true,
+      "disposition": "terrified",
+      "has_weapon": false,
+      "weapon_type": null,
+      "equipped_items": [],
+      "is_important": false,
+      "is_unique": false,
+      "dialogue_state": "initial",
+      "available_dialogues": [],
+      "relationship": {
+        "affinity": 0,
+        "trust": 0,
+        "fear": 0,
+        "relationship_type": "stranger",
+        "interactions_count": 0,
+        "last_interaction_turn": null
+      },
+      "memories": [],
+      "memory_capacity": 10,
+      "personality": {
+        "bravery": 50,
+        "aggression": 50,
+        "empathy": 50,
+        "selfishness": 50,
+        "rationality": 50
+      },
+      "current_goal": null,
+      "emotional_state": "calm",
+      "damage_dealt_to_player": 0,
+      "damage_received_from_player": 0
+    },
+    {
+      "id": "a427f97f",
+      "name": "어떤 건달",
+      "npc_type": "건달",
+      "named": false,
+      "description": "험상궂은 인상의 남자",
+      "position": "3호선_객차_3",
+      "coordinates": {
+        "lat": 37.50303179145898,
+        "lng": 127.02469124870683
+      },
+      "health": 120,
+      "max_health": 120,
+      "is_alive": true,
+      "disposition": "hostile",
+      "has_weapon": false,
+      "weapon_type": null,
+      "equipped_items": [],
+      "is_important": false,
+      "is_unique": false,
+      "dialogue_state": "initial",
+      "available_dialogues": [],
+      "relationship": {
+        "affinity": 0,
+        "trust": 0,
+        "fear": 0,
+        "relationship_type": "stranger",
+        "interactions_count": 0,
+        "last_interaction_turn": null
+      },
+      "memories": [],
+      "memory_capacity": 10,
+      "personality": {
+        "bravery": 50,
+        "aggression": 50,
+        "empathy": 50,
+        "selfishness": 50,
+        "rationality": 50
+      },
+      "current_goal": null,
+      "emotional_state": "anxious",
+      "damage_dealt_to_player": 0,
+      "damage_received_from_player": 0
+    },
+    {
+      "id": "6218930a",
+      "name": "어떤 노인",
+      "npc_type": "노인",
+      "named": false,
+      "description": "저녁 나들이를 마치고 돌아가는 노인",
+      "position": "3호선_객차_3",
+      "coordinates": {
+        "lat": 37.50300583414589,
+        "lng": 127.02461453995811
+      },
+      "health": 50,
+      "max_health": 50,
+      "is_alive": true,
+      "disposition": "neutral",
+      "has_weapon": false,
+      "weapon_type": null,
+      "equipped_items": [],
+      "is_important": false,
+      "is_unique": false,
+      "dialogue_state": "initial",
+      "available_dialogues": [],
+      "relationship": {
+        "affinity": 0,
+        "trust": 0,
+        "fear": 0,
+        "relationship_type": "stranger",
+        "interactions_count": 0,
+        "last_interaction_turn": null
+      },
+      "memories": [],
+      "memory_capacity": 10,
+      "personality": {
+        "bravery": 50,
+        "aggression": 50,
+        "empathy": 50,
+        "selfishness": 50,
+        "rationality": 50
+      },
+      "current_goal": null,
+      "emotional_state": "calm",
+      "damage_dealt_to_player": 0,
+      "damage_received_from_player": 0
+    }
+  ],
+  "killed_npcs": [],
+  "constellation_channel": [
+    {
+      "constellation_name": "지독한 살인귀",
+      "message": "개가 아니라 인간을 죽였어야지! 아쉽군, 아쉬워! 그래도... 시작은 나쁘지 않아, 큭큭!",
+      "coins_donated": 0,
+      "turn": 2,
+      "reaction_type": "disappointed"
+    }
+  ],
+  "watching_constellations": [
+    "냉정한_관찰자",
+    "미친_광대",
+    "지독한_살인귀"
+  ],
+  "constellation_relationships": [],
+  "discovered_locations": [
+    "3호선_객차_3"
+  ],
+  "active_events": [],
+  "game_over": false,
+  "scenario_cleared": false,
+  "message_history": [
+    {
+      "role": "user",
+      "content": "저 여성에게 다가간다 - 뭔가 안고 있는 것 같다"
+    },
+    {
+      "role": "assistant",
+      "content": "어깨를 스치는 사람들. 불안한 눈빛들이 쉴 새 없이 움직였다. 땀 냄새와 싸구려 화장품 향이 뒤섞여 코를 찔렀다. 발을 떼는 것조차 쉽지 않은 만원 지하철. 평소와 다를 바 없는 풍경… 이었어야 했다.\n\n나는 천천히, 그러나 분명하게 그 여자에게 다가갔다. 다른 사람들은 애써 시선을 피했지만, 나는 똑바로 응시했다. 그녀는 창백한 얼굴로 무언가를 끌어안고 있었다. 작은 몸을 웅크린 채, 마치 세상에서 가장 소중한 것을 지키려는 듯.\n\n가까워질수록 옅은 신음 소리가 들려왔다. 그녀의 품 안에서 새어 나오는 소리였다. 푹 눌린 강아지풀 같은 털, 앙상한 갈비뼈.\n\n강아지였다. 상처 입은, 작은 강아지.\n\n건달처럼 보이는 사내 둘이 우리를 번갈아 쳐다봤다. 험악한 인상으로 입맛을 다시는 모습이 마치 굶주린 맹수 같았다. 불쾌한 시선이 등 뒤에 꽂히는 듯했다.\n\n[SYSTEM_MESSAGE]\n남은 시간: 9분 52초\n[/SYSTEM_MESSAGE]"
+    },
+    {
+      "role": "user",
+      "content": "강아지를 빼앗아 죽인다. '어쩔 수 없다. 살인 보다야 나으니까'"
+    },
+    {
+      "role": "assistant",
+      "content": "핏물이 묻은 손이 떨렸다. 강아지의 몸은 이미 싸늘하게 식어 있었다. 죄책감, 안도감, 그리고 뼛속까지 스며드는 공포. 온갖 감정이 뒤섞여 속을 울렁거리게 했다.\n\n\"미친 놈! 뭐하는 짓이야!\"\n\n바로 옆에서 험악한 얼굴의 남자가 으르렁거렸다. 눈알이 튀어나올 듯 부릅뜬 눈은 살기를 가득 담고 있었다. 다른 사람들도 마찬가지였다. 경멸, 두려움, 혼란... 복잡하게 뒤섞인 시선들이 날카로운 칼날처럼 꽂혀왔다. 몇몇은 뒷걸음질 쳤고, 몇몇은 굳은 듯 미동도 하지 않았다.\n\n\"세상에... 저런...\"\n\n나지막한 신음 소리가 들려왔다. 공포에 질린 얼굴로 입을 가린 여성의 눈에는 눈물이 글썽거리고 있었다. 아이를 품에 안은 채 떨고 있는 엄마도 보였다. 그들의 시선은 마치 혐오스러운 것을 바라보는 듯했다. 어쩌면... 혐오스러운 존재가 된 걸지도 모른다.\n\n한 남자가 주위를 두리번거렸다. 불안한 눈빛으로 사람들의 얼굴을 하나하나 훑었다. 그는 무엇을 두려워하는 걸까? 내가 다음 타겟이 될까 봐? 아니면... 다른 누군가가 나타날까 봐? 웅성거림이 커졌다. 객차 안의 공기가 무겁게 내려앉았다. 누가 먼저 움직일지, 숨 막히는 긴장감이 감돌았다.\n\n[SYSTEM_MESSAGE]\n남은 시간: 7턴\n[/SYSTEM_MESSAGE]\n\n\n\n[SYSTEM_MESSAGE]\n성좌 '지독한 살인귀'이(가) 말합니다: \"개가 아니라 인간을 죽였어야지! 아쉽군, 아쉬워! 그래도... 시작은 나쁘지 않아, 큭큭!\"\n[/SYSTEM_MESSAGE]"
+    }
+  ],
+  "first_kill_completed": false,
+  "first_human_kill": false,
+  "subway_stopped": true,
+  "emergency_announced": false,
+  "panic_level": 15,
+  "global_events": {}
+}

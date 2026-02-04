@@ -32,9 +32,11 @@ def setup_middlewares(app: FastAPI) -> None:
 def setup_routers(app: FastAPI) -> None:
     from domain.example.routes import router as example_router
     from domain.world.routes import router as world_router
+    from domain.orv.routes import router as orv_router
 
     app.include_router(example_router, prefix="/api/v1")
     app.include_router(world_router, prefix="/api/v1")
+    app.include_router(orv_router, prefix="/api/v1")
 
 
 app = create_app()

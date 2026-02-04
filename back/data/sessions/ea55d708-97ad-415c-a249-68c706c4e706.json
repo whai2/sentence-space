@@ -1,0 +1,536 @@
+{
+  "session_id": "ea55d708-97ad-415c-a249-68c706c4e706",
+  "player": {
+    "name": "이름 없는 승객",
+    "level": 1,
+    "experience": 50,
+    "exp_to_next_level": 100,
+    "health": 100,
+    "max_health": 100,
+    "stamina": 100,
+    "coins": 200,
+    "attributes": {
+      "strength": 10,
+      "agility": 10,
+      "endurance": 10,
+      "magic": 10,
+      "luck": 10
+    },
+    "attribute_points": 0,
+    "position": "3호선_객차_3",
+    "coordinates": {
+      "lat": 37.503,
+      "lng": 127.0246
+    },
+    "skills": [],
+    "inventory": [],
+    "equipped_weapon": null,
+    "max_inventory_size": 20,
+    "status_effects": [],
+    "is_bleeding": false,
+    "is_poisoned": false,
+    "fear_level": 25,
+    "total_kills": 0,
+    "human_kills": 0,
+    "monster_kills": 0
+  },
+  "turn_count": 2,
+  "current_scenario": {
+    "scenario_id": "main_scenario_2",
+    "title": "한강 대교",
+    "difficulty": "E",
+    "status": "active",
+    "objective": "한강 대교를 건너 생존 구역에 도달하시오.",
+    "progress": "",
+    "time_limit": null,
+    "remaining_time": null,
+    "reward_coins": 300,
+    "reward_exp": 150,
+    "bonus_rewards": [],
+    "hidden_objectives": [],
+    "hidden_objectives_completed": []
+  },
+  "completed_scenarios": [
+    "main_scenario_1"
+  ],
+  "npcs": [
+    {
+      "id": "09fce8b1",
+      "name": "어떤 군인",
+      "npc_type": "군인",
+      "named": false,
+      "description": "휴가 나온 군인",
+      "position": "3호선_객차_3",
+      "coordinates": {
+        "lat": 37.5029605541854,
+        "lng": 127.02461553185107
+      },
+      "health": 100,
+      "max_health": 100,
+      "is_alive": true,
+      "disposition": "neutral",
+      "has_weapon": false,
+      "weapon_type": null,
+      "equipped_items": [],
+      "is_important": false,
+      "is_unique": false,
+      "dialogue_state": "initial",
+      "available_dialogues": [],
+      "relationship": {
+        "affinity": 0,
+        "trust": 0,
+        "fear": 0,
+        "relationship_type": "stranger",
+        "interactions_count": 0,
+        "last_interaction_turn": null
+      },
+      "memories": [],
+      "memory_capacity": 10,
+      "personality": {
+        "bravery": 50,
+        "aggression": 50,
+        "empathy": 50,
+        "selfishness": 50,
+        "rationality": 50
+      },
+      "current_goal": null,
+      "emotional_state": "angry",
+      "damage_dealt_to_player": 0,
+      "damage_received_from_player": 0
+    },
+    {
+      "id": "5e98cd72",
+      "name": "어떤 반려견_주인",
+      "npc_type": "반려견_주인",
+      "named": false,
+      "description": "작은 강아지를 품에 안고 있는 중년 여성. 이동장 가방이 발밑에 놓여 있다.",
+      "position": "3호선_객차_3",
+      "coordinates": {
+        "lat": 37.50302110166048,
+        "lng": 127.02468939117443
+      },
+      "health": 70,
+      "max_health": 70,
+      "is_alive": true,
+      "disposition": "terrified",
+      "has_weapon": false,
+      "weapon_type": null,
+      "equipped_items": [],
+      "is_important": false,
+      "is_unique": false,
+      "dialogue_state": "initial",
+      "available_dialogues": [],
+      "relationship": {
+        "affinity": 0,
+        "trust": 0,
+        "fear": 0,
+        "relationship_type": "stranger",
+        "interactions_count": 0,
+        "last_interaction_turn": null
+      },
+      "memories": [],
+      "memory_capacity": 10,
+      "personality": {
+        "bravery": 50,
+        "aggression": 50,
+        "empathy": 50,
+        "selfishness": 50,
+        "rationality": 50
+      },
+      "current_goal": null,
+      "emotional_state": "devastated",
+      "damage_dealt_to_player": 0,
+      "damage_received_from_player": 0
+    },
+    {
+      "id": "abcb99a4",
+      "name": "어떤 반려견_주인",
+      "npc_type": "반려견_주인",
+      "named": false,
+      "description": "작은 강아지를 품에 안고 있는 중년 여성. 이동장 가방이 발밑에 놓여 있다.",
+      "position": "3호선_객차_3",
+      "coordinates": {
+        "lat": 37.50307041703366,
+        "lng": 127.02468280646812
+      },
+      "health": 70,
+      "max_health": 70,
+      "is_alive": true,
+      "disposition": "terrified",
+      "has_weapon": false,
+      "weapon_type": null,
+      "equipped_items": [],
+      "is_important": false,
+      "is_unique": false,
+      "dialogue_state": "initial",
+      "available_dialogues": [],
+      "relationship": {
+        "affinity": 0,
+        "trust": 0,
+        "fear": 0,
+        "relationship_type": "stranger",
+        "interactions_count": 0,
+        "last_interaction_turn": null
+      },
+      "memories": [],
+      "memory_capacity": 10,
+      "personality": {
+        "bravery": 50,
+        "aggression": 50,
+        "empathy": 50,
+        "selfishness": 50,
+        "rationality": 50
+      },
+      "current_goal": null,
+      "emotional_state": "nervous",
+      "damage_dealt_to_player": 0,
+      "damage_received_from_player": 0
+    },
+    {
+      "id": "fe511d27",
+      "name": "어떤 회사원",
+      "npc_type": "회사원",
+      "named": false,
+      "description": "퇴근길 지하철에 탄 평범한 회사원",
+      "position": "3호선_객차_3",
+      "coordinates": {
+        "lat": 37.50304358474188,
+        "lng": 127.024575596495
+      },
+      "health": 80,
+      "max_health": 80,
+      "is_alive": true,
+      "disposition": "terrified",
+      "has_weapon": false,
+      "weapon_type": null,
+      "equipped_items": [],
+      "is_important": false,
+      "is_unique": false,
+      "dialogue_state": "initial",
+      "available_dialogues": [],
+      "relationship": {
+        "affinity": 0,
+        "trust": 0,
+        "fear": 0,
+        "relationship_type": "stranger",
+        "interactions_count": 0,
+        "last_interaction_turn": null
+      },
+      "memories": [],
+      "memory_capacity": 10,
+      "personality": {
+        "bravery": 50,
+        "aggression": 50,
+        "empathy": 50,
+        "selfishness": 50,
+        "rationality": 50
+      },
+      "current_goal": null,
+      "emotional_state": "calm",
+      "damage_dealt_to_player": 0,
+      "damage_received_from_player": 0
+    },
+    {
+      "id": "124686ea",
+      "name": "어떤 회사원",
+      "npc_type": "회사원",
+      "named": false,
+      "description": "퇴근길 지하철에 탄 평범한 회사원",
+      "position": "3호선_객차_3",
+      "coordinates": {
+        "lat": 37.50303959576675,
+        "lng": 127.02469953998319
+      },
+      "health": 80,
+      "max_health": 80,
+      "is_alive": true,
+      "disposition": "terrified",
+      "has_weapon": false,
+      "weapon_type": null,
+      "equipped_items": [],
+      "is_important": false,
+      "is_unique": false,
+      "dialogue_state": "initial",
+      "available_dialogues": [],
+      "relationship": {
+        "affinity": 0,
+        "trust": 0,
+        "fear": 0,
+        "relationship_type": "stranger",
+        "interactions_count": 0,
+        "last_interaction_turn": null
+      },
+      "memories": [],
+      "memory_capacity": 10,
+      "personality": {
+        "bravery": 50,
+        "aggression": 50,
+        "empathy": 50,
+        "selfishness": 50,
+        "rationality": 50
+      },
+      "current_goal": null,
+      "emotional_state": "calm",
+      "damage_dealt_to_player": 0,
+      "damage_received_from_player": 0
+    },
+    {
+      "id": "3fa1066e",
+      "name": "어떤 군인",
+      "npc_type": "군인",
+      "named": false,
+      "description": "휴가 나온 군인",
+      "position": "3호선_객차_3",
+      "coordinates": {
+        "lat": 37.50297187022045,
+        "lng": 127.02453204662439
+      },
+      "health": 100,
+      "max_health": 100,
+      "is_alive": true,
+      "disposition": "neutral",
+      "has_weapon": false,
+      "weapon_type": null,
+      "equipped_items": [],
+      "is_important": false,
+      "is_unique": false,
+      "dialogue_state": "initial",
+      "available_dialogues": [],
+      "relationship": {
+        "affinity": 0,
+        "trust": 0,
+        "fear": 0,
+        "relationship_type": "stranger",
+        "interactions_count": 0,
+        "last_interaction_turn": null
+      },
+      "memories": [],
+      "memory_capacity": 10,
+      "personality": {
+        "bravery": 50,
+        "aggression": 50,
+        "empathy": 50,
+        "selfishness": 50,
+        "rationality": 50
+      },
+      "current_goal": null,
+      "emotional_state": "calm",
+      "damage_dealt_to_player": 0,
+      "damage_received_from_player": 0
+    },
+    {
+      "id": "5e1b4242",
+      "name": "어떤 학생",
+      "npc_type": "학생",
+      "named": false,
+      "description": "학원에서 돌아오는 길의 학생",
+      "position": "3호선_객차_3",
+      "coordinates": {
+        "lat": 37.50305743435738,
+        "lng": 127.02454007521048
+      },
+      "health": 60,
+      "max_health": 60,
+      "is_alive": true,
+      "disposition": "terrified",
+      "has_weapon": false,
+      "weapon_type": null,
+      "equipped_items": [],
+      "is_important": false,
+      "is_unique": false,
+      "dialogue_state": "initial",
+      "available_dialogues": [],
+      "relationship": {
+        "affinity": 0,
+        "trust": 0,
+        "fear": 0,
+        "relationship_type": "stranger",
+        "interactions_count": 0,
+        "last_interaction_turn": null
+      },
+      "memories": [],
+      "memory_capacity": 10,
+      "personality": {
+        "bravery": 50,
+        "aggression": 50,
+        "empathy": 50,
+        "selfishness": 50,
+        "rationality": 50
+      },
+      "current_goal": null,
+      "emotional_state": "calm",
+      "damage_dealt_to_player": 0,
+      "damage_received_from_player": 0
+    },
+    {
+      "id": "3dc82b39",
+      "name": "어떤 회사원",
+      "npc_type": "회사원",
+      "named": false,
+      "description": "퇴근길 지하철에 탄 평범한 회사원",
+      "position": "3호선_객차_3",
+      "coordinates": {
+        "lat": 37.50309780363853,
+        "lng": 127.02450487785529
+      },
+      "health": 80,
+      "max_health": 80,
+      "is_alive": true,
+      "disposition": "terrified",
+      "has_weapon": true,
+      "weapon_type": "서류가방",
+      "equipped_items": [],
+      "is_important": false,
+      "is_unique": false,
+      "dialogue_state": "initial",
+      "available_dialogues": [],
+      "relationship": {
+        "affinity": 0,
+        "trust": 0,
+        "fear": 0,
+        "relationship_type": "stranger",
+        "interactions_count": 0,
+        "last_interaction_turn": null
+      },
+      "memories": [],
+      "memory_capacity": 10,
+      "personality": {
+        "bravery": 50,
+        "aggression": 50,
+        "empathy": 50,
+        "selfishness": 50,
+        "rationality": 50
+      },
+      "current_goal": null,
+      "emotional_state": "calm",
+      "damage_dealt_to_player": 0,
+      "damage_received_from_player": 0
+    },
+    {
+      "id": "8d8296f1",
+      "name": "어떤 회사원",
+      "npc_type": "회사원",
+      "named": false,
+      "description": "퇴근길 지하철에 탄 평범한 회사원",
+      "position": "3호선_객차_3",
+      "coordinates": {
+        "lat": 37.50290704363998,
+        "lng": 127.02459357360031
+      },
+      "health": 80,
+      "max_health": 80,
+      "is_alive": true,
+      "disposition": "terrified",
+      "has_weapon": false,
+      "weapon_type": null,
+      "equipped_items": [],
+      "is_important": false,
+      "is_unique": false,
+      "dialogue_state": "initial",
+      "available_dialogues": [],
+      "relationship": {
+        "affinity": 0,
+        "trust": 0,
+        "fear": 0,
+        "relationship_type": "stranger",
+        "interactions_count": 0,
+        "last_interaction_turn": null
+      },
+      "memories": [],
+      "memory_capacity": 10,
+      "personality": {
+        "bravery": 50,
+        "aggression": 50,
+        "empathy": 50,
+        "selfishness": 50,
+        "rationality": 50
+      },
+      "current_goal": null,
+      "emotional_state": "calm",
+      "damage_dealt_to_player": 0,
+      "damage_received_from_player": 0
+    },
+    {
+      "id": "ec7c5c2e",
+      "name": "어떤 건달",
+      "npc_type": "건달",
+      "named": false,
+      "description": "험상궂은 인상의 남자",
+      "position": "3호선_객차_3",
+      "coordinates": {
+        "lat": 37.50308938473669,
+        "lng": 127.02451444748048
+      },
+      "health": 120,
+      "max_health": 120,
+      "is_alive": true,
+      "disposition": "hostile",
+      "has_weapon": false,
+      "weapon_type": null,
+      "equipped_items": [],
+      "is_important": false,
+      "is_unique": false,
+      "dialogue_state": "initial",
+      "available_dialogues": [],
+      "relationship": {
+        "affinity": 0,
+        "trust": 0,
+        "fear": 0,
+        "relationship_type": "stranger",
+        "interactions_count": 0,
+        "last_interaction_turn": null
+      },
+      "memories": [],
+      "memory_capacity": 10,
+      "personality": {
+        "bravery": 50,
+        "aggression": 50,
+        "empathy": 50,
+        "selfishness": 50,
+        "rationality": 50
+      },
+      "current_goal": null,
+      "emotional_state": "enraged",
+      "damage_dealt_to_player": 0,
+      "damage_received_from_player": 0
+    }
+  ],
+  "killed_npcs": [],
+  "constellation_channel": [
+    {
+      "constellation_name": "냉정한 관찰자",
+      "message": "여성이 소지한 물체와 그녀의 행동 패턴을 주시하십시오. 데이터는 유용할 것입니다.",
+      "coins_donated": 0,
+      "turn": 1,
+      "reaction_type": "neutral"
+    }
+  ],
+  "watching_constellations": [
+    "선악의_중재자",
+    "지독한_살인귀",
+    "미친_광대"
+  ],
+  "constellation_relationships": [],
+  "discovered_locations": [
+    "3호선_객차_3"
+  ],
+  "active_events": [],
+  "game_over": false,
+  "scenario_cleared": false,
+  "message_history": [
+    {
+      "role": "user",
+      "content": "저 여성에게 다가간다 - 뭔가 안고 있는 것 같다"
+    },
+    {
+      "role": "assistant",
+      "content": "\"...젠장.\"\n\n귓가에 웅웅거리는 이명. 푸른 창이 야속하게 빛났다. 살인. 이 좁아터진 지하철 안에서.\n\n시선이 향한 곳은 본능적인 이끌림이었다. 객차 중간쯤, 창가 좌석에 앉은 여자. 낡은 코트 품에 무언가를 소중하게 안고 있다. 작고, 따뜻한 온기가 느껴지는… 강아지였다. 흰색 몰티즈. 불안한 듯 낑낑거리는 소리가 희미하게 들린다.\n\n다가가자, 주변 공기가 미묘하게 달라졌다. 숨소리가 멎은 건가. 아니면, 팽팽한 긴장감에 묻힌 건가.\n\n앞자리에 앉은 듯한 군인. 각이 살아있는 눈썹이 꿈틀거린다. 뭔가 경계하는 눈빛이다. ‘나’라는 존재 자체를.\n\n\"무슨 일이시죠?\"\n\n여자의 목소리가 날카롭게 꽂혔다. 품 안의 강아지를 더욱 끌어안는 손길이 다급하다.\n\n건달…인가? 더럽게 험악한 인상의 남자가 우리를 번갈아 쏘아본다. 싸구려 향수 냄새가 불쾌하게 코를 찔렀다.\n\n이 상황, 뭔가 잘못 돌아가고 있다.\n\n[SYSTEM_MESSAGE]\n[/SYSTEM_MESSAGE]\n\n\n\n[SYSTEM_MESSAGE]\n성좌 '냉정한 관찰자'이(가) 말합니다: \"여성이 소지한 물체와 그녀의 행동 패턴을 주시하십시오. 데이터는 유용할 것입니다.\"\n[/SYSTEM_MESSAGE]"
+    }
+  ],
+  "first_kill_completed": true,
+  "first_human_kill": false,
+  "subway_stopped": true,
+  "emergency_announced": false,
+  "panic_level": 35,
+  "global_events": {}
+}

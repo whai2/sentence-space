@@ -1,0 +1,35 @@
+{
+  "npc_id": "aa06f009",
+  "npc_name": "어떤 반려견_주인",
+  "short_term_memories": [
+    {
+      "memory_id": "23585f94",
+      "npc_id": "aa06f009",
+      "event_type": "turn_event",
+      "summary": "지하철 객차 안, 다소 불안한 분위기를 감지함.",
+      "detailed_content": null,
+      "turn_occurred": 0,
+      "timestamp": "2026-02-04T15:36:50.393848",
+      "location": "3호선_객차_3",
+      "involves_player": true,
+      "involves_npcs": [],
+      "speaker_id": null,
+      "importance": 3,
+      "emotional_valence": 0.0,
+      "emotional_intensity": 0.5,
+      "keywords": [
+        "객차",
+        "분위기를",
+        "다소",
+        "지하철",
+        "감지함",
+        "불안한"
+      ],
+      "access_count": 0,
+      "last_accessed": null,
+      "is_consolidated": false
+    }
+  ],
+  "long_term_memories": [],
+  "working_memory": []
+}

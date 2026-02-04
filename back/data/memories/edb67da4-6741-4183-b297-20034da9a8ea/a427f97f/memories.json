@@ -1,0 +1,67 @@
+{
+  "npc_id": "a427f97f",
+  "npc_name": "어떤 건달",
+  "short_term_memories": [
+    {
+      "memory_id": "d301bb5f",
+      "npc_id": "a427f97f",
+      "event_type": "turn_event",
+      "summary": "플레이어가 강아지를 죽이는 장면을 목격. 공포감 상승.",
+      "detailed_content": null,
+      "turn_occurred": 1,
+      "timestamp": "2026-02-04T22:52:35.543200",
+      "location": "3호선_객차_3",
+      "involves_player": true,
+      "involves_npcs": [],
+      "speaker_id": null,
+      "importance": 7,
+      "emotional_valence": 0.0,
+      "emotional_intensity": 0.5,
+      "keywords": [
+        "공포감",
+        "목격",
+        "플레이어가",
+        "장면을",
+        "죽이는",
+        "상승",
+        "강아지를"
+      ],
+      "access_count": 1,
+      "last_accessed": "2026-02-04T22:53:05.459581",
+      "is_consolidated": false
+    },
+    {
+      "memory_id": "0e17a1cf",
+      "npc_id": "a427f97f",
+      "event_type": "turn_event",
+      "summary": "플레이어에 대한 공포와, 3003731f에 대한 짜증. 생존을 위해 동료를 버릴 수도 있다는 생각.",
+      "detailed_content": null,
+      "turn_occurred": 2,
+      "timestamp": "2026-02-04T22:53:17.802106",
+      "location": "3호선_객차_3",
+      "involves_player": true,
+      "involves_npcs": [],
+      "speaker_id": null,
+      "importance": 8,
+      "emotional_valence": 0.0,
+      "emotional_intensity": 0.5,
+      "keywords": [
+        "짜증",
+        "동료를",
+        "위해",
+        "버릴",
+        "생각",
+        "수도",
+        "3003731f에",
+        "생존을",
+        "공포와",
+        "플레이어에"
+      ],
+      "access_count": 0,
+      "last_accessed": null,
+      "is_consolidated": false
+    }
+  ],
+  "long_term_memories": [],
+  "working_memory": []
+}
