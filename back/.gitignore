@@ -76,3 +76,6 @@ Thumbs.db
 .env.development.local
 .env.test.local
 .env.production.local
+
+# Runtime data (NPC memories, game sessions)
+data/
