@@ -452,15 +452,9 @@ export default function MyeolsalViewer({ onBack }: { onBack: () => void }) {
         {/* === 관계 그래프 탭 === */}
         {viewTab === 'graph' && (
           <div className="graph-view">
-            <div className="graph-legend">
-              <span><span className="dot grade-9"></span> 9급</span>
-              <span><span className="dot grade-7"></span> 7급</span>
-              <span><span className="dot grade-5"></span> 5급</span>
-              <span><span className="dot grade-3"></span> 3급</span>
-              <span><span className="dot grade-special"></span> 특급</span>
+            <div className="coming-soon">
+              <p>추후 업데이트 예정</p>
             </div>
-            <div ref={containerRef} className="graph-container" />
-            {!graphData && <div className="loading-overlay">그래프 로딩 중...</div>}
           </div>
         )}
       </main>
