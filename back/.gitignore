@@ -79,3 +79,5 @@ Thumbs.db
 
 # Runtime data (NPC memories, game sessions)
 data/
+
+*.pem
