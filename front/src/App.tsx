@@ -201,7 +201,7 @@ function calculateDistance(coord1: Coordinate, coord2: Coordinate): number {
 }
 
 function App() {
-  const [gameType, setGameType] = useState<GameType>(null)
+  const [gameType, setGameType] = useState<GameType>('myeolsal')
   const [sessionId, setSessionId] = useState<string | null>(null)
   const [gameState, setGameState] = useState<GameState | null>(null)
   const [messages, setMessages] = useState<Message[]>([])
