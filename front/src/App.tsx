@@ -1,16 +1,62 @@
 import { useState, useRef, useEffect } from 'react'
 import './App.css'
+import ScenarioGraphViewer from './components/ScenarioGraphViewer'
+import MyeolsalViewer from './components/MyeolsalViewer'
 
 const API_BASE = import.meta.env.VITE_API_BASE
 
-type GameType = 'red-desert' | 'orv' | null
+type GameType = 'red-desert' | 'orv' | 'orv-v2' | 'myeolsal' | null
 
-// === 붉은 사막 타입 ===
+// === 공통 타입 ===
 interface Coordinate {
   lat: number
   lng: number
 }
 
+interface Message {
+  role: 'user' | 'assistant' | 'system'
+  content: string
+}
+
+// === ORV v2 타입 (새로 추가!) ===
+interface ORVv2PlayerState {
+  name: string
+  level: number
+  health: number
+  max_health: number
+  coins: number
+  position: string
+}
+
+interface ORVv2GameState {
+  session_id: string
+  turn: number
+  player: ORVv2PlayerState
+  scenario: {
+    title: string | null
+    status: string | null
+    remaining_time: number | null
+  } | null
+  game_over: boolean
+}
+
+interface ORVv2ActionResponse {
+  success: boolean
+  narrative: string
+  choices: string[]
+  scene_mood?: string
+  game_state?: {
+    turn: number
+    health: number
+    coins: number
+    level: number
+  }
+  error?: string
+  game_mode?: 'auto_narrative' | 'interactive'
+  mode_changed?: boolean
+}
+
+// === 기존 타입들 (붉은 사막, ORV v1) ===
 interface RedDesertPlayerState {
   health: number
   bleeding: boolean
@@ -55,7 +101,6 @@ interface RedDesertGameState {
   active_bugs: BugInstance[]
 }
 
-// === 전독시 타입 ===
 interface ORVPlayerState {
   name: string
   level: number
@@ -136,16 +181,12 @@ interface ORVGameState {
   panic_level: number
 }
 
-type GameState = RedDesertGameState | ORVGameState
-
-interface Message {
-  role: 'user' | 'assistant' | 'system'
-  content: string
-}
+type GameState = RedDesertGameState | ORVGameState | ORVv2GameState
 
 type TabType = 'status' | 'quest' | 'knowledge' | 'constellation'
+type ChatViewType = 'chat' | 'graph'
 
-// 두 좌표 간 거리 계산 (미터)
+// 두 좌표 간 거리 계산
 function calculateDistance(coord1: Coordinate, coord2: Coordinate): number {
   const R = 6371000
   const lat1 = coord1.lat * Math.PI / 180
@@ -168,6 +209,8 @@ function App() {
   const [input, setInput] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const [activeTab, setActiveTab] = useState<TabType>('status')
+  const [chatViewTab, setChatViewTab] = useState<ChatViewType>('chat')
+  const [gameMode, setGameMode] = useState<'auto_narrative' | 'interactive'>('auto_narrative')
   const messagesEndRef = useRef<HTMLDivElement>(null)
 
   const scrollToBottom = () => {
@@ -183,15 +226,39 @@ function App() {
     setGameType(type)
     setIsLoading(true)
 
-    const endpoint = type === 'red-desert' ? '/game/session' : '/orv/session'
+    let endpoint: string
+    if (type === 'red-desert') {
+      endpoint = '/v1/game/session'
+    } else if (type === 'orv-v2') {
+      endpoint = '/orv/v2/sessions'  // 👈 v2 엔드포인트
+    } else {
+      endpoint = '/v1/orv/session'
+    }
 
     try {
       const res = await fetch(`${API_BASE}${endpoint}`, { method: 'POST' })
       const data = await res.json()
-      setSessionId(data.session_id)
-      setGameState(data.state)
-      setMessages([{ role: 'system', content: data.message }])
-      setChoices(data.choices || [])
+
+      if (type === 'orv-v2') {
+        // v2 응답 형식
+        setSessionId(data.session_id)
+        setMessages([{ role: 'system', content: data.message }])
+        setChoices([
+          "주변을 살펴본다",
+          "학생에게 다가간다",
+          "소화기를 든다"
+        ])
+        // 세션 정보 조회
+        const sessionRes = await fetch(`${API_BASE}/orv/v2/sessions/${data.session_id}`)
+        const sessionData = await sessionRes.json()
+        setGameState(sessionData as ORVv2GameState)
+      } else {
+        // 기존 v1, 붉은 사막 응답
+        setSessionId(data.session_id)
+        setGameState(data.state)
+        setMessages([{ role: 'system', content: data.message }])
+        setChoices(data.choices || [])
+      }
     } catch (error) {
       console.error('Failed to start game:', error)
     }
@@ -207,20 +274,127 @@ function App() {
     setMessages(prev => [...prev, { role: 'user', content: userMessage }])
     setIsLoading(true)
 
-    const endpoint = gameType === 'red-desert' ? '/game/play' : '/orv/play'
+    let endpoint: string
+    let body: any
+
+    if (gameType === 'orv-v2') {
+      // v2 API
+      endpoint = `/orv/v2/sessions/${sessionId}/actions`
+      body = { action: userMessage }
+    } else if (gameType === 'red-desert') {
+      endpoint = '/v1/game/play'
+      body = { session_id: sessionId, input: userMessage }
+    } else {
+      endpoint = '/v1/orv/play'
+      body = { session_id: sessionId, input: userMessage }
+    }
 
     try {
       const res = await fetch(`${API_BASE}${endpoint}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ session_id: sessionId, input: userMessage }),
+        body: JSON.stringify(body),
       })
       const data = await res.json()
-      setGameState(data.state)
-      setMessages(prev => [...prev, { role: 'assistant', content: data.response }])
-      setChoices(data.choices || [])
+
+      if (gameType === 'orv-v2') {
+        // v2 응답 처리
+        const v2Data = data as ORVv2ActionResponse
+        if (v2Data.success) {
+          setMessages(prev => [...prev, { role: 'assistant', content: v2Data.narrative }])
+          setChoices(v2Data.choices)
+          // 게임 상태 업데이트
+          if (v2Data.game_state) {
+            setGameState(prev => {
+              const v2State = prev as ORVv2GameState
+              return {
+                ...v2State,
+                turn: v2Data.game_state!.turn,
+                player: {
+                  ...v2State.player,
+                  health: v2Data.game_state!.health,
+                  coins: v2Data.game_state!.coins,
+                  level: v2Data.game_state!.level,
+                }
+              }
+            })
+          }
+
+          // Handle mode transition
+          if (v2Data.game_mode) {
+            setGameMode(v2Data.game_mode)
+          }
+
+          if (v2Data.mode_changed && v2Data.game_mode === 'auto_narrative') {
+            setMessages(prev => [...prev, {
+              role: 'system',
+              content: '[시나리오 완료] 자동 진행 모드로 전환됩니다.'
+            }])
+          }
+        } else {
+          setMessages(prev => [...prev, { role: 'system', content: `[오류] ${v2Data.error}` }])
+          setChoices(['다시 시도하기'])
+        }
+      } else {
+        // 기존 응답 처리
+        setGameState(data.state)
+        setMessages(prev => [...prev, { role: 'assistant', content: data.response }])
+        setChoices(data.choices || [])
+      }
     } catch (error) {
       console.error('Failed to send message:', error)
+      setMessages(prev => [...prev, { role: 'system', content: '오류가 발생했습니다.' }])
+    }
+    setIsLoading(false)
+  }
+
+  const continueAutoNarrative = async () => {
+    if (!sessionId || isLoading || gameType !== 'orv-v2') return
+
+    setIsLoading(true)
+    setChoices([])
+
+    try {
+      const res = await fetch(`${API_BASE}/orv/v2/sessions/${sessionId}/continue`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+      })
+      const data = await res.json() as ORVv2ActionResponse
+
+      if (data.success) {
+        setMessages(prev => [...prev, { role: 'assistant', content: data.narrative }])
+        setChoices(data.choices)
+
+        // Update game state
+        if (data.game_state) {
+          setGameState(prev => ({
+            ...prev as ORVv2GameState,
+            turn: data.game_state!.turn,
+            player: {
+              ...(prev as ORVv2GameState).player,
+              health: data.game_state!.health,
+              coins: data.game_state!.coins,
+              level: data.game_state!.level,
+            }
+          }))
+        }
+
+        // Handle mode transition
+        if (data.game_mode) {
+          setGameMode(data.game_mode)
+        }
+
+        if (data.mode_changed && data.game_mode === 'interactive') {
+          setMessages(prev => [...prev, {
+            role: 'system',
+            content: '[시나리오 시작] 이제 행동을 선택하세요.'
+          }])
+        }
+      } else {
+        setMessages(prev => [...prev, { role: 'system', content: `[오류] ${data.error}` }])
+      }
+    } catch (error) {
+      console.error('Failed to continue:', error)
       setMessages(prev => [...prev, { role: 'system', content: '오류가 발생했습니다.' }])
     }
     setIsLoading(false)
@@ -247,30 +421,26 @@ function App() {
     setActiveTab('status')
   }
 
+  // 멸살법 뷰어 (게임이 아닌 도감)
+  if (gameType === 'myeolsal') {
+    return <MyeolsalViewer onBack={() => setGameType(null)} />
+  }
+
   // 게임 선택 화면
   if (!gameType) {
     return (
       <div className="select-screen">
         <h1>Sentence Space</h1>
-        <p>텍스트 기반 TRPG 게임을 선택하세요</p>
+        <p>전지적 독자 시점 세계관</p>
         <div className="game-cards">
-          <div className="game-card red-desert" onClick={() => startGame('red-desert')}>
-            <h2>붉은 사막</h2>
+          <div className="game-card myeolsal" onClick={() => setGameType('myeolsal')}>
+            <h2>tls123의 괴수 백과</h2>
             <p className="game-desc">
-              거대한 모래폭풍에 쫓기고 있다.<br />
-              뒤를 돌아볼 수 없다. 뒤에는 죽음뿐이다.<br />
-              앞에는 끝없는 붉은 사막.
+              [멸살법 저자의 신간]<br />
+              tls123이 집필한 생존 가이드.<br />
+              괴수 정보 검색 및 열람.
             </p>
-            <span className="game-tag">생존</span>
-          </div>
-          <div className="game-card orv" onClick={() => startGame('orv')}>
-            <h2>전지적 독자 시점</h2>
-            <p className="game-desc">
-              [시나리오가 현실화됩니다]<br />
-              멈춰선 지하철. 눈앞에 뜬 푸른 창.<br />
-              목표: 생명체 하나를 죽이시오.
-            </p>
-            <span className="game-tag">시나리오</span>
+            <span className="game-tag myeolsal">도감</span>
           </div>
         </div>
       </div>
@@ -288,7 +458,9 @@ function App() {
   }
 
   const isORV = gameType === 'orv'
+  const isORVv2 = gameType === 'orv-v2'
   const orvState = gameState as ORVGameState
+  const orvV2State = gameState as ORVv2GameState
   const redDesertState = gameState as RedDesertGameState
 
   return (
@@ -297,7 +469,9 @@ function App() {
       <aside className="side-panel">
         <div className="panel-header">
           <button className="back-button" onClick={resetGame}>← 게임 선택</button>
-          <span className="game-title">{isORV ? '전지적 독자 시점' : '붉은 사막'}</span>
+          <span className="game-title">
+            {isORVv2 ? '전지적 독자 시점 v2' : isORV ? '전지적 독자 시점' : '붉은 사막'}
+          </span>
         </div>
 
         {/* 탭 버튼 */}
@@ -312,7 +486,7 @@ function App() {
             className={activeTab === 'quest' ? 'active' : ''}
             onClick={() => setActiveTab('quest')}
           >
-            {isORV ? '시나리오' : '퀘스트'}
+            {(isORV || isORVv2) ? '시나리오' : '퀘스트'}
           </button>
           {isORV && (
             <button
@@ -322,7 +496,7 @@ function App() {
               성좌
             </button>
           )}
-          {!isORV && (
+          {!isORV && !isORVv2 && (
             <button
               className={activeTab === 'knowledge' ? 'active' : ''}
               onClick={() => setActiveTab('knowledge')}
@@ -336,8 +510,48 @@ function App() {
         <div className="tab-content">
           {activeTab === 'status' && gameState && (
             <>
-              {isORV ? (
-                // 전독시 상태
+              {isORVv2 ? (
+                // ORV v2 상태 (간소화)
+                <>
+                  <div className="status-item">
+                    <span className="label">이름</span>
+                    <span className="value">{orvV2State.player.name}</span>
+                  </div>
+                  <div className="status-item">
+                    <span className="label">레벨</span>
+                    <span className="value level">Lv.{orvV2State.player.level}</span>
+                  </div>
+                  <div className="status-item">
+                    <span className="label">체력</span>
+                    <div className="health-bar">
+                      <div
+                        className="health-fill"
+                        style={{ width: `${(orvV2State.player.health / orvV2State.player.max_health) * 100}%` }}
+                      />
+                    </div>
+                    <span>{orvV2State.player.health}/{orvV2State.player.max_health}</span>
+                  </div>
+                  <div className="status-item coins">
+                    <span className="label">코인</span>
+                    <span className="value coin-value">{orvV2State.player.coins}</span>
+                  </div>
+                  <div className="status-item">
+                    <span className="label">위치</span>
+                    <span className="value">{orvV2State.player.position}</span>
+                  </div>
+                  <div className="status-item">
+                    <span className="label">턴</span>
+                    <span className="value">{orvV2State.turn}</span>
+                  </div>
+
+                  {orvV2State.game_over && (
+                    <div className="game-over lose">
+                      게임 오버
+                    </div>
+                  )}
+                </>
+              ) : isORV ? (
+                // ORV v1 상태 (기존 코드 유지)
                 <>
                   <div className="status-item">
                     <span className="label">레벨</span>
@@ -382,7 +596,6 @@ function App() {
                     <span className="value">{orvState.turn_count}</span>
                   </div>
 
-                  {/* 스킬 */}
                   {orvState.player.skills.length > 0 && (
                     <div className="skills-section">
                       <span className="label">스킬</span>
@@ -397,7 +610,6 @@ function App() {
                     </div>
                   )}
 
-                  {/* 소지품 */}
                   {orvState.player.inventory.length > 0 && (
                     <div className="inventory">
                       <span className="label">소지품</span>
@@ -409,7 +621,6 @@ function App() {
                     </div>
                   )}
 
-                  {/* 주변 NPC */}
                   {orvState.npcs.filter(n => n.position === orvState.player.position && n.is_alive).length > 0 && (
                     <div className="npcs-section">
                       <span className="label">주변 인물</span>
@@ -429,9 +640,15 @@ function App() {
                       </ul>
                     </div>
                   )}
+
+                  {orvState.game_over && (
+                    <div className={`game-over ${orvState.scenario_cleared ? 'win' : 'lose'}`}>
+                      {orvState.scenario_cleared ? '시나리오 클리어!' : '사망'}
+                    </div>
+                  )}
                 </>
               ) : (
-                // 붉은 사막 상태
+                // 붉은 사막 상태 (기존 코드)
                 <>
                   <div className="status-item">
                     <span className="label">체력</span>
@@ -498,27 +715,38 @@ function App() {
                       </ul>
                     </div>
                   )}
-                </>
-              )}
 
-              {gameState.game_over && (
-                <div className={`game-over ${
-                  isORV
-                    ? (orvState.scenario_cleared ? 'win' : 'lose')
-                    : (redDesertState.reached_destination ? 'win' : 'lose')
-                }`}>
-                  {isORV
-                    ? (orvState.scenario_cleared ? '시나리오 클리어!' : '사망')
-                    : (redDesertState.reached_destination ? '클리어!' : '게임 오버')}
-                </div>
+                  {redDesertState.game_over && (
+                    <div className={`game-over ${redDesertState.reached_destination ? 'win' : 'lose'}`}>
+                      {redDesertState.reached_destination ? '클리어!' : '게임 오버'}
+                    </div>
+                  )}
+                </>
               )}
             </>
           )}
 
           {activeTab === 'quest' && gameState && (
             <div className="quest-list">
-              {isORV ? (
-                // 전독시 시나리오
+              {isORVv2 ? (
+                // ORV v2 시나리오
+                orvV2State.scenario ? (
+                  <div className="quest-item scenario active">
+                    <div className="quest-header">
+                      <span className="quest-status active">진행 중</span>
+                      <span className="quest-title">{orvV2State.scenario.title}</span>
+                    </div>
+                    {orvV2State.scenario.remaining_time !== null && (
+                      <p className="quest-progress">
+                        남은 시간: {orvV2State.scenario.remaining_time}턴
+                      </p>
+                    )}
+                  </div>
+                ) : (
+                  <p className="empty-message">활성 시나리오 없음</p>
+                )
+              ) : isORV ? (
+                // ORV v1 시나리오
                 orvState.current_scenario ? (
                   <div className={`quest-item scenario ${orvState.current_scenario.status}`}>
                     <div className="quest-header">
@@ -589,7 +817,7 @@ function App() {
             </div>
           )}
 
-          {activeTab === 'knowledge' && !isORV && redDesertState && (
+          {activeTab === 'knowledge' && !isORV && !isORVv2 && redDesertState && (
             <div className="knowledge-list">
               {redDesertState.knowledge?.map((item, i) => (
                 <div key={i} className="knowledge-item">
@@ -611,51 +839,114 @@ function App() {
 
       {/* 채팅 영역 */}
       <main className="chat-area">
-        <div className="messages">
-          {messages.map((msg, i) => (
-            <div key={i} className={`message ${msg.role}`}>
-              <div className="message-content">{msg.content}</div>
+        {chatViewTab === 'chat' ? (
+          <>
+            <div className="messages">
+              {messages.map((msg, i) => (
+                <div key={i} className={`message ${msg.role}`}>
+                  <div className="message-content">{msg.content}</div>
+                </div>
+              ))}
+              {isLoading && (
+                <div className="message assistant">
+                  <div className="message-content loading">...</div>
+                </div>
+              )}
+              <div ref={messagesEndRef} />
             </div>
-          ))}
-          {isLoading && (
-            <div className="message assistant">
-              <div className="message-content loading">...</div>
-            </div>
-          )}
-          <div ref={messagesEndRef} />
-        </div>
 
-        {/* 선택지 영역 */}
-        {choices.length > 0 && !isLoading && !gameState?.game_over && (
-          <div className="choices-area">
-            {choices.map((choice, i) => (
-              <button
-                key={i}
-                className="choice-button"
-                onClick={() => handleChoiceClick(choice)}
-              >
-                {choice}
-              </button>
-            ))}
+            {/* 선택지 영역 */}
+            {choices.length > 0 && !isLoading && !gameState?.game_over && (
+              <div className="choices-area">
+                {choices.map((choice, i) => (
+                  <button
+                    key={i}
+                    className="choice-button"
+                    onClick={() => handleChoiceClick(choice)}
+                  >
+                    {choice}
+                  </button>
+                ))}
+              </div>
+            )}
+
+            {/* ORV v2 specific input */}
+            {gameType === 'orv-v2' && !gameState?.game_over && (
+              <div className="input-area">
+                {gameMode === 'auto_narrative' ? (
+                  // Auto mode: Continue button only
+                  <button
+                    className="continue-button"
+                    onClick={continueAutoNarrative}
+                    disabled={isLoading}
+                  >
+                    {isLoading ? '진행 중...' : '진행하기'}
+                  </button>
+                ) : (
+                  // Interactive mode: Text input + choices
+                  <>
+                    <textarea
+                      value={input}
+                      onChange={(e) => setInput(e.target.value)}
+                      onKeyDown={handleKeyDown}
+                      placeholder="행동을 입력하세요..."
+                      disabled={isLoading}
+                      rows={2}
+                    />
+                    <button
+                      onClick={() => sendMessage()}
+                      disabled={isLoading || !input.trim()}
+                    >
+                      전송
+                    </button>
+                  </>
+                )}
+              </div>
+            )}
+
+            {/* Other games: original input */}
+            {gameType !== 'orv-v2' && (
+              <div className="input-area">
+                <textarea
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  onKeyDown={handleKeyDown}
+                  placeholder="또는 직접 입력..."
+                  disabled={isLoading || gameState?.game_over}
+                  rows={2}
+                />
+                <button
+                  onClick={() => sendMessage()}
+                  disabled={isLoading || !input.trim() || gameState?.game_over}
+                >
+                  전송
+                </button>
+              </div>
+            )}
+          </>
+        ) : (
+          <div className="graph-view-container">
+            <ScenarioGraphViewer />
           </div>
         )}
 
-        <div className="input-area">
-          <textarea
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            onKeyDown={handleKeyDown}
-            placeholder="또는 직접 입력..."
-            disabled={isLoading || gameState?.game_over}
-            rows={2}
-          />
-          <button
-            onClick={() => sendMessage()}
-            disabled={isLoading || !input.trim() || gameState?.game_over}
-          >
-            전송
-          </button>
-        </div>
+        {/* ORV v2: Chat view tabs (bottom) */}
+        {isORVv2 && (
+          <div className="chat-view-tabs">
+            <button
+              className={chatViewTab === 'chat' ? 'active' : ''}
+              onClick={() => setChatViewTab('chat')}
+            >
+              채팅
+            </button>
+            <button
+              className={chatViewTab === 'graph' ? 'active' : ''}
+              onClick={() => setChatViewTab('graph')}
+            >
+              지식 그래프
+            </button>
+          </div>
+        )}
       </main>
     </div>
   )

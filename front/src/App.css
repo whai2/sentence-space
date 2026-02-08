@@ -89,6 +89,15 @@ body {
   box-shadow: 0 8px 32px rgba(74, 158, 255, 0.3);
 }
 
+.game-card.orv-v2 {
+  background: linear-gradient(135deg, #1a0a28 0%, #2e1a3e 100%);
+  border: 2px solid #a855f7;
+}
+
+.game-card.orv-v2:hover {
+  box-shadow: 0 8px 32px rgba(168, 85, 247, 0.3);
+}
+
 .game-card h2 {
   font-size: 1.5rem;
   margin: 0 0 1rem 0;
@@ -100,6 +109,10 @@ body {
 
 .game-card.orv h2 {
   color: #4a9eff;
+}
+
+.game-card.orv-v2 h2 {
+  color: #a855f7;
 }
 
 .game-desc {
@@ -125,6 +138,31 @@ body {
 .game-card.orv .game-tag {
   background: rgba(74, 158, 255, 0.2);
   color: #4a9eff;
+}
+
+.game-card.orv-v2 .game-tag {
+  background: rgba(168, 85, 247, 0.2);
+  color: #a855f7;
+  font-weight: 600;
+}
+
+.game-card.myeolsal {
+  background: linear-gradient(135deg, #0a1a28 0%, #1a2e3e 100%);
+  border: 2px solid #63b3ed;
+}
+
+.game-card.myeolsal:hover {
+  box-shadow: 0 8px 32px rgba(99, 179, 237, 0.3);
+}
+
+.game-card.myeolsal h2 {
+  color: #63b3ed;
+}
+
+.game-card.myeolsal .game-tag {
+  background: rgba(99, 179, 237, 0.2);
+  color: #63b3ed;
+  font-weight: 600;
 }
 
 /* 시작 화면 (로딩) */
@@ -969,6 +1007,68 @@ body {
 .input-area button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+/* Continue button for Auto-Narrative mode */
+.continue-button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.continue-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(168, 85, 247, 0.4);
+}
+
+.continue-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Chat view tabs (bottom tabs in chat area) */
+.chat-view-tabs {
+  display: flex;
+  border-top: 1px solid #333;
+  background: #252525;
+}
+
+.chat-view-tabs button {
+  flex: 1;
+  padding: 0.8rem;
+  background: transparent;
+  border: none;
+  color: #888;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-top: 2px solid transparent;
+}
+
+.chat-view-tabs button:hover {
+  color: #e0e0e0;
+  background: #2a2a2a;
+}
+
+.chat-view-tabs button.active {
+  color: #a855f7;
+  border-top-color: #a855f7;
+  background: #2a2a2a;
+}
+
+/* Graph view container */
+.graph-view-container {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 /* 반응형 */

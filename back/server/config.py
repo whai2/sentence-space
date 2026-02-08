@@ -20,6 +20,18 @@ class Settings(BaseSettings):
     openrouter_api_key: str = ""
     llm_model: str = "anthropic/claude-3.5-sonnet"
 
+    # 직접 API 호출용 키 (OpenRouter보다 빠름)
+    anthropic_api_key: str = ""
+    openai_api_key: str = ""
+
+    # MongoDB 설정 (ORV v2)
+    mongodb_uri: str = "mongodb://localhost:27017"
+
+    # Neo4j 설정
+    neo4j_uri: str = "bolt://localhost:7687"
+    neo4j_username: str = "neo4j"
+    neo4j_password: str = "password"
+
     # 데이터 저장 디렉토리 (기억 영속성)
     data_dir: str = "data"
 

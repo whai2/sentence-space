@@ -1,0 +1,287 @@
+.graph-viewer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.graph-controls {
+  padding: 16px;
+  background-color: #2a2a2a;
+  border-bottom: 1px solid #3a3a3a;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.graph-controls label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.graph-controls select {
+  padding: 8px 12px;
+  background-color: #3a3a3a;
+  color: #ffffff;
+  border: 1px solid #4a4a4a;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  min-width: 300px;
+}
+
+.graph-controls select:hover {
+  border-color: #5a5a5a;
+}
+
+.graph-controls select:focus {
+  outline: none;
+  border-color: #ff9500;
+}
+
+.graph-controls select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.loading {
+  color: #ff9500;
+  font-size: 14px;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.error {
+  color: #ff6b6b;
+  font-size: 14px;
+  padding: 8px 12px;
+  background-color: rgba(255, 107, 107, 0.1);
+  border-radius: 4px;
+}
+
+.graph-content {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.graph-container {
+  flex: 1;
+  min-height: 600px;
+  background-color: #1a1a1a;
+}
+
+.resize-handle {
+  width: 8px;
+  cursor: ew-resize;
+  background-color: #2a2a2a;
+  border-left: 1px solid #3a3a3a;
+  border-right: 1px solid #3a3a3a;
+  position: relative;
+  z-index: 10;
+  transition: background-color 0.2s;
+}
+
+.resize-handle:hover {
+  background-color: #ff9500;
+}
+
+.resize-handle::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 2px;
+  height: 40px;
+  background-color: #888888;
+  border-radius: 2px;
+}
+
+.resize-handle:hover::after {
+  background-color: #ffffff;
+}
+
+.node-details {
+  background-color: #2a2a2a;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-width: 300px;
+  max-width: 800px;
+}
+
+.details-header {
+  padding: 16px;
+  background-color: #333333;
+  border-bottom: 1px solid #3a3a3a;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.details-header h3 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  color: #888888;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 4px 8px;
+  transition: color 0.2s;
+}
+
+.close-button:hover {
+  color: #ffffff;
+}
+
+.details-body {
+  padding: 16px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.detail-item {
+  margin-bottom: 16px;
+}
+
+.detail-item.full-width {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.detail-label {
+  display: block;
+  color: #888888;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.detail-value {
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.type-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.type-badge.scenario {
+  background-color: rgba(255, 107, 107, 0.2);
+  color: #ff6b6b;
+}
+
+.type-badge.character {
+  background-color: rgba(78, 205, 196, 0.2);
+  color: #4ecdc4;
+}
+
+.type-badge.location {
+  background-color: rgba(69, 183, 209, 0.2);
+  color: #45b7d1;
+}
+
+.type-badge.rule {
+  background-color: rgba(95, 39, 205, 0.2);
+  color: #5f27cd;
+}
+
+.type-badge.trick {
+  background-color: rgba(254, 202, 87, 0.2);
+  color: #feca57;
+}
+
+.type-badge.skill {
+  background-color: rgba(255, 159, 243, 0.2);
+  color: #ff9ff3;
+}
+
+.rule-type {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.rule-type.win_condition {
+  background-color: rgba(46, 213, 115, 0.2);
+  color: #2ed573;
+}
+
+.rule-type.fail_condition {
+  background-color: rgba(255, 71, 87, 0.2);
+  color: #ff4757;
+}
+
+.rule-type.system_rule {
+  background-color: rgba(72, 219, 251, 0.2);
+  color: #48dbfb;
+}
+
+.rule-type.hidden_trick {
+  background-color: rgba(253, 203, 110, 0.2);
+  color: #fdcb6e;
+}
+
+.detail-description {
+  color: #e0e0e0;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+  padding: 12px;
+  background-color: #1a1a1a;
+  border-radius: 4px;
+  border-left: 3px solid #ff9500;
+}
+
+.detail-value.hidden {
+  color: #feca57;
+}
+
+.detail-value.visible {
+  color: #4ecdc4;
+}
+
+.properties-json {
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+  padding: 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  overflow-x: auto;
+  margin: 0;
+  border: 1px solid #3a3a3a;
+  max-height: 300px;
+  overflow-y: auto;
+}
