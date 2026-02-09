@@ -221,50 +221,6 @@ function App() {
     scrollToBottom()
   }, [messages])
 
-  const _startGame = async (type: GameType) => {
-    if (!type) return
-    setGameType(type)
-    setIsLoading(true)
-
-    let endpoint: string
-    if (type === 'red-desert') {
-      endpoint = '/v1/game/session'
-    } else if (type === 'orv-v2') {
-      endpoint = '/orv/v2/sessions'  // 👈 v2 엔드포인트
-    } else {
-      endpoint = '/v1/orv/session'
-    }
-
-    try {
-      const res = await fetch(`${API_BASE}${endpoint}`, { method: 'POST' })
-      const data = await res.json()
-
-      if (type === 'orv-v2') {
-        // v2 응답 형식
-        setSessionId(data.session_id)
-        setMessages([{ role: 'system', content: data.message }])
-        setChoices([
-          "주변을 살펴본다",
-          "학생에게 다가간다",
-          "소화기를 든다"
-        ])
-        // 세션 정보 조회
-        const sessionRes = await fetch(`${API_BASE}/orv/v2/sessions/${data.session_id}`)
-        const sessionData = await sessionRes.json()
-        setGameState(sessionData as ORVv2GameState)
-      } else {
-        // 기존 v1, 붉은 사막 응답
-        setSessionId(data.session_id)
-        setGameState(data.state)
-        setMessages([{ role: 'system', content: data.message }])
-        setChoices(data.choices || [])
-      }
-    } catch (error) {
-      console.error('Failed to start game:', error)
-    }
-    setIsLoading(false)
-  }
-
   const sendMessage = async (message?: string) => {
     const userMessage = (message || input).trim()
     if (!userMessage || !sessionId || isLoading || !gameType) return

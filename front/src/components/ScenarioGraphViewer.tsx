@@ -151,6 +151,7 @@ export default function ScenarioGraphViewer() {
                 highlight: '#ff9500',
               },
               smooth: {
+                enabled: true,
                 type: 'cubicBezier',
                 forceDirection: 'horizontal',
                 roundness: 0.4,
