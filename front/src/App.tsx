@@ -221,7 +221,7 @@ function App() {
     scrollToBottom()
   }, [messages])
 
-  const startGame = async (type: GameType) => {
+  const _startGame = async (type: GameType) => {
     if (!type) return
     setGameType(type)
     setIsLoading(true)

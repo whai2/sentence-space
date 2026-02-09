@@ -70,7 +70,7 @@ interface Stats {
 
 type ViewTab = 'chat' | 'beasts' | 'graph';
 
-export default function MyeolsalViewer({ onBack }: { onBack: () => void }) {
+export default function MyeolsalViewer({ onBack: _onBack }: { onBack: () => void }) {
   // === 상태 ===
   const [viewTab, setViewTab] = useState<ViewTab>('chat');
   const [query, setQuery] = useState('');
@@ -131,7 +131,7 @@ export default function MyeolsalViewer({ onBack }: { onBack: () => void }) {
         },
         edges: {
           color: { color: '#666', highlight: '#ff9500' },
-          smooth: { type: 'cubicBezier', roundness: 0.4 },
+          smooth: { enabled: true, type: 'cubicBezier', roundness: 0.4 },
         },
         physics: {
           enabled: true,

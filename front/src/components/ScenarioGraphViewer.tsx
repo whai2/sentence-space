@@ -132,6 +132,7 @@ export default function ScenarioGraphViewer() {
         }
 
         // 새 네트워크 생성
+        if (!containerRef.current) return;
         const network = new Network(
           containerRef.current,
           { nodes, edges },
