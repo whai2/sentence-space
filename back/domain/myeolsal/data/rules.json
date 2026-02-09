@@ -1,0 +1,252 @@
+{
+  "grade_stat_ranges": [
+    {
+      "grade": "9급",
+      "hp_range": ["E", "D-"],
+      "atk_range": ["E", "D-"],
+      "def_range": ["E", "D-"],
+      "spd_range": ["E", "D"],
+      "spc_range": ["E", "E"]
+    },
+    {
+      "grade": "8급",
+      "hp_range": ["D-", "D+"],
+      "atk_range": ["D-", "D+"],
+      "def_range": ["D-", "D+"],
+      "spd_range": ["D", "C-"],
+      "spc_range": ["E", "D"]
+    },
+    {
+      "grade": "7급",
+      "hp_range": ["D", "C"],
+      "atk_range": ["D", "C"],
+      "def_range": ["D", "C"],
+      "spd_range": ["D+", "C"],
+      "spc_range": ["E", "C"]
+    },
+    {
+      "grade": "6급",
+      "hp_range": ["C", "B-"],
+      "atk_range": ["C-", "B"],
+      "def_range": ["C", "B"],
+      "spd_range": ["C", "B"],
+      "spc_range": ["D", "C+"]
+    },
+    {
+      "grade": "5급",
+      "hp_range": ["B-", "A"],
+      "atk_range": ["B", "A"],
+      "def_range": ["B-", "A-"],
+      "spd_range": ["B-", "A"],
+      "spc_range": ["C", "A"]
+    },
+    {
+      "grade": "4급",
+      "hp_range": ["A-", "S"],
+      "atk_range": ["A-", "S"],
+      "def_range": ["A-", "S"],
+      "spd_range": ["A-", "S"],
+      "spc_range": ["B-", "S"]
+    },
+    {
+      "grade": "3급",
+      "hp_range": ["A", "S"],
+      "atk_range": ["A", "S"],
+      "def_range": ["A", "S"],
+      "spd_range": ["A", "S"],
+      "spc_range": ["B", "S"]
+    },
+    {
+      "grade": "2급",
+      "hp_range": ["A+", "S"],
+      "atk_range": ["A+", "S"],
+      "def_range": ["A+", "S"],
+      "spd_range": ["A+", "S"],
+      "spc_range": ["A-", "S"]
+    },
+    {
+      "grade": "1급",
+      "hp_range": ["S", "S"],
+      "atk_range": ["S", "S"],
+      "def_range": ["S", "S"],
+      "spd_range": ["S", "S"],
+      "spc_range": ["A", "S"]
+    },
+    {
+      "grade": "특급",
+      "hp_range": ["S", "S"],
+      "atk_range": ["S", "S"],
+      "def_range": ["S", "S"],
+      "spd_range": ["S", "S"],
+      "spc_range": ["S", "S"]
+    }
+  ],
+  "species_traits": [
+    {
+      "species": "괴수종",
+      "physical_vulnerability": "high",
+      "elemental_weakness_clarity": "clear",
+      "behavior_predictability": "predictable",
+      "intelligence": "low",
+      "negotiable": false,
+      "special_traits": [
+        "본능적 공격 패턴",
+        "무리 행동 경향",
+        "영역 수호 본능",
+        "약점 노출 시 치명적"
+      ]
+    },
+    {
+      "species": "악마종",
+      "physical_vulnerability": "medium",
+      "elemental_weakness_clarity": "varies",
+      "behavior_predictability": "intelligent",
+      "intelligence": "high",
+      "negotiable": true,
+      "special_traits": [
+        "마법 저항력",
+        "계약 및 협상 가능",
+        "지능적 전술 구사",
+        "속임수 주의",
+        "고유 마법 사용"
+      ]
+    },
+    {
+      "species": "거신",
+      "physical_vulnerability": "low",
+      "elemental_weakness_clarity": "unclear",
+      "behavior_predictability": "slow",
+      "intelligence": "medium",
+      "negotiable": false,
+      "special_traits": [
+        "거대한 체구",
+        "느린 반응 속도",
+        "압도적 물리력",
+        "광역 피해",
+        "지형 파괴"
+      ]
+    },
+    {
+      "species": "재앙",
+      "physical_vulnerability": "varies",
+      "elemental_weakness_clarity": "type_dependent",
+      "behavior_predictability": "environmental",
+      "intelligence": "varies",
+      "negotiable": false,
+      "special_traits": [
+        "환경적 위협",
+        "광역 영향",
+        "유형별 약점 존재",
+        "자연 현상 동반",
+        "피해 누적형"
+      ]
+    },
+    {
+      "species": "해수종",
+      "physical_vulnerability": "medium",
+      "elemental_weakness_clarity": "clear",
+      "behavior_predictability": "moderate",
+      "intelligence": "low",
+      "negotiable": false,
+      "special_traits": [
+        "수중 전투 특화",
+        "육상 이동력 감소",
+        "수속성 저항",
+        "화염/전기 취약"
+      ]
+    },
+    {
+      "species": "충왕종",
+      "physical_vulnerability": "high",
+      "elemental_weakness_clarity": "clear",
+      "behavior_predictability": "swarm",
+      "intelligence": "low",
+      "negotiable": false,
+      "special_traits": [
+        "비행 가능",
+        "떼거지 공격",
+        "화염 취약",
+        "진화 가능성",
+        "페로몬 통신"
+      ]
+    }
+  ],
+  "elemental_affinities": [
+    {
+      "element": "화염",
+      "strong_against": ["빙결", "충왕종", "식물"],
+      "weak_against": ["수속성"],
+      "neutral": ["물리", "독", "전기"]
+    },
+    {
+      "element": "수속성",
+      "strong_against": ["화염", "지속성"],
+      "weak_against": ["빙결", "전기"],
+      "neutral": ["물리", "독"]
+    },
+    {
+      "element": "빙결",
+      "strong_against": ["수속성", "지속성"],
+      "weak_against": ["화염"],
+      "neutral": ["물리", "독", "전기"]
+    },
+    {
+      "element": "전기",
+      "strong_against": ["수속성", "해수종", "기계"],
+      "weak_against": ["지속성"],
+      "neutral": ["물리", "화염", "빙결"]
+    },
+    {
+      "element": "지속성",
+      "strong_against": ["전기"],
+      "weak_against": ["수속성", "빙결"],
+      "neutral": ["물리", "화염"]
+    },
+    {
+      "element": "신성",
+      "strong_against": ["악마종", "언데드", "어둠"],
+      "weak_against": [],
+      "neutral": ["물리", "화염", "수속성"]
+    },
+    {
+      "element": "어둠",
+      "strong_against": ["신성"],
+      "weak_against": ["신성", "빛"],
+      "neutral": ["물리", "화염"]
+    },
+    {
+      "element": "물리",
+      "strong_against": [],
+      "weak_against": [],
+      "neutral": ["화염", "수속성", "빙결", "전기"]
+    },
+    {
+      "element": "독",
+      "strong_against": ["생물"],
+      "weak_against": [],
+      "neutral": ["물리", "화염", "수속성"]
+    }
+  ],
+  "danger_class_criteria": [
+    {
+      "danger_class": "안전",
+      "description": "일반 화신도 쉽게 처리 가능한 수준",
+      "grade_range": ["9급", "8급"]
+    },
+    {
+      "danger_class": "보통",
+      "description": "훈련된 화신이 주의하면 처리 가능",
+      "grade_range": ["7급", "6급"]
+    },
+    {
+      "danger_class": "위험",
+      "description": "상급 화신 또는 파티 단위 대응 필요",
+      "grade_range": ["5급", "4급"]
+    },
+    {
+      "danger_class": "치명",
+      "description": "최상급 화신도 사망 위험 있음",
+      "grade_range": ["3급", "2급", "1급", "특급"]
+    }
+  ]
+}
