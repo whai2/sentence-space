@@ -75,7 +75,7 @@ class BeastEntry(BaseModel):
     """
     멸살법 괴수 항목
 
-    ChromaDB와 Neo4j에 저장되는 핵심 엔티티
+    Pinecone과 Neo4j에 저장되는 핵심 엔티티
     """
     # === 메타데이터 (벡터 DB 필터링용) ===
     id: str = Field(description="고유 ID (beast_{species}_{grade}_{name})")

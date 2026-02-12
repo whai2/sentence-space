@@ -32,6 +32,10 @@ class Settings(BaseSettings):
     neo4j_username: str = "neo4j"
     neo4j_password: str = "password"
 
+    # Pinecone 설정 (벡터 DB)
+    pinecone_api_key: str = ""
+    pinecone_index_name: str = "myeolsal-beasts"
+
     # 데이터 저장 디렉토리 (기억 영속성)
     data_dir: str = "data"
 

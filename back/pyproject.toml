@@ -16,7 +16,8 @@ dependencies = [
     "motor>=3.0.0",
     "neo4j>=5.0.0",
     "datasets>=4.5.0",
-    "chromadb>=0.4.0",
+    "pinecone>=5.0.0",
+    "openai>=1.0.0",
 ]
 
 [project.optional-dependencies]

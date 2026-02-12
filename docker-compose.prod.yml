@@ -13,8 +13,6 @@ services:
       - HOST=0.0.0.0
       - PORT=8000
       - MONGODB_URI=mongodb://mongodb:27017
-    volumes:
-      - chroma_data:/app/data
     depends_on:
       - mongodb
     restart: unless-stopped
@@ -27,5 +25,4 @@ services:
     restart: unless-stopped
 
 volumes:
-  chroma_data:
   mongodb_data:

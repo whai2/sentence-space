@@ -8,7 +8,7 @@ from pathlib import Path
 from typing import Any
 
 from domain.myeolsal.models import BeastEntry, BeastLayer, MyeolsalRules
-from domain.myeolsal.repository import ChromaBeastRepository, Neo4jMyeolsalRepository
+from domain.myeolsal.repository import PineconeBeastRepository, Neo4jMyeolsalRepository
 from domain.myeolsal.agents import (
     BeastGeneratorAgent,
     BeastRetrieverAgent,
@@ -27,7 +27,7 @@ class MyeolsalService:
 
     def __init__(
         self,
-        chroma_repo: ChromaBeastRepository,
+        vector_repo: PineconeBeastRepository,
         neo4j_repo: Neo4jMyeolsalRepository,
         retriever: BeastRetrieverAgent,
         generator: BeastGeneratorAgent,
@@ -35,7 +35,7 @@ class MyeolsalService:
         workflow: MyeolsalWorkflow,
         rules: MyeolsalRules,
     ):
-        self.chroma_repo = chroma_repo
+        self.vector_repo = vector_repo
         self.neo4j_repo = neo4j_repo
         self.retriever = retriever
         self.generator = generator
@@ -111,7 +111,7 @@ class MyeolsalService:
 
     async def get_beast(self, beast_id: str) -> dict | None:
         """괴수 상세 조회"""
-        result = self.chroma_repo.get_by_id(beast_id)
+        result = self.vector_repo.get_by_id(beast_id)
         if result:
             # Neo4j 관계 정보 추가
             relations = await self.neo4j_repo.get_related_beasts(beast_id)
@@ -195,8 +195,8 @@ class MyeolsalService:
 
     async def _save_beast(self, beast: BeastEntry) -> str:
         """괴수 저장 (내부용)"""
-        # ChromaDB 저장 (자동 임베딩)
-        self.chroma_repo.add_beast(beast)
+        # Pinecone 저장 (자동 임베딩)
+        self.vector_repo.add_beast(beast)
 
         # Neo4j 저장
         await self.neo4j_repo.create_beast_node(beast)
@@ -234,8 +234,8 @@ class MyeolsalService:
 
     async def delete_beast(self, beast_id: str) -> bool:
         """괴수 삭제"""
-        # ChromaDB 삭제
-        self.chroma_repo.delete(beast_id)
+        # Pinecone 삭제
+        self.vector_repo.delete(beast_id)
 
         # Neo4j 삭제
         await self.neo4j_repo.delete_beast_node(beast_id)
@@ -248,9 +248,9 @@ class MyeolsalService:
 
     def get_stats(self) -> dict:
         """저장소 통계"""
-        chroma_stats = self.chroma_repo.get_stats()
+        vector_stats = self.vector_repo.get_stats()
         return {
-            "chroma": chroma_stats,
+            "pinecone": vector_stats,
             "rules": {
                 "grades": len(self.rules.grade_stat_ranges),
                 "species": len(self.rules.species_traits),
@@ -275,7 +275,7 @@ class MyeolsalService:
         서비스 초기화 (DB 연결 확인, 인덱스 생성, 시드 데이터 로드)
 
         Args:
-            auto_seed: ChromaDB가 비어있을 때 자동으로 시드 데이터 로드
+            auto_seed: Pinecone이 비어있을 때 자동으로 시드 데이터 로드
         """
         # Neo4j 연결 확인
         neo4j_ok = await self.neo4j_repo.verify_connectivity()
@@ -284,18 +284,18 @@ class MyeolsalService:
             await self.neo4j_repo.create_constraints()
             await self.neo4j_repo.create_indexes()
 
-        chroma_count = self.chroma_repo.count()
+        vector_count = self.vector_repo.count()
         seed_result = None
 
-        # ChromaDB가 비어있으면 시드 데이터 자동 로드
-        if auto_seed and chroma_count == 0:
+        # Pinecone이 비어있으면 시드 데이터 자동 로드
+        if auto_seed and vector_count == 0:
             data_dir = Path(__file__).parent.parent / "data"
             seed_result = await self.load_seed_data(data_dir)
-            chroma_count = self.chroma_repo.count()
+            vector_count = self.vector_repo.count()
 
         return {
             "neo4j": neo4j_ok,
-            "chroma_count": chroma_count,
+            "vector_count": vector_count,
             "seed_loaded": seed_result,
         }
 
@@ -315,11 +315,11 @@ class MyeolsalService:
 
         # 강제 재로드 시 기존 데이터 삭제
         if force:
-            self.chroma_repo.clear()
+            self.vector_repo.clear()
             results["cleared"] = True
 
         # 기존 ID 목록 조회 (중복 방지)
-        existing_ids = set(self.chroma_repo.get_all_ids())
+        existing_ids = set(self.vector_repo.get_all_ids())
 
         # canon_beasts.json 로드
         beasts_file = data_dir / "canon_beasts.json"
@@ -336,8 +336,8 @@ class MyeolsalService:
                         results["skipped"] += 1
                         continue
 
-                    # ChromaDB 저장 (자동 임베딩)
-                    self.chroma_repo.add_beast(beast)
+                    # Pinecone 저장 (자동 임베딩)
+                    self.vector_repo.add_beast(beast)
 
                     # Neo4j 저장
                     await self.neo4j_repo.create_beast_node(beast)

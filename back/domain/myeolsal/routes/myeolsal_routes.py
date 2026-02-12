@@ -45,7 +45,7 @@ class SearchResponse(BaseModel):
 
 class StatsResponse(BaseModel):
     """통계 응답"""
-    chroma: dict  # includes scenario_distribution
+    pinecone: dict  # includes scenario_distribution
     rules: dict
 
 

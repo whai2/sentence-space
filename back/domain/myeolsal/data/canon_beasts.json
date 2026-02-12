@@ -15,7 +15,7 @@
       "grade": "9급",
       "species": "인외종",
       "danger_class": "안전",
-      "description": "죽은 인간이 도깨비의 부름으로 되살아난 존재. 더 이상 사람이 아닌 인외종.",
+      "description": "죽은 인간이 도깨비의 부름으로 되살아난 존재. 느리지만 절대 멈추지 않으며, 청각에 강하게 반응한다. 머리를 완전히 파괴해야 정지하므로, 불로 태우는 것이 가장 확실하다.",
       "combat_patterns": [
         {
           "name": "무한 행진",
@@ -68,7 +68,7 @@
       "grade": "9급",
       "species": "지하종",
       "danger_class": "안전",
-      "description": "가장 흔한 9급 지하종. 늑대 정도 크기에 두더지 같은 앞발.",
+      "description": "어둠 자락 근처에 서식하는 가장 흔한 9급 지하종. 늑대 정도 크기에 두더지 같은 앞발을 가졌다. 5~10마리가 일렬로 돌진하는 습성이 있어, 빛으로 접근을 억제하는 것이 핵심이다.",
       "combat_patterns": [
         {
           "name": "군집 돌진",
@@ -123,7 +123,7 @@
       "grade": "8급",
       "species": "인외종",
       "danger_class": "보통",
-      "description": "벌레 타입의 인외종. 패러사이트 앤티누스의 능력으로 만들어진 존재들.",
+      "description": "벌레 타입의 인외종으로, 패러사이트의 능력에 의해 만들어진 존재. 벽과 천장을 자유롭게 이동하며, 근거리에서 산성 독액을 분사한다. 불에 약하고, 독액에 닿으면 즉시 물로 씻어내야 한다.",
       "combat_patterns": [
         {
           "name": "독액 분사",
@@ -177,7 +177,7 @@
       "grade": "8급",
       "species": "지하종",
       "danger_class": "보통",
-      "description": "검은 갈기에 곰 형상, 이마에 뾰족한 뿔.",
+      "description": "검은 갈기에 곰 형상을 한 지하종으로, 이마에 뾰족한 뿔이 솟아있다. 직선으로 돌진하여 뿔로 관통하는 것이 주된 공격 패턴이며, 돌진을 유도해 벽에 박히게 만드는 것이 가장 효과적인 대처법이다.",
       "combat_patterns": [
         {
           "name": "뿔 돌진",
@@ -232,7 +232,7 @@
       "grade": "9급",
       "species": "해수종",
       "danger_class": "안전",
-      "description": "오징어를 닮은 해수종. 신유승이 길들인 적이 있다.",
+      "description": "오징어를 닮은 소형 해수종. 위협을 느끼면 반경 5m에 먹물을 분사하여 시야를 차단한다. 전기 속성에 극도로 약해 한 방에 처치할 수 있다. 신유승이 길들인 적이 있다.",
       "combat_patterns": [
         {
           "name": "먹물 분사",
@@ -336,7 +336,7 @@
       "grade": "7급",
       "species": "인외종",
       "danger_class": "보통",
-      "description": "강시의 상위종. 피부가 철처럼 단단하게 변한 인외종.",
+      "description": "강시의 상위 진화형. 피부가 철처럼 단단하게 변해 물리 공격이 거의 통하지 않는다. 한 번의 타격으로 콘크리트 벽을 부수며, 10m 높이까지 도약하여 급강하 공격을 한다. 신성이나 화염 속성이 필수이다.",
       "combat_patterns": [
         {
           "name": "철권 타격",
@@ -387,20 +387,21 @@
       ]
     },
     {
-      "id": "beast_sea_serpent_7",
+      "id": "beast_sea_serpenter_8",
       "layer": "canon",
       "confidence": 0.95,
       "source": "myeolsal_v1_full",
       "volume": 1,
       "tags": [
-        "7급",
-        "해수종"
+        "8급",
+        "해수종",
+        "씨-써펜터"
       ],
-      "title": "씨-써펜트",
-      "grade": "7급",
+      "title": "씨-써펜터",
+      "grade": "8급",
       "species": "해수종",
       "danger_class": "보통",
-      "description": "크기가 작은 어룡. 한강에서 무리지어 출현한다.",
+      "description": "한강에 서식하는 소형 어룡. 무리를 지어 수면 아래에서 이동하며, 물 위의 대상을 꼬리로 가격한다. 씨-커맨더보다 작지만 수가 훨씬 많다.",
       "combat_patterns": [
         {
           "name": "꼬리 채찍",
@@ -416,11 +417,11 @@
       ],
       "lore_notes": "한강의 기본 해수종.",
       "stats": {
-        "hp": "C",
-        "atk": "C",
-        "defense": "C-",
-        "spd": "B",
-        "spc": "D"
+        "hp": "D",
+        "atk": "D",
+        "defense": "D",
+        "spd": "C-",
+        "spc": "E"
       },
       "weaknesses": [
         "전기",
@@ -430,8 +431,8 @@
         "수속성"
       ],
       "coin_reward_range": [
-        30,
-        70
+        10,
+        35
       ],
       "related_entries": [
         "beast_sea_commander_7"
@@ -455,7 +456,7 @@
       "grade": "7급",
       "species": "해수종",
       "danger_class": "보통",
-      "description": "크기가 큰 어룡. 김독자가 처음으로 사냥한 괴수종.",
+      "description": "한강에 서식하는 대형 어룡 해수종. 김독자가 처음으로 사냥에 성공한 괴수로, 이 사건이 은밀한 모략가의 관심을 끌었다. 물 밖으로 끌어내면 움직임이 크게 둔해지므로 육상 전투로 유도해야 한다.",
       "combat_patterns": [
         {
           "name": "꼬리 휘두르기",
@@ -562,7 +563,7 @@
       "grade": "7급",
       "species": "식물종",
       "danger_class": "안전",
-      "description": "해바라기를 닮은 거대 식물종. 온순한 비선공 몹. 고기는 식용 가능.",
+      "description": "해바라기를 닮은 거대 식물종. 비선공 몹으로 온순하며, 고기는 식용이 가능하다. 단, 수액 없이 고기를 먹으면 24시간 동안 깨어나지 못한다. 줄기 아래쪽에서 수액을 먼저 채취해야 한다. 굶주린 화신들의 생명줄 같은 존재.",
       "combat_patterns": [
         {
           "name": "수면 꽃가루",
@@ -659,13 +660,14 @@
       "volume": 1,
       "tags": [
         "7급",
-        "괴수종"
+        "복제종",
+        "침구동인"
       ],
       "title": "침구동인",
       "grade": "7급",
-      "species": "괴수종",
+      "species": "복제종",
       "danger_class": "보통",
-      "description": "서울 고궁 박물관의 3인 던전에서 등장. 자가증식 능력. 내장과 신경망이 없어 고통을 느끼지 않는다.",
+      "description": "서울 고궁 박물관의 3인 던전에서 등장하는 복제종. 자가증식 능력을 가지고 있어 3분마다 복제체를 분리한다. 내장과 신경이 없어 고통을 느끼지 못하므로, 화염이나 산으로 본체를 녹여야 한다.",
       "combat_patterns": [
         {
           "name": "자가증식",
@@ -718,7 +720,7 @@
       "grade": "7급",
       "species": "괴수종",
       "danger_class": "보통",
-      "description": "코뿔소 형상의 괴수종. '맹독 안개'를 방귀로 배출한다.",
+      "description": "코뿔소 형상의 괴수종으로, 후방에서 맹독 안개를 배출한다. 반경 20m 내의 독 안개는 치명적이므로 절대 뒤에 서면 안 된다. 구원교도들이 탑승하여 이동 수단으로 사용한다.",
       "combat_patterns": [
         {
           "name": "독 안개",
@@ -770,7 +772,7 @@
       "grade": "7급",
       "species": "괴수종",
       "danger_class": "보통",
-      "description": "늑대 형상의 괴수종. 강철 같은 피부를 가졌다. 무리로 행동하며, 한 마리가 울면 500m 내 무리가 집결한다.",
+      "description": "강철 같은 피부를 가진 늑대형 괴수종. 무리로 행동하며, 한 마리가 울면 500m 내의 무리가 집결한다. 반드시 한 마리씩 분리하여 처리해야 하며, 울음소리가 나면 즉각 대응해야 한다. 정수리의 성흔이 진화하면 블랙 스틸울프가 된다.",
       "combat_patterns": [
         {
           "name": "무리 협공",
@@ -833,7 +835,7 @@
       "grade": "8급",
       "species": "유령종",
       "danger_class": "보통",
-      "description": "엑토플라즘을 연상시키는 유령종. 트라우마를 건드려 '환영 감옥'을 만든다.",
+      "description": "엑토플라즘 형태의 유령종. 대상의 트라우마를 건드려 '환영 감옥'에 가두는 정신 공격을 사용한다. 물리 공격이 일절 통하지 않으므로, 신성이나 빛 속성 무기가 필수이다. 처치 시 '스펙터의 영석'을 획득할 수 있다.",
       "combat_patterns": [
         {
           "name": "환영 감옥",
@@ -874,20 +876,21 @@
       ]
     },
     {
-      "id": "beast_minor_nautilus_7",
+      "id": "beast_nagak_8",
       "layer": "canon",
       "confidence": 0.9,
       "source": "myeolsal_v1_full",
       "volume": 1,
       "tags": [
-        "7급",
-        "해수종"
+        "8급",
+        "해수종",
+        "나각"
       ],
-      "title": "소형 나각",
-      "grade": "7급",
+      "title": "나각",
+      "grade": "8급",
       "species": "해수종",
       "danger_class": "보통",
-      "description": "소라게를 닮은 해수종. 껍질이 단단하여 물리 공격에 강하다.",
+      "description": "소라게를 닮은 해수종. 단단한 껍질로 정면 물리 공격을 대부분 막아낸다. 고대 나각의 하위 개체로, 전기 속성에 약하다.",
       "combat_patterns": [
         {
           "name": "껍질 방어",
@@ -903,9 +906,9 @@
       ],
       "lore_notes": "고대 나각의 하위종.",
       "stats": {
-        "hp": "C",
-        "atk": "C-",
-        "defense": "B",
+        "hp": "D+",
+        "atk": "D",
+        "defense": "D+",
         "spd": "D",
         "spc": "E"
       },
@@ -916,14 +919,14 @@
         "물리"
       ],
       "coin_reward_range": [
-        25,
-        55
+        15,
+        40
       ],
       "related_entries": [
         "beast_ancient_nautilus_4"
       ],
       "evolution_line": [
-        "소형 나각(7급) → 고대 나각(4급)"
+        "나각(8급) → 고대 나각(6급)"
       ],
       "appearance_scenarios": [
         "scenario_main_003"
@@ -943,7 +946,7 @@
       "grade": "5급",
       "species": "화룡종",
       "danger_class": "치명",
-      "description": "선지자들에 의해 운석에서 깨어난 화룡종. 이그니르 본체(■급)의 해츨링 열화판. 소재앙으로 불리며 파멸의 불꽃을 내뿜는다.",
+      "description": "선지자들에 의해 운석에서 깨어난 화룡종. 이그니르 본체의 열화판으로, '소재앙'이라 불린다. 전방 원뿔형 화염은 맞으면 즉사하며, 체력이 25% 이하로 떨어지면 반경 50m 전신 화염 폭발을 일으킨다. 냉기 속성이 핵심이다.",
       "combat_patterns": [
         {
           "name": "파멸의 불꽃",
@@ -989,20 +992,21 @@
       ]
     },
     {
-      "id": "beast_frost_elemental_6",
+      "id": "beast_frost_elemental_7",
       "layer": "canon",
       "confidence": 0.9,
       "source": "myeolsal_v1_full",
       "volume": 1,
       "tags": [
-        "6급",
-        "원소종"
+        "7급",
+        "원소종",
+        "냉기"
       ],
       "title": "원소종 (냉기)",
-      "grade": "6급",
+      "grade": "7급",
       "species": "원소종",
       "danger_class": "보통",
-      "description": "서울 강서지역에 출몰하는 원소종. 잡으면 '청빙환'을 드롭한다.",
+      "description": "서울 강서지역에 출몰하는 냉기 속성 원소종. 처치하면 '청빙환'을 획득할 수 있어, 레서 드래곤 이그니르 공략에 필수적인 사냥 대상이다.",
       "combat_patterns": [
         {
           "name": "냉기 파동",
@@ -1018,11 +1022,11 @@
       ],
       "lore_notes": "청빙환은 레서 드래곤 이그니르 공략의 핵심 아이템.",
       "stats": {
-        "hp": "C",
-        "atk": "C+",
-        "defense": "C-",
+        "hp": "D+",
+        "atk": "C",
+        "defense": "D",
         "spd": "C",
-        "spc": "B"
+        "spc": "C"
       },
       "weaknesses": [
         "화염"
@@ -1032,8 +1036,8 @@
         "수속성"
       ],
       "coin_reward_range": [
-        80,
-        180
+        30,
+        80
       ],
       "related_entries": [
         "beast_ignir_5"
@@ -1106,20 +1110,21 @@
       ]
     },
     {
-      "id": "beast_thorn_elephant_6",
+      "id": "beast_thorn_elephant_7",
       "layer": "canon",
       "confidence": 0.9,
       "source": "myeolsal_v1_full",
       "volume": 1,
       "tags": [
-        "6급",
-        "괴수종"
+        "7급",
+        "괴수종",
+        "사막 가시 코끼리"
       ],
       "title": "사막 가시 코끼리",
-      "grade": "6급",
+      "grade": "7급",
       "species": "괴수종",
-      "danger_class": "위험",
-      "description": "구원교도들이 탑승하는 괴수종. 가시로 뒤덮인 코끼리.",
+      "danger_class": "보통",
+      "description": "구원교도들이 탑승하는 거대 코끼리형 괴수. 전신이 날카로운 가시로 뒤덮여 있으며, 돌진 시 가시로 대상을 관통한다. 조련사를 먼저 제거하면 방향을 잃는다.",
       "combat_patterns": [
         {
           "name": "가시 돌진",
@@ -1142,11 +1147,11 @@
       ],
       "lore_notes": "구원교 영역의 주요 탑승 괴수.",
       "stats": {
-        "hp": "A-",
-        "atk": "B+",
-        "defense": "A",
+        "hp": "C+",
+        "atk": "C",
+        "defense": "C+",
         "spd": "D+",
-        "spc": "D"
+        "spc": "E"
       },
       "weaknesses": [
         "빙결"
@@ -1155,8 +1160,8 @@
         "물리"
       ],
       "coin_reward_range": [
-        120,
-        280
+        30,
+        100
       ],
       "related_entries": [],
       "evolution_line": [],
@@ -1178,7 +1183,7 @@
       "grade": "5급",
       "species": "괴수종",
       "danger_class": "위험",
-      "description": "스틸 울프의 진화형. 정수리의 성흔이 활성화된 개체.",
+      "description": "스틸 울프의 진화형으로, 정수리의 성흔이 활성화된 개체. 그림자를 통해 순간이동하며, 강철 송곳니는 갑옷조차 뚫어버린다. 빛 범위 공격으로 그림자를 제거하면 순간이동을 봉쇄할 수 있다.",
       "combat_patterns": [
         {
           "name": "그림자 도약",
@@ -1230,20 +1235,21 @@
       ]
     },
     {
-      "id": "beast_raptor_8",
+      "id": "beast_velociraptor_unknown",
       "layer": "canon",
       "confidence": 0.95,
       "source": "myeolsal_v1_full",
       "volume": 1,
       "tags": [
-        "8급",
-        "지룡종"
+        "???",
+        "지룡종",
+        "밸로시랩터"
       ],
-      "title": "랩터",
-      "grade": "8급",
+      "title": "밸로시랩터",
+      "grade": "???",
       "species": "지룡종",
-      "danger_class": "보통",
-      "description": "극장 던전에서 등장한 지룡종. 빠르고 날카로운 발톱.",
+      "danger_class": "???",
+      "description": "극장 던전에서 등장하는 소형 지룡종. 빠른 속도와 날카로운 발톱을 가졌으며, 무리 사냥에 능하다. 좁은 공간으로 유인하면 기동력을 봉쇄할 수 있다.",
       "combat_patterns": [
         {
           "name": "발톱 연격",
@@ -1259,19 +1265,19 @@
       ],
       "lore_notes": "지룡종 기본 개체.",
       "stats": {
-        "hp": "D+",
-        "atk": "C+",
-        "defense": "D",
-        "spd": "A-",
-        "spc": "E"
+        "hp": "???",
+        "atk": "???",
+        "defense": "???",
+        "spd": "???",
+        "spc": "???"
       },
       "weaknesses": [
         "빙결"
       ],
       "resistances": [],
       "coin_reward_range": [
-        25,
-        55
+        0,
+        0
       ],
       "related_entries": [
         "beast_trex_7"
@@ -1295,7 +1301,7 @@
       "grade": "7급",
       "species": "지룡종",
       "danger_class": "보통",
-      "description": "극장 던전에서 등장한 지룡종. 압도적인 턱 힘.",
+      "description": "극장 던전에 등장하는 거대 지룡종. 한 번의 턱 공격으로 강철을 씹어 부수지만, 시야가 좁아 측면에서 접근하면 감지하기 어렵다. 움직이지 않으면 존재를 인식하지 못하는 특성이 있다.",
       "combat_patterns": [
         {
           "name": "턱 분쇄",
@@ -1349,7 +1355,7 @@
       "grade": "6급",
       "species": "지룡종",
       "danger_class": "위험",
-      "description": "기가노토사우루스를 모티브로 만들어진 지룡종. 극장 던전 최강의 지룡.",
+      "description": "기가노토사우루스를 모티브로 만들어진 극장 던전 최강의 지룡종. 발을 굴러 반경 10m 진동파를 일으키며, 체력이 떨어지면 반경 15m 기절 포효를 발동한다. 접근전은 자살 행위이며, 원거리에서 냉기 속성으로 체력을 깎아야 한다.",
       "combat_patterns": [
         {
           "name": "지면 강타",
@@ -1411,7 +1417,7 @@
       "grade": "6급",
       "species": "충왕종",
       "danger_class": "위험",
-      "description": "거대 사마귀 형상의 충왕종. 크기에 따라 등급이 변한다.",
+      "description": "거대 사마귀 형상의 충왕종. 크기에 따라 등급이 변하며, 비행 후 소리 없이 급강하하는 공중 습격이 위협적이다. 실내로 유인하면 비행 능력을 봉쇄할 수 있고, 화염으로 날개를 태우면 비행이 불가능해진다.",
       "combat_patterns": [
         {
           "name": "낫 베기",
@@ -1468,7 +1474,7 @@
       "grade": "6급",
       "species": "수호종",
       "danger_class": "위험",
-      "description": "극장 던전 미궁을 지키는 수호종. 미궁의 구조와 연동.",
+      "description": "극장 던전의 미궁을 지키는 수호종. 미궁의 구조와 연동되어 벽을 움직여 이동 경로를 변경하며, 미궁 내에서는 서서히 체력을 회복한다. 미궁 밖으로 끌어내면 재생이 멈추므로, 출구 쪽에서 싸우는 것이 핵심이다.",
       "combat_patterns": [
         {
           "name": "미궁 조작",
@@ -1573,20 +1579,21 @@
       ]
     },
     {
-      "id": "beast_mat_spider_9",
+      "id": "beast_mat_spider_8",
       "layer": "canon",
       "confidence": 0.9,
       "source": "myeolsal_v1_full",
       "volume": 1,
       "tags": [
-        "9급",
-        "괴수종"
+        "8급",
+        "괴수종",
+        "매트 스파이더"
       ],
       "title": "매트 스파이더",
-      "grade": "9급",
+      "grade": "8급",
       "species": "괴수종",
-      "danger_class": "안전",
-      "description": "신유승이 피스랜드에서 소환한 괴수종. 지구에서 길들인 것.",
+      "danger_class": "보통",
+      "description": "신유승이 피스랜드에서 길들인 거미형 괴수. 이동 경로에 끈적한 거미줄을 설치하여 함정을 만든다. 전투력 자체는 낮지만, 거미줄에 걸리면 다른 괴수에게 노출되어 위험해진다.",
       "combat_patterns": [
         {
           "name": "거미줄 트랩",
@@ -1602,10 +1609,10 @@
       ],
       "lore_notes": "신유승의 비스트 마스터 능력 입문용.",
       "stats": {
-        "hp": "E",
-        "atk": "D-",
-        "defense": "E",
-        "spd": "C",
+        "hp": "D",
+        "atk": "D",
+        "defense": "D-",
+        "spd": "C-",
         "spc": "D"
       },
       "weaknesses": [
@@ -1613,8 +1620,8 @@
       ],
       "resistances": [],
       "coin_reward_range": [
-        3,
-        10
+        10,
+        30
       ],
       "related_entries": [],
       "evolution_line": [],
@@ -1740,13 +1747,15 @@
       "volume": 1,
       "tags": [
         "6급",
-        "인외종"
+        "인외종",
+        "낭인",
+        "웨어울프"
       ],
-      "title": "웨어울프",
+      "title": "낭인(웨어울프)",
       "grade": "6급",
       "species": "인외종",
       "danger_class": "위험",
-      "description": "인간이기를 포기한 인외종. 기본적으로 어둠 속성. 송민우가 대표적.",
+      "description": "인간이기를 포기하고 야수의 힘을 받아들인 인외종. 전투 시 완전 변신하여 스탯이 대폭 상승하며, 신성 속성이 아닌 상처는 서서히 재생한다. 송민우가 대표적인 낭인이다.",
       "combat_patterns": [
         {
           "name": "야수화",
@@ -1807,7 +1816,7 @@
       "grade": "6급",
       "species": "괴수종",
       "danger_class": "위험",
-      "description": "범람의 재앙 신유승이 소환한 괴수종. 유황 증기를 내뿜는다.",
+      "description": "신유승이 소환한 괴수종. 전신에서 유황 증기를 내뿜으며, 붕대로 대상을 감아 움직임을 봉쇄한다. 수속성 공격이 핵심으로, 물을 끼얹으면 유황이 꺼지면서 급격히 약해진다.",
       "combat_patterns": [
         {
           "name": "유황 증기",
@@ -1854,20 +1863,21 @@
       ]
     },
     {
-      "id": "beast_ancient_nautilus_4",
+      "id": "beast_ancient_nautilus_6",
       "layer": "canon",
       "confidence": 0.9,
       "source": "myeolsal_v1_full",
       "volume": 1,
       "tags": [
-        "4급",
-        "해수종"
+        "6급",
+        "해수종",
+        "고대 나각"
       ],
       "title": "고대 나각",
-      "grade": "4급",
+      "grade": "6급",
       "species": "해수종",
-      "danger_class": "치명",
-      "description": "소형 주택 크기의 거대 소라게 해수종. 껍질이 요새급으로 단단하다.",
+      "danger_class": "위험",
+      "description": "나각의 상위종으로, 소형 주택 크기의 거대한 소라게 해수종. 껍질이 요새급으로 단단하여 정면 물리 공격의 대부분을 흡수한다. 전기 속성으로 기절시킨 후 뒤집어야 약점이 노출된다.",
       "combat_patterns": [
         {
           "name": "껍질 방어",
@@ -1890,10 +1900,10 @@
       ],
       "lore_notes": "소형 나각의 상위종.",
       "stats": {
-        "hp": "A",
-        "atk": "A-",
-        "defense": "A+",
-        "spd": "D-",
+        "hp": "B-",
+        "atk": "C+",
+        "defense": "B",
+        "spd": "D",
         "spc": "D"
       },
       "weaknesses": [
@@ -1904,14 +1914,14 @@
         "수속성"
       ],
       "coin_reward_range": [
-        400,
-        900
+        100,
+        280
       ],
       "related_entries": [
         "beast_minor_nautilus_7"
       ],
       "evolution_line": [
-        "소형 나각(7급) → 고대 나각(4급)"
+        "나각(8급) → 고대 나각(6급)"
       ],
       "appearance_scenarios": [
         "scenario_main_010"
@@ -2560,20 +2570,21 @@
       ]
     },
     {
-      "id": "beast_antinus_5",
+      "id": "beast_parasite_5",
       "layer": "canon",
       "confidence": 0.98,
       "source": "myeolsal_v1_full",
       "volume": 1,
       "tags": [
         "5급",
-        "충왕종"
+        "충왕종",
+        "패러사이트"
       ],
-      "title": "패러사이트 앤티누스",
+      "title": "패러사이트",
       "grade": "5급",
       "species": "충왕종",
       "danger_class": "치명",
-      "description": "이세계 클로노스 동쪽에서 온 다섯 길잡이 중 하나. 기생종 여왕.",
+      "description": "숙주의 신경계를 장악하여 조종하는 상위 충왕종. 인간이나 괴수를 가리지 않고 기생하며, 감염된 숙주는 패러사이트의 의지대로 움직인다. 화염으로 숙주째 태우는 것이 가장 확실한 처치법이다.",
       "combat_patterns": [
         {
           "name": "기생",
@@ -2624,20 +2635,21 @@
       ]
     },
     {
-      "id": "beast_kraken_2",
+      "id": "beast_kraken_unknown",
       "layer": "canon",
       "confidence": 0.98,
       "source": "myeolsal_v1_full",
       "volume": 1,
       "tags": [
-        "2급",
-        "괴수종"
+        "???",
+        "해수종",
+        "크라켄"
       ],
       "title": "크라켄",
-      "grade": "2급",
-      "species": "괴수종",
-      "danger_class": "치명",
-      "description": "60번째 시나리오 기간토마키아에서 등장한 괴수종. 거대한 문어.",
+      "grade": "???",
+      "species": "해수종",
+      "danger_class": "???",
+      "description": "심해에 서식하는 전설적인 거대 해수종. 수십 개의 촉수로 선박을 부수며, 수중에서는 사실상 적이 없다. 정확한 등급은 측정 불가이나, 출현하면 해당 해역의 모든 시나리오가 중단될 정도의 위협이다.",
       "combat_patterns": [
         {
           "name": "촉수 난타",
@@ -2660,11 +2672,11 @@
       ],
       "lore_notes": "기간토마키아 전장의 거대 위협.",
       "stats": {
-        "hp": "S",
-        "atk": "S",
-        "defense": "A+",
-        "spd": "B",
-        "spc": "A"
+        "hp": "???",
+        "atk": "???",
+        "defense": "???",
+        "spd": "???",
+        "spc": "???"
       },
       "weaknesses": [
         "전기"
@@ -2674,8 +2686,8 @@
         "물리"
       ],
       "coin_reward_range": [
-        2000,
-        5000
+        0,
+        0
       ],
       "related_entries": [],
       "evolution_line": [],
@@ -2744,20 +2756,21 @@
       ]
     },
     {
-      "id": "beast_apocalypse_dragon_special",
+      "id": "beast_armageddon_dragon_unknown",
       "layer": "canon",
       "confidence": 0.98,
       "source": "myeolsal_v1_full",
       "volume": 1,
       "tags": [
-        "특급",
-        "용왕종"
+        "???",
+        "용종",
+        "하르마게돈의 악룡"
       ],
       "title": "하르마게돈의 악룡",
-      "grade": "특급",
-      "species": "용왕종",
+      "grade": "???",
+      "species": "용종",
       "danger_class": "권외",
-      "description": "머리가 일곱이고 뿔이 열인 용. 묵시록의 최후룡. 한 번의 꼬리짓에 별들이 추락.",
+      "description": "묵시록에 기록된 종말의 용. 등급 자체가 측정 불가능한 초월적 존재로, 출현 자체가 세계의 종말을 의미한다. 어떤 무기로도 상처를 낼 수 없으며, 대항 수단은 알려진 바 없다.",
       "combat_patterns": [
         {
           "name": "묵시록의 꼬리짓",
@@ -5677,6 +5690,2120 @@
       "appearance_scenarios": [
         "scenario_main_099"
       ]
+    },
+    {
+      "id": "beast_랫맨_8",
+      "layer": "canon",
+      "confidence": 0.75,
+      "source": "myeolsal_v1_full",
+      "volume": 1,
+      "tags": [
+        "8급",
+        "인외종",
+        "랫맨"
+      ],
+      "title": "랫맨",
+      "grade": "8급",
+      "species": "인외종",
+      "danger_class": "보통",
+      "description": "쥐의 특성을 가진 인외종. 하수도와 어둠 자락 근처에 무리 지어 서식하며, 날카로운 이빨과 빠른 움직임으로 기습한다. 개체 하나는 약하지만, 수십 마리가 동시에 달려들면 위험하다.",
+      "combat_patterns": [
+        {
+          "name": "집단 기습",
+          "trigger": "group_5plus",
+          "description": "5마리 이상이 사방에서 동시에 달려든다.",
+          "damage_type": "물리",
+          "cooldown": null
+        }
+      ],
+      "survival_guide": "좁은 통로에서 싸우지 마라. 화염으로 퇴로를 막으면 흩어진다.",
+      "warnings": [
+        "하수도 집단 서식"
+      ],
+      "lore_notes": "",
+      "stats": {
+        "hp": "D",
+        "atk": "D",
+        "defense": "D",
+        "spd": "D+",
+        "spc": "D"
+      },
+      "weaknesses": [
+        "화염"
+      ],
+      "resistances": [],
+      "coin_reward_range": [
+        15,
+        45
+      ],
+      "related_entries": [],
+      "evolution_line": [],
+      "appearance_scenarios": []
+    },
+    {
+      "id": "beast_리자드맨_8",
+      "layer": "canon",
+      "confidence": 0.75,
+      "source": "myeolsal_v1_full",
+      "volume": 1,
+      "tags": [
+        "8급",
+        "인외종",
+        "리자드맨"
+      ],
+      "title": "리자드맨",
+      "grade": "8급",
+      "species": "인외종",
+      "danger_class": "보통",
+      "description": "도마뱀 형태의 직립 인외종. 단단한 비늘 갑옷과 강인한 근력을 갖추고 있으며, 높은 재생력이 특징이다. 꼬리 타격은 뼈를 부러뜨릴 정도로 강력하다.",
+      "combat_patterns": [
+        {
+          "name": "꼬리 타격",
+          "trigger": "always",
+          "description": "회전하며 꼬리로 광범위 타격.",
+          "damage_type": "물리",
+          "cooldown": null
+        }
+      ],
+      "survival_guide": "비늘 틈새가 약점. 빙결 속성으로 움직임을 둔화시킨 뒤 관절 부위를 노려라.",
+      "warnings": [
+        "꼬리 범위 넓음"
+      ],
+      "lore_notes": "",
+      "stats": {
+        "hp": "D",
+        "atk": "D",
+        "defense": "D",
+        "spd": "D+",
+        "spc": "D"
+      },
+      "weaknesses": [
+        "빙결"
+      ],
+      "resistances": [
+        "물리"
+      ],
+      "coin_reward_range": [
+        15,
+        45
+      ],
+      "related_entries": [],
+      "evolution_line": [],
+      "appearance_scenarios": []
+    },
+    {
+      "id": "beast_강시_8",
+      "layer": "canon",
+      "confidence": 0.75,
+      "source": "myeolsal_v1_full",
+      "volume": 1,
+      "tags": [
+        "8급",
+        "인외종",
+        "강시"
+      ],
+      "title": "강시",
+      "grade": "8급",
+      "species": "인외종",
+      "danger_class": "보통",
+      "description": "죽은 인간이 변이된 인외종으로, 철강시의 하위 개체. 뻣뻣한 몸으로 양팔을 뻗은 채 뛰어다니며, 물리 공격에 대한 내성이 있다. 머리 부위에 붙은 부적이 약점이다.",
+      "combat_patterns": [
+        {
+          "name": "돌진 움켜쥠",
+          "trigger": "always",
+          "description": "직선으로 뛰어와 대상을 움켜쥔다.",
+          "damage_type": "물리",
+          "cooldown": null
+        }
+      ],
+      "survival_guide": "머리의 부적을 떼어내면 즉사한다. 화염이나 신성 속성에 약하다.",
+      "warnings": [
+        "물리 내성 있음"
+      ],
+      "lore_notes": "",
+      "stats": {
+        "hp": "D",
+        "atk": "D",
+        "defense": "D",
+        "spd": "D+",
+        "spc": "D"
+      },
+      "weaknesses": [
+        "화염",
+        "신성"
+      ],
+      "resistances": [
+        "물리"
+      ],
+      "coin_reward_range": [
+        15,
+        45
+      ],
+      "related_entries": [
+        "beast_iron_jiangshi_7"
+      ],
+      "evolution_line": [
+        "강시(8급) → 철강시(7급)"
+      ],
+      "appearance_scenarios": []
+    },
+    {
+      "id": "beast_이뮨타르_5",
+      "layer": "canon",
+      "confidence": 0.75,
+      "source": "myeolsal_v1_full",
+      "volume": 1,
+      "tags": [
+        "5급",
+        "인외종",
+        "이뮨타르"
+      ],
+      "title": "이뮨타르",
+      "grade": "5급",
+      "species": "인외종",
+      "danger_class": "위험",
+      "description": "높은 지능과 전투력을 겸비한 상위 인외종. 인간의 언어를 이해하고 전술적 판단이 가능하다. 단독으로도 파티 단위의 화신을 상대할 수 있으며, 다양한 무기를 사용한다.",
+      "combat_patterns": [
+        {
+          "name": "전술 전환",
+          "trigger": "always",
+          "description": "상황에 따라 근접/원거리 전투를 전환한다.",
+          "damage_type": "물리",
+          "cooldown": null
+        },
+        {
+          "name": "약점 간파",
+          "trigger": "passive",
+          "description": "대상의 전투 패턴을 분석하여 약점을 찾아낸다.",
+          "damage_type": null,
+          "cooldown": null
+        }
+      ],
+      "survival_guide": "지능이 높아 함정에 잘 걸리지 않는다. 수적 우위를 확보하고 동시 다방면 공격이 필수.",
+      "warnings": [
+        "지능형 괴수, 함정 회피 능력"
+      ],
+      "lore_notes": "",
+      "stats": {
+        "hp": "B",
+        "atk": "B",
+        "defense": "B-",
+        "spd": "B",
+        "spc": "C"
+      },
+      "weaknesses": [
+        "신성"
+      ],
+      "resistances": [
+        "물리",
+        "정신"
+      ],
+      "coin_reward_range": [
+        150,
+        500
+      ],
+      "related_entries": [],
+      "evolution_line": [],
+      "appearance_scenarios": []
+    },
+    {
+      "id": "beast_반요_unknown",
+      "layer": "canon",
+      "confidence": 0.7,
+      "source": "myeolsal_v1_full",
+      "volume": 1,
+      "tags": [
+        "???",
+        "인외종",
+        "반요"
+      ],
+      "title": "반요",
+      "grade": "???",
+      "species": "인외종",
+      "danger_class": "???",
+      "description": "인간과 요괴의 혼혈 인외종. 양쪽의 특성을 모두 갖추고 있어 등급을 특정하기 어렵다. 개체에 따라 능력 편차가 극심하다.",
+      "combat_patterns": [
+        {
+          "name": "혼혈 특성",
+          "trigger": "passive",
+          "description": "인간과 요괴 양쪽의 능력을 사용.",
+          "damage_type": null,
+          "cooldown": null
+        }
+      ],
+      "survival_guide": "개체마다 특성이 달라 일반화된 공략법이 없다. 교전 전 정보 수집이 필수.",
+      "warnings": [
+        "개체별 능력 편차 극심"
+      ],
+      "lore_notes": "",
+      "stats": {
+        "hp": "???",
+        "atk": "???",
+        "defense": "???",
+        "spd": "???",
+        "spc": "???"
+      },
+      "weaknesses": [],
+      "resistances": [],
+      "coin_reward_range": [
+        0,
+        0
+      ],
+      "related_entries": [],
+      "evolution_line": [],
+      "appearance_scenarios": []
+    },
+    {
+      "id": "beast_퀸_미르바드_5",
+      "layer": "canon",
+      "confidence": 0.75,
+      "source": "myeolsal_v1_full",
+      "volume": 1,
+      "tags": [
+        "5급",
+        "해수종",
+        "퀸 미르바드"
+      ],
+      "title": "퀸 미르바드",
+      "grade": "5급",
+      "species": "해수종",
+      "danger_class": "위험",
+      "description": "해수종의 여왕급 개체. 주변 해수종을 지휘하여 조직적으로 공격하며, 강력한 수압 공격을 사용한다. 여왕이 쓰러지면 휘하 해수종의 통제가 풀려 흩어진다.",
+      "combat_patterns": [
+        {
+          "name": "수압포",
+          "trigger": "always",
+          "description": "고압 수류를 발사. 강철을 관통한다.",
+          "damage_type": "수속성",
+          "cooldown": 5
+        },
+        {
+          "name": "군단 지휘",
+          "trigger": "passive",
+          "description": "주변 해수종에게 집중 공격을 명령한다.",
+          "damage_type": null,
+          "cooldown": null
+        }
+      ],
+      "survival_guide": "여왕을 먼저 처치하면 나머지가 흩어진다. 전기 속성이 유효하다.",
+      "warnings": [
+        "다수의 호위 해수종 동반"
+      ],
+      "lore_notes": "",
+      "stats": {
+        "hp": "B",
+        "atk": "B",
+        "defense": "B-",
+        "spd": "B",
+        "spc": "C"
+      },
+      "weaknesses": [
+        "전기"
+      ],
+      "resistances": [
+        "수속성"
+      ],
+      "coin_reward_range": [
+        150,
+        500
+      ],
+      "related_entries": [],
+      "evolution_line": [],
+      "appearance_scenarios": []
+    },
+    {
+      "id": "beast_킹_매스우드_5",
+      "layer": "canon",
+      "confidence": 0.75,
+      "source": "myeolsal_v1_full",
+      "volume": 1,
+      "tags": [
+        "5급",
+        "해수종",
+        "킹 매스우드"
+      ],
+      "title": "킹 매스우드",
+      "grade": "5급",
+      "species": "해수종",
+      "danger_class": "위험",
+      "description": "해수종의 왕급 개체. 거대한 체구와 두꺼운 갑각을 가졌으며, 수중에서의 전투력은 5급을 상회한다. 영역 밖으로 나오는 일이 드물어 수중 전투를 피하는 것이 최선이다.",
+      "combat_patterns": [
+        {
+          "name": "파쇄 집게",
+          "trigger": "always",
+          "description": "거대한 집게로 대상을 분쇄한다.",
+          "damage_type": "물리",
+          "cooldown": null
+        },
+        {
+          "name": "해류 조작",
+          "trigger": "passive",
+          "description": "주변 해류를 조작하여 이동을 방해한다.",
+          "damage_type": null,
+          "cooldown": null
+        }
+      ],
+      "survival_guide": "수중 전투는 자살 행위. 육지로 유인하거나 전기 속성 원거리 공격이 필수.",
+      "warnings": [
+        "수중 전투력 등급 이상"
+      ],
+      "lore_notes": "",
+      "stats": {
+        "hp": "B",
+        "atk": "B",
+        "defense": "B-",
+        "spd": "B",
+        "spc": "C"
+      },
+      "weaknesses": [
+        "전기"
+      ],
+      "resistances": [
+        "수속성",
+        "물리"
+      ],
+      "coin_reward_range": [
+        150,
+        500
+      ],
+      "related_entries": [],
+      "evolution_line": [],
+      "appearance_scenarios": []
+    },
+    {
+      "id": "beast_어둠_파수꾼_7",
+      "layer": "canon",
+      "confidence": 0.75,
+      "source": "myeolsal_v1_full",
+      "volume": 1,
+      "tags": [
+        "7급",
+        "악마종",
+        "어둠 파수꾼"
+      ],
+      "title": "어둠 파수꾼",
+      "grade": "7급",
+      "species": "악마종",
+      "danger_class": "보통",
+      "description": "어둠 자락을 순찰하는 하급 악마. 어둠 속에서 실체를 숨기며, 빛이 없는 곳에서는 투명해진다. 신성 속성 무기가 아니면 유효한 타격을 줄 수 없다.",
+      "combat_patterns": [
+        {
+          "name": "어둠 베기",
+          "trigger": "always",
+          "description": "어둠 속에서 나타나 그림자 칼로 베어낸다.",
+          "damage_type": "어둠",
+          "cooldown": null
+        }
+      ],
+      "survival_guide": "빛을 유지하라. 빛 범위 안에서는 은신이 해제된다. 신성 무기 필수.",
+      "warnings": [
+        "어둠 속 투명"
+      ],
+      "lore_notes": "",
+      "stats": {
+        "hp": "D+",
+        "atk": "D+",
+        "defense": "D+",
+        "spd": "C",
+        "spc": "D"
+      },
+      "weaknesses": [
+        "신성",
+        "빛"
+      ],
+      "resistances": [
+        "어둠",
+        "물리"
+      ],
+      "coin_reward_range": [
+        25,
+        80
+      ],
+      "related_entries": [],
+      "evolution_line": [],
+      "appearance_scenarios": []
+    },
+    {
+      "id": "beast_어둠_투사_7",
+      "layer": "canon",
+      "confidence": 0.75,
+      "source": "myeolsal_v1_full",
+      "volume": 1,
+      "tags": [
+        "7급",
+        "악마종",
+        "어둠 투사"
+      ],
+      "title": "어둠 투사",
+      "grade": "7급",
+      "species": "악마종",
+      "danger_class": "보통",
+      "description": "어둠 파수꾼의 전투 특화형. 파수꾼보다 공격적이며, 어둠 속성의 근접 전투에 능하다. 어둠의 갑옷을 입고 있어 물리 공격의 효과가 반감된다.",
+      "combat_patterns": [
+        {
+          "name": "어둠 돌격",
+          "trigger": "always",
+          "description": "어둠 에너지를 두르고 돌진.",
+          "damage_type": "어둠",
+          "cooldown": 5
+        }
+      ],
+      "survival_guide": "빛 속성으로 어둠 갑옷을 벗겨낸 뒤 공격해야 한다.",
+      "warnings": [
+        "물리 데미지 반감"
+      ],
+      "lore_notes": "",
+      "stats": {
+        "hp": "D+",
+        "atk": "D+",
+        "defense": "D+",
+        "spd": "C",
+        "spc": "D"
+      },
+      "weaknesses": [
+        "신성",
+        "빛"
+      ],
+      "resistances": [
+        "어둠",
+        "물리"
+      ],
+      "coin_reward_range": [
+        25,
+        80
+      ],
+      "related_entries": [],
+      "evolution_line": [],
+      "appearance_scenarios": []
+    },
+    {
+      "id": "beast_지옥의_파수꾼_7",
+      "layer": "canon",
+      "confidence": 0.75,
+      "source": "myeolsal_v1_full",
+      "volume": 1,
+      "tags": [
+        "7급",
+        "악마종",
+        "지옥의 파수꾼"
+      ],
+      "title": "지옥의 파수꾼",
+      "grade": "7급",
+      "species": "악마종",
+      "danger_class": "보통",
+      "description": "지옥문을 지키는 중급 악마. 어둠 파수꾼보다 상위 개체로, 화염과 어둠을 동시에 다룬다. 지옥문 근처에서는 능력치가 대폭 상승한다.",
+      "combat_patterns": [
+        {
+          "name": "지옥 화염",
+          "trigger": "always",
+          "description": "어둠이 섞인 흑염을 방출.",
+          "damage_type": "화염",
+          "cooldown": 8
+        }
+      ],
+      "survival_guide": "지옥문에서 멀리 떨어뜨려 싸워라. 신성 속성이 최적.",
+      "warnings": [
+        "지옥문 근처 강화"
+      ],
+      "lore_notes": "",
+      "stats": {
+        "hp": "D+",
+        "atk": "D+",
+        "defense": "D+",
+        "spd": "C",
+        "spc": "D"
+      },
+      "weaknesses": [
+        "신성"
+      ],
+      "resistances": [
+        "화염",
+        "어둠"
+      ],
+      "coin_reward_range": [
+        25,
+        80
+      ],
+      "related_entries": [],
+      "evolution_line": [],
+      "appearance_scenarios": []
+    },
+    {
+      "id": "beast_데빌_베어_4",
+      "layer": "canon",
+      "confidence": 0.75,
+      "source": "myeolsal_v1_full",
+      "volume": 1,
+      "tags": [
+        "4급",
+        "악마종",
+        "데빌 베어"
+      ],
+      "title": "데빌 베어",
+      "grade": "4급",
+      "species": "악마종",
+      "danger_class": "치명",
+      "description": "악마의 힘이 깃든 거대한 곰형 악마종. 엄청난 체력과 괴력을 가졌으며, 어둠 속성 강화 상태에서는 물리 공격을 거의 무시한다. 한 번의 앞발 타격으로 건물 벽을 무너뜨린다.",
+      "combat_patterns": [
+        {
+          "name": "암흑 강타",
+          "trigger": "always",
+          "description": "어둠을 두른 앞발로 강타.",
+          "damage_type": "물리",
+          "cooldown": null
+        },
+        {
+          "name": "마력 포효",
+          "trigger": "hp_below_50",
+          "description": "반경 20m 공포 효과.",
+          "damage_type": "정신",
+          "cooldown": 30
+        }
+      ],
+      "survival_guide": "신성 속성으로 어둠 강화를 해제해야 한다. 최소 5인 파티 필요.",
+      "warnings": [
+        "최소 파티 5인 권장"
+      ],
+      "lore_notes": "",
+      "stats": {
+        "hp": "A-",
+        "atk": "A-",
+        "defense": "A-",
+        "spd": "A-",
+        "spc": "B-"
+      },
+      "weaknesses": [
+        "신성"
+      ],
+      "resistances": [
+        "물리",
+        "어둠"
+      ],
+      "coin_reward_range": [
+        400,
+        1200
+      ],
+      "related_entries": [],
+      "evolution_line": [],
+      "appearance_scenarios": []
+    },
+    {
+      "id": "beast_데빌_울프_unknown",
+      "layer": "canon",
+      "confidence": 0.7,
+      "source": "myeolsal_v1_full",
+      "volume": 1,
+      "tags": [
+        "???",
+        "악마종",
+        "데빌 울프"
+      ],
+      "title": "데빌 울프",
+      "grade": "???",
+      "species": "악마종",
+      "danger_class": "???",
+      "description": "마계의 늑대형 악마. 스틸 울프와 외형이 유사하지만 완전히 다른 존재로, 어둠과 화염 속성을 동시에 가진다. 정확한 등급은 미상이다.",
+      "combat_patterns": [
+        {
+          "name": "지옥의 송곳니",
+          "trigger": "always",
+          "description": "어둠 화염이 깃든 물어뜯기.",
+          "damage_type": "화염",
+          "cooldown": null
+        }
+      ],
+      "survival_guide": "신성 속성이 유일한 약점으로 추정된다.",
+      "warnings": [
+        "등급 미상 주의"
+      ],
+      "lore_notes": "",
+      "stats": {
+        "hp": "???",
+        "atk": "???",
+        "defense": "???",
+        "spd": "???",
+        "spc": "???"
+      },
+      "weaknesses": [
+        "신성"
+      ],
+      "resistances": [
+        "화염",
+        "어둠"
+      ],
+      "coin_reward_range": [
+        0,
+        0
+      ],
+      "related_entries": [],
+      "evolution_line": [],
+      "appearance_scenarios": []
+    },
+    {
+      "id": "beast_키메라_드래곤_2_sp",
+      "layer": "canon",
+      "confidence": 0.75,
+      "source": "myeolsal_v1_full",
+      "volume": 1,
+      "tags": [
+        "2~특급",
+        "용종",
+        "키메라 드래곤"
+      ],
+      "title": "키메라 드래곤",
+      "grade": "2~특급",
+      "species": "용종",
+      "danger_class": "치명",
+      "description": "여러 종의 특성이 융합된 변이 용종. 개체에 따라 2급에서 특급까지 등급 편차가 극심하다. 다수의 머리를 가진 개체도 존재하며, 각 머리마다 다른 속성을 사용한다.",
+      "combat_patterns": [
+        {
+          "name": "복합 브레스",
+          "trigger": "always",
+          "description": "화염, 빙결, 독 등 복수의 속성 브레스를 번갈아 발사.",
+          "damage_type": "복합",
+          "cooldown": 5
+        },
+        {
+          "name": "꼬리 강타",
+          "trigger": "always",
+          "description": "거대한 꼬리로 광범위 타격.",
+          "damage_type": "물리",
+          "cooldown": null
+        }
+      ],
+      "survival_guide": "머리별 속성을 파악하고 각각에 맞는 대응이 필요하다. 대규모 레이드 필수.",
+      "warnings": [
+        "개체별 등급 편차 2급~특급"
+      ],
+      "lore_notes": "",
+      "stats": {
+        "hp": "A+",
+        "atk": "S",
+        "defense": "A+",
+        "spd": "A",
+        "spc": "S"
+      },
+      "weaknesses": [],
+      "resistances": [
+        "물리"
+      ],
+      "coin_reward_range": [
+        0,
+        0
+      ],
+      "related_entries": [],
+      "evolution_line": [],
+      "appearance_scenarios": []
+    },
+    {
+      "id": "beast_적혈룡_2",
+      "layer": "canon",
+      "confidence": 0.75,
+      "source": "myeolsal_v1_full",
+      "volume": 1,
+      "tags": [
+        "2급",
+        "용종",
+        "적혈룡"
+      ],
+      "title": "적혈룡",
+      "grade": "2급",
+      "species": "용종",
+      "danger_class": "치명",
+      "description": "붉은 피의 용. 전신에서 뜨거운 피를 뿜어내며, 피에 닿으면 강한 화상을 입는다. 용종 중에서도 공격적인 성향이 강하여 영역에 침입하는 모든 존재를 공격한다.",
+      "combat_patterns": [
+        {
+          "name": "혈염 브레스",
+          "trigger": "always",
+          "description": "끓는 피를 뿜어내는 광범위 브레스.",
+          "damage_type": "화염",
+          "cooldown": 8
+        },
+        {
+          "name": "혈갑",
+          "trigger": "passive",
+          "description": "전신의 뜨거운 피가 근접 공격자에게 화상을 입힌다.",
+          "damage_type": "화염",
+          "cooldown": null
+        }
+      ],
+      "survival_guide": "원거리에서 빙결 속성으로 체온을 떨어뜨려야 한다. 근접전은 금물.",
+      "warnings": [
+        "근접 시 화상 피해"
+      ],
+      "lore_notes": "",
+      "stats": {
+        "hp": "A+",
+        "atk": "A+",
+        "defense": "A+",
+        "spd": "A+",
+        "spc": "A-"
+      },
+      "weaknesses": [
+        "빙결"
+      ],
+      "resistances": [
+        "화염",
+        "물리"
+      ],
+      "coin_reward_range": [
+        2000,
+        5000
+      ],
+      "related_entries": [],
+      "evolution_line": [],
+      "appearance_scenarios": []
+    },
+    {
+      "id": "beast_고대룡_이그니투스_unknown",
+      "layer": "canon",
+      "confidence": 0.7,
+      "source": "myeolsal_v1_full",
+      "volume": 1,
+      "tags": [
+        "???",
+        "용종",
+        "고대룡 이그니투스"
+      ],
+      "title": "고대룡 이그니투스",
+      "grade": "???",
+      "species": "용종",
+      "danger_class": "???",
+      "description": "화룡의 시조이자 이그니르의 상위 존재. 등급 측정 자체가 불가능한 태고의 용으로, 존재 자체가 전설에 가깝다.",
+      "combat_patterns": [
+        {
+          "name": "???",
+          "trigger": "???",
+          "description": "알려진 전투 패턴 없음.",
+          "damage_type": "???",
+          "cooldown": null
+        }
+      ],
+      "survival_guide": "교전 자체를 피해야 한다. 대항 수단이 알려진 바 없다.",
+      "warnings": [
+        "등급 측정 불가"
+      ],
+      "lore_notes": "",
+      "stats": {
+        "hp": "???",
+        "atk": "???",
+        "defense": "???",
+        "spd": "???",
+        "spc": "???"
+      },
+      "weaknesses": [],
+      "resistances": [],
+      "coin_reward_range": [
+        0,
+        0
+      ],
+      "related_entries": [],
+      "evolution_line": [],
+      "appearance_scenarios": []
+    },
+    {
+      "id": "beast_골드_드래곤_unknown",
+      "layer": "canon",
+      "confidence": 0.7,
+      "source": "myeolsal_v1_full",
+      "volume": 1,
+      "tags": [
+        "???",
+        "용종",
+        "골드 드래곤"
+      ],
+      "title": "골드 드래곤",
+      "grade": "???",
+      "species": "용종",
+      "danger_class": "???",
+      "description": "황금빛 비늘을 가진 전설의 용종. 용종 중에서도 가장 고귀한 혈통으로 여겨지며, 빛 속성의 강력한 브레스를 사용한다고 전해진다.",
+      "combat_patterns": [
+        {
+          "name": "???",
+          "trigger": "???",
+          "description": "알려진 전투 패턴 없음.",
+          "damage_type": "???",
+          "cooldown": null
+        }
+      ],
+      "survival_guide": "목격 기록이 거의 없다. 교전 시 대응법 미상.",
+      "warnings": [
+        "등급 미상"
+      ],
+      "lore_notes": "",
+      "stats": {
+        "hp": "???",
+        "atk": "???",
+        "defense": "???",
+        "spd": "???",
+        "spc": "???"
+      },
+      "weaknesses": [],
+      "resistances": [],
+      "coin_reward_range": [
+        0,
+        0
+      ],
+      "related_entries": [],
+      "evolution_line": [],
+      "appearance_scenarios": []
+    },
+    {
+      "id": "beast_철혈룡_unknown",
+      "layer": "canon",
+      "confidence": 0.7,
+      "source": "myeolsal_v1_full",
+      "volume": 1,
+      "tags": [
+        "???",
+        "용종",
+        "철혈룡"
+      ],
+      "title": "철혈룡",
+      "grade": "???",
+      "species": "용종",
+      "danger_class": "???",
+      "description": "강철처럼 단단한 비늘을 가진 용종. 적혈룡과 쌍벽을 이루는 존재로, 물리 방어력이 극도로 높다고 알려져 있다.",
+      "combat_patterns": [
+        {
+          "name": "???",
+          "trigger": "???",
+          "description": "알려진 전투 패턴 없음.",
+          "damage_type": "???",
+          "cooldown": null
+        }
+      ],
+      "survival_guide": "정보 부족. 교전 회피 권장.",
+      "warnings": [
+        "등급 미상"
+      ],
+      "lore_notes": "",
+      "stats": {
+        "hp": "???",
+        "atk": "???",
+        "defense": "???",
+        "spd": "???",
+        "spc": "???"
+      },
+      "weaknesses": [],
+      "resistances": [],
+      "coin_reward_range": [
+        0,
+        0
+      ],
+      "related_entries": [],
+      "evolution_line": [],
+      "appearance_scenarios": []
+    },
+    {
+      "id": "beast_이그니르_unknown",
+      "layer": "canon",
+      "confidence": 0.7,
+      "source": "myeolsal_v1_full",
+      "volume": 1,
+      "tags": [
+        "???",
+        "화룡종",
+        "이그니르"
+      ],
+      "title": "이그니르",
+      "grade": "???",
+      "species": "화룡종",
+      "danger_class": "???",
+      "description": "운석에 봉인되어 있던 화룡종의 본체. 레서 드래곤 이그니르는 이 존재의 열화판에 불과하다. 본체의 등급은 측정 불가이며, 깨어나면 주변 일대가 화염에 휩싸인다.",
+      "combat_patterns": [
+        {
+          "name": "???",
+          "trigger": "???",
+          "description": "본체의 전투 패턴은 기록된 바 없다.",
+          "damage_type": "???",
+          "cooldown": null
+        }
+      ],
+      "survival_guide": "본체와의 교전은 사실상 불가능. 봉인 유지가 최선이다.",
+      "warnings": [
+        "등급 측정 불가, 봉인 유지 필수"
+      ],
+      "lore_notes": "",
+      "stats": {
+        "hp": "???",
+        "atk": "???",
+        "defense": "???",
+        "spd": "???",
+        "spc": "???"
+      },
+      "weaknesses": [],
+      "resistances": [
+        "화염"
+      ],
+      "coin_reward_range": [
+        0,
+        0
+      ],
+      "related_entries": [],
+      "evolution_line": [],
+      "appearance_scenarios": []
+    },
+    {
+      "id": "beast_이그니르의_헤츨링_unknown",
+      "layer": "canon",
+      "confidence": 0.7,
+      "source": "myeolsal_v1_full",
+      "volume": 1,
+      "tags": [
+        "???",
+        "화룡종",
+        "이그니르의 헤츨링"
+      ],
+      "title": "이그니르의 헤츨링",
+      "grade": "???",
+      "species": "화룡종",
+      "danger_class": "???",
+      "description": "이그니르의 알에서 부화한 유체. 레서 드래곤 이그니르보다 작지만, 성장 잠재력은 미지수이다. 화염 속성에 대한 완전 면역을 가지고 있다.",
+      "combat_patterns": [
+        {
+          "name": "유체 화염",
+          "trigger": "always",
+          "description": "작지만 뜨거운 화염을 뿜는다.",
+          "damage_type": "화염",
+          "cooldown": null
+        }
+      ],
+      "survival_guide": "빙결 속성으로 대응. 성장하기 전에 처리하는 것이 중요하다.",
+      "warnings": [
+        "성장 시 등급 급상승 가능"
+      ],
+      "lore_notes": "",
+      "stats": {
+        "hp": "???",
+        "atk": "???",
+        "defense": "???",
+        "spd": "???",
+        "spc": "???"
+      },
+      "weaknesses": [
+        "빙결"
+      ],
+      "resistances": [
+        "화염"
+      ],
+      "coin_reward_range": [
+        0,
+        0
+      ],
+      "related_entries": [],
+      "evolution_line": [],
+      "appearance_scenarios": []
+    },
+    {
+      "id": "beast_포이즈너_unknown",
+      "layer": "canon",
+      "confidence": 0.7,
+      "source": "myeolsal_v1_full",
+      "volume": 1,
+      "tags": [
+        "???",
+        "독룡종",
+        "포이즈너"
+      ],
+      "title": "포이즈너",
+      "grade": "???",
+      "species": "독룡종",
+      "danger_class": "???",
+      "description": "독룡종의 원종. 레서 드래곤 포이즈너의 상위 개체로, 전신에서 치명적인 독기를 뿜어낸다. 정확한 등급은 미상이다.",
+      "combat_patterns": [
+        {
+          "name": "???",
+          "trigger": "???",
+          "description": "원종의 전투 패턴은 기록된 바 없다.",
+          "damage_type": "???",
+          "cooldown": null
+        }
+      ],
+      "survival_guide": "정보 부족. 해독제 다량 확보 후 접근 권장.",
+      "warnings": [
+        "등급 미상"
+      ],
+      "lore_notes": "",
+      "stats": {
+        "hp": "???",
+        "atk": "???",
+        "defense": "???",
+        "spd": "???",
+        "spc": "???"
+      },
+      "weaknesses": [],
+      "resistances": [
+        "독"
+      ],
+      "coin_reward_range": [
+        0,
+        0
+      ],
+      "related_entries": [],
+      "evolution_line": [],
+      "appearance_scenarios": []
+    },
+    {
+      "id": "beast_자이언트_센터피드_7",
+      "layer": "canon",
+      "confidence": 0.75,
+      "source": "myeolsal_v1_full",
+      "volume": 1,
+      "tags": [
+        "7급",
+        "괴수종",
+        "자이언트 센터피드"
+      ],
+      "title": "자이언트 센터피드",
+      "grade": "7급",
+      "species": "괴수종",
+      "danger_class": "보통",
+      "description": "거대한 지네형 괴수. 수십 개의 다리로 빠르게 이동하며, 각 다리 끝에 독이 묻어있다. 몸통을 반으로 잘라도 양쪽이 독립적으로 움직인다.",
+      "combat_patterns": [
+        {
+          "name": "다리 연타",
+          "trigger": "always",
+          "description": "수십 개의 독 다리로 연속 공격.",
+          "damage_type": "독",
+          "cooldown": null
+        }
+      ],
+      "survival_guide": "머리를 먼저 파괴해야 한다. 몸통만 자르면 오히려 위험해진다. 화염이 효과적.",
+      "warnings": [
+        "절단해도 움직임"
+      ],
+      "lore_notes": "",
+      "stats": {
+        "hp": "D+",
+        "atk": "D+",
+        "defense": "D+",
+        "spd": "C",
+        "spc": "D"
+      },
+      "weaknesses": [
+        "화염"
+      ],
+      "resistances": [
+        "독"
+      ],
+      "coin_reward_range": [
+        25,
+        80
+      ],
+      "related_entries": [],
+      "evolution_line": [],
+      "appearance_scenarios": []
+    },
+    {
+      "id": "beast_새끼_케르베로스_2",
+      "layer": "canon",
+      "confidence": 0.75,
+      "source": "myeolsal_v1_full",
+      "volume": 1,
+      "tags": [
+        "2급",
+        "괴수종",
+        "새끼 케르베로스"
+      ],
+      "title": "새끼 케르베로스",
+      "grade": "2급",
+      "species": "괴수종",
+      "danger_class": "치명",
+      "description": "지옥의 파수견 케르베로스의 새끼. 세 개의 머리를 가지고 있으며, 각 머리가 다른 속성(화염/빙결/독)의 브레스를 뿜는다. '새끼'라 불리지만 그 위력은 2급에 달한다.",
+      "combat_patterns": [
+        {
+          "name": "삼중 브레스",
+          "trigger": "always",
+          "description": "세 머리가 동시에 서로 다른 속성의 브레스를 발사.",
+          "damage_type": "복합",
+          "cooldown": 8
+        },
+        {
+          "name": "지옥 돌진",
+          "trigger": "hp_below_30",
+          "description": "전신에 지옥 화염을 두르고 돌진.",
+          "damage_type": "화염",
+          "cooldown": null
+        }
+      ],
+      "survival_guide": "세 머리를 동시에 공격해야 한다. 하나만 남으면 폭주한다.",
+      "warnings": [
+        "머리 하나 남으면 폭주"
+      ],
+      "lore_notes": "",
+      "stats": {
+        "hp": "A+",
+        "atk": "A+",
+        "defense": "A+",
+        "spd": "A+",
+        "spc": "A-"
+      },
+      "weaknesses": [
+        "신성"
+      ],
+      "resistances": [
+        "화염",
+        "물리"
+      ],
+      "coin_reward_range": [
+        2000,
+        5000
+      ],
+      "related_entries": [],
+      "evolution_line": [],
+      "appearance_scenarios": []
+    },
+    {
+      "id": "beast_히드라_2",
+      "layer": "canon",
+      "confidence": 0.75,
+      "source": "myeolsal_v1_full",
+      "volume": 1,
+      "tags": [
+        "2급",
+        "괴수종",
+        "히드라"
+      ],
+      "title": "히드라",
+      "grade": "2급",
+      "species": "괴수종",
+      "danger_class": "치명",
+      "description": "머리가 여러 개 달린 전설의 대뱀. 머리를 하나 자르면 두 개가 다시 자라나는 재생력을 가졌다. 머리를 자른 즉시 화염으로 단면을 지져야 재생을 막을 수 있다.",
+      "combat_patterns": [
+        {
+          "name": "다두 공격",
+          "trigger": "always",
+          "description": "여러 머리가 사방에서 동시에 물어뜯는다.",
+          "damage_type": "물리",
+          "cooldown": null
+        },
+        {
+          "name": "독액 분사",
+          "trigger": "always",
+          "description": "각 머리에서 강산성 독액을 분사.",
+          "damage_type": "독",
+          "cooldown": 5
+        }
+      ],
+      "survival_guide": "머리를 자른 즉시 화염으로 단면을 지져라. 안 그러면 두 배로 늘어난다.",
+      "warnings": [
+        "절단 후 반드시 화염 처리"
+      ],
+      "lore_notes": "",
+      "stats": {
+        "hp": "A+",
+        "atk": "A+",
+        "defense": "A+",
+        "spd": "A+",
+        "spc": "A-"
+      },
+      "weaknesses": [
+        "화염"
+      ],
+      "resistances": [
+        "독",
+        "물리"
+      ],
+      "coin_reward_range": [
+        2000,
+        5000
+      ],
+      "related_entries": [],
+      "evolution_line": [],
+      "appearance_scenarios": []
+    },
+    {
+      "id": "beast_크루크_unknown",
+      "layer": "canon",
+      "confidence": 0.7,
+      "source": "myeolsal_v1_full",
+      "volume": 1,
+      "tags": [
+        "???",
+        "괴수종",
+        "크루크"
+      ],
+      "title": "크루크",
+      "grade": "???",
+      "species": "괴수종",
+      "danger_class": "???",
+      "description": "정보가 거의 알려지지 않은 괴수. 목격 보고만 있을 뿐 상세한 생태나 전투 특성은 미상이다.",
+      "combat_patterns": [
+        {
+          "name": "???",
+          "trigger": "???",
+          "description": "알려진 전투 패턴 없음.",
+          "damage_type": "???",
+          "cooldown": null
+        }
+      ],
+      "survival_guide": "정보 부족. 교전 회피 권장.",
+      "warnings": [
+        "등급 미상"
+      ],
+      "lore_notes": "",
+      "stats": {
+        "hp": "???",
+        "atk": "???",
+        "defense": "???",
+        "spd": "???",
+        "spc": "???"
+      },
+      "weaknesses": [],
+      "resistances": [],
+      "coin_reward_range": [
+        0,
+        0
+      ],
+      "related_entries": [],
+      "evolution_line": [],
+      "appearance_scenarios": []
+    },
+    {
+      "id": "beast_스톤_호그_unknown",
+      "layer": "canon",
+      "confidence": 0.7,
+      "source": "myeolsal_v1_full",
+      "volume": 1,
+      "tags": [
+        "???",
+        "괴수종",
+        "스톤 호그"
+      ],
+      "title": "스톤 호그",
+      "grade": "???",
+      "species": "괴수종",
+      "danger_class": "???",
+      "description": "돌처럼 단단한 피부를 가진 멧돼지형 괴수. 돌진력이 강하며, 정면 충돌 시 물리 공격을 거의 흡수한다.",
+      "combat_patterns": [
+        {
+          "name": "암석 돌진",
+          "trigger": "always",
+          "description": "돌진하며 돌가죽으로 충격을 전달.",
+          "damage_type": "물리",
+          "cooldown": null
+        }
+      ],
+      "survival_guide": "측면이나 후방을 노려라. 정면 충돌은 금물.",
+      "warnings": [
+        "등급 미상"
+      ],
+      "lore_notes": "",
+      "stats": {
+        "hp": "???",
+        "atk": "???",
+        "defense": "???",
+        "spd": "???",
+        "spc": "???"
+      },
+      "weaknesses": [
+        "수속성"
+      ],
+      "resistances": [
+        "물리"
+      ],
+      "coin_reward_range": [
+        0,
+        0
+      ],
+      "related_entries": [],
+      "evolution_line": [],
+      "appearance_scenarios": []
+    },
+    {
+      "id": "beast_망치_해마_unknown",
+      "layer": "canon",
+      "confidence": 0.7,
+      "source": "myeolsal_v1_full",
+      "volume": 1,
+      "tags": [
+        "???",
+        "해수종",
+        "망치 해마"
+      ],
+      "title": "망치 해마",
+      "grade": "???",
+      "species": "해수종",
+      "danger_class": "???",
+      "description": "머리가 망치 형태인 거대 해마형 해수종. 수중에서 머리를 이용한 타격이 강력하다.",
+      "combat_patterns": [
+        {
+          "name": "망치 타격",
+          "trigger": "always",
+          "description": "거대한 머리로 수중 충격파를 발생시킨다.",
+          "damage_type": "물리",
+          "cooldown": null
+        }
+      ],
+      "survival_guide": "수중 전투 피할 것. 전기 속성 유효 추정.",
+      "warnings": [
+        "등급 미상"
+      ],
+      "lore_notes": "",
+      "stats": {
+        "hp": "???",
+        "atk": "???",
+        "defense": "???",
+        "spd": "???",
+        "spc": "???"
+      },
+      "weaknesses": [
+        "전기"
+      ],
+      "resistances": [
+        "수속성"
+      ],
+      "coin_reward_range": [
+        0,
+        0
+      ],
+      "related_entries": [],
+      "evolution_line": [],
+      "appearance_scenarios": []
+    },
+    {
+      "id": "beast_코볼트_unknown",
+      "layer": "canon",
+      "confidence": 0.7,
+      "source": "myeolsal_v1_full",
+      "volume": 1,
+      "tags": [
+        "???",
+        "인외종",
+        "코볼트"
+      ],
+      "title": "코볼트",
+      "grade": "???",
+      "species": "인외종",
+      "danger_class": "???",
+      "description": "소형 도마뱀 인외종. 지능이 낮지만 무리를 지어 행동하며, 함정 설치에 능하다. 단독으로는 위협이 되지 않지만 수십 마리가 모이면 주의해야 한다.",
+      "combat_patterns": [
+        {
+          "name": "함정 설치",
+          "trigger": "passive",
+          "description": "이동 경로에 원시적인 함정을 설치.",
+          "damage_type": null,
+          "cooldown": null
+        }
+      ],
+      "survival_guide": "발밑을 주시하라. 함정을 먼저 제거한 뒤 전진.",
+      "warnings": [
+        "등급 미상"
+      ],
+      "lore_notes": "",
+      "stats": {
+        "hp": "???",
+        "atk": "???",
+        "defense": "???",
+        "spd": "???",
+        "spc": "???"
+      },
+      "weaknesses": [
+        "화염"
+      ],
+      "resistances": [],
+      "coin_reward_range": [
+        0,
+        0
+      ],
+      "related_entries": [],
+      "evolution_line": [],
+      "appearance_scenarios": []
+    },
+    {
+      "id": "beast_벨키아_unknown",
+      "layer": "canon",
+      "confidence": 0.7,
+      "source": "myeolsal_v1_full",
+      "volume": 1,
+      "tags": [
+        "???",
+        "충왕종",
+        "벨키아"
+      ],
+      "title": "벨키아",
+      "grade": "???",
+      "species": "충왕종",
+      "danger_class": "???",
+      "description": "충왕종의 상위 개체. 현재 데이터의 '벨키아 정찰병'은 이 종의 하위 변종이다. 본체의 능력과 등급은 미상이다.",
+      "combat_patterns": [
+        {
+          "name": "???",
+          "trigger": "???",
+          "description": "본체의 전투 패턴은 기록된 바 없다.",
+          "damage_type": "???",
+          "cooldown": null
+        }
+      ],
+      "survival_guide": "정보 부족. 정찰병 수준의 화력 이상을 상정하고 대비할 것.",
+      "warnings": [
+        "등급 미상"
+      ],
+      "lore_notes": "",
+      "stats": {
+        "hp": "???",
+        "atk": "???",
+        "defense": "???",
+        "spd": "???",
+        "spc": "???"
+      },
+      "weaknesses": [
+        "화염"
+      ],
+      "resistances": [],
+      "coin_reward_range": [
+        0,
+        0
+      ],
+      "related_entries": [],
+      "evolution_line": [],
+      "appearance_scenarios": []
+    },
+    {
+      "id": "beast_인바고_unknown",
+      "layer": "canon",
+      "confidence": 0.7,
+      "source": "myeolsal_v1_full",
+      "volume": 1,
+      "tags": [
+        "???",
+        "괴수종",
+        "인바고"
+      ],
+      "title": "인바고",
+      "grade": "???",
+      "species": "괴수종",
+      "danger_class": "???",
+      "description": "상세 정보 미상의 괴수. 이름만 기록에 남아있으며, 목격자의 생존률이 낮아 구체적인 정보가 부족하다.",
+      "combat_patterns": [
+        {
+          "name": "???",
+          "trigger": "???",
+          "description": "알려진 전투 패턴 없음.",
+          "damage_type": "???",
+          "cooldown": null
+        }
+      ],
+      "survival_guide": "정보 부족. 교전 회피 권장.",
+      "warnings": [
+        "등급 미상, 생존 보고 극소"
+      ],
+      "lore_notes": "",
+      "stats": {
+        "hp": "???",
+        "atk": "???",
+        "defense": "???",
+        "spd": "???",
+        "spc": "???"
+      },
+      "weaknesses": [],
+      "resistances": [],
+      "coin_reward_range": [
+        0,
+        0
+      ],
+      "related_entries": [],
+      "evolution_line": [],
+      "appearance_scenarios": []
+    },
+    {
+      "id": "beast_미스틸렌_unknown",
+      "layer": "canon",
+      "confidence": 0.7,
+      "source": "myeolsal_v1_full",
+      "volume": 1,
+      "tags": [
+        "???",
+        "원소종",
+        "미스틸렌"
+      ],
+      "title": "미스틸렌",
+      "grade": "???",
+      "species": "원소종",
+      "danger_class": "???",
+      "description": "원소종의 상위 개체. 현재 데이터의 '미스틸렌 빙결수'는 이 종의 빙결 특화 변종이다. 본체의 능력과 등급은 미상이다.",
+      "combat_patterns": [
+        {
+          "name": "???",
+          "trigger": "???",
+          "description": "본체의 전투 패턴은 기록된 바 없다.",
+          "damage_type": "???",
+          "cooldown": null
+        }
+      ],
+      "survival_guide": "원소종 특성상 속성 상성이 핵심. 본체 속성 파악이 우선.",
+      "warnings": [
+        "등급 미상"
+      ],
+      "lore_notes": "",
+      "stats": {
+        "hp": "???",
+        "atk": "???",
+        "defense": "???",
+        "spd": "???",
+        "spc": "???"
+      },
+      "weaknesses": [],
+      "resistances": [],
+      "coin_reward_range": [
+        0,
+        0
+      ],
+      "related_entries": [],
+      "evolution_line": [],
+      "appearance_scenarios": []
+    },
+    {
+      "id": "beast_캄페_unknown",
+      "layer": "canon",
+      "confidence": 0.7,
+      "source": "myeolsal_v1_full",
+      "volume": 1,
+      "tags": [
+        "???",
+        "괴수종",
+        "캄페"
+      ],
+      "title": "캄페",
+      "grade": "???",
+      "species": "괴수종",
+      "danger_class": "???",
+      "description": "그리스 신화에 등장하는 괴물을 모티브로 한 괴수. 상반신은 여인, 하반신은 뱀이며 독사로 이루어진 머리카락을 가졌다고 전해진다.",
+      "combat_patterns": [
+        {
+          "name": "???",
+          "trigger": "???",
+          "description": "알려진 전투 패턴 없음.",
+          "damage_type": "???",
+          "cooldown": null
+        }
+      ],
+      "survival_guide": "정보 부족. 교전 회피 권장.",
+      "warnings": [
+        "등급 미상"
+      ],
+      "lore_notes": "",
+      "stats": {
+        "hp": "???",
+        "atk": "???",
+        "defense": "???",
+        "spd": "???",
+        "spc": "???"
+      },
+      "weaknesses": [],
+      "resistances": [],
+      "coin_reward_range": [
+        0,
+        0
+      ],
+      "related_entries": [],
+      "evolution_line": [],
+      "appearance_scenarios": []
+    },
+    {
+      "id": "beast_투명_위습_unknown",
+      "layer": "canon",
+      "confidence": 0.7,
+      "source": "myeolsal_v1_full",
+      "volume": 1,
+      "tags": [
+        "???",
+        "유령종",
+        "투명 위습"
+      ],
+      "title": "투명 위습",
+      "grade": "???",
+      "species": "유령종",
+      "danger_class": "???",
+      "description": "투명한 불꽃 형태의 유령종. 보이지 않는 상태로 접근하여 생명력을 흡수한다. 신성이나 빛 속성에 약할 것으로 추정된다.",
+      "combat_patterns": [
+        {
+          "name": "생명력 흡수",
+          "trigger": "contact",
+          "description": "접촉한 대상의 생명력을 빨아들인다.",
+          "damage_type": "정신",
+          "cooldown": null
+        }
+      ],
+      "survival_guide": "빛을 밝혀 존재를 드러낸 뒤 신성 공격으로 처치.",
+      "warnings": [
+        "등급 미상, 투명 상태"
+      ],
+      "lore_notes": "",
+      "stats": {
+        "hp": "???",
+        "atk": "???",
+        "defense": "???",
+        "spd": "???",
+        "spc": "???"
+      },
+      "weaknesses": [
+        "신성",
+        "빛"
+      ],
+      "resistances": [
+        "물리"
+      ],
+      "coin_reward_range": [
+        0,
+        0
+      ],
+      "related_entries": [],
+      "evolution_line": [],
+      "appearance_scenarios": []
+    },
+    {
+      "id": "beast_폭탄_두더지_unknown",
+      "layer": "canon",
+      "confidence": 0.7,
+      "source": "myeolsal_v1_full",
+      "volume": 1,
+      "tags": [
+        "???",
+        "지하종",
+        "폭탄 두더지"
+      ],
+      "title": "폭탄 두더지",
+      "grade": "???",
+      "species": "지하종",
+      "danger_class": "???",
+      "description": "지하에서 갑자기 튀어나와 자폭하는 지하종. 개체 하나의 위력은 작지만, 연쇄 자폭 시 지반 붕괴를 일으킬 수 있다.",
+      "combat_patterns": [
+        {
+          "name": "자폭",
+          "trigger": "proximity",
+          "description": "대상에 접근하면 몸을 부풀려 폭발.",
+          "damage_type": "화염",
+          "cooldown": null
+        }
+      ],
+      "survival_guide": "발밑 진동에 주의하라. 땅이 흔들리면 즉시 이탈.",
+      "warnings": [
+        "등급 미상, 연쇄 폭발 주의"
+      ],
+      "lore_notes": "",
+      "stats": {
+        "hp": "???",
+        "atk": "???",
+        "defense": "???",
+        "spd": "???",
+        "spc": "???"
+      },
+      "weaknesses": [
+        "수속성"
+      ],
+      "resistances": [],
+      "coin_reward_range": [
+        0,
+        0
+      ],
+      "related_entries": [],
+      "evolution_line": [],
+      "appearance_scenarios": []
+    },
+    {
+      "id": "beast_고블린_unknown",
+      "layer": "canon",
+      "confidence": 0.7,
+      "source": "myeolsal_v1_full",
+      "volume": 1,
+      "tags": [
+        "???",
+        "인외종",
+        "고블린"
+      ],
+      "title": "고블린",
+      "grade": "???",
+      "species": "인외종",
+      "danger_class": "???",
+      "description": "소형 인외종. 지능은 낮지만 교활하며 무리를 지어 행동한다. 야간에 활동이 활발하고, 훔치기와 기습에 능하다.",
+      "combat_patterns": [
+        {
+          "name": "집단 기습",
+          "trigger": "group_5plus",
+          "description": "어둠 속에서 다수가 동시에 기습.",
+          "damage_type": "물리",
+          "cooldown": null
+        }
+      ],
+      "survival_guide": "빛을 밝혀두면 접근하지 못한다. 개체 하나는 약하므로 분리 처리.",
+      "warnings": [
+        "등급 미상"
+      ],
+      "lore_notes": "",
+      "stats": {
+        "hp": "???",
+        "atk": "???",
+        "defense": "???",
+        "spd": "???",
+        "spc": "???"
+      },
+      "weaknesses": [
+        "빛",
+        "화염"
+      ],
+      "resistances": [],
+      "coin_reward_range": [
+        0,
+        0
+      ],
+      "related_entries": [],
+      "evolution_line": [],
+      "appearance_scenarios": []
+    },
+    {
+      "id": "beast_오크_unknown",
+      "layer": "canon",
+      "confidence": 0.7,
+      "source": "myeolsal_v1_full",
+      "volume": 1,
+      "tags": [
+        "???",
+        "인외종",
+        "오크"
+      ],
+      "title": "오크",
+      "grade": "???",
+      "species": "인외종",
+      "danger_class": "???",
+      "description": "거대한 체구의 인외종. 둔중하지만 괴력을 가졌으며, 단순한 무기를 사용한다. 무리의 우두머리에 의해 통제된다.",
+      "combat_patterns": [
+        {
+          "name": "곤봉 강타",
+          "trigger": "always",
+          "description": "거대한 곤봉으로 내려친다.",
+          "damage_type": "물리",
+          "cooldown": null
+        }
+      ],
+      "survival_guide": "속도가 느리므로 기동력으로 압도하라. 우두머리를 먼저 처리하면 통제가 풀린다.",
+      "warnings": [
+        "등급 미상"
+      ],
+      "lore_notes": "",
+      "stats": {
+        "hp": "???",
+        "atk": "???",
+        "defense": "???",
+        "spd": "???",
+        "spc": "???"
+      },
+      "weaknesses": [
+        "화염"
+      ],
+      "resistances": [
+        "물리"
+      ],
+      "coin_reward_range": [
+        0,
+        0
+      ],
+      "related_entries": [],
+      "evolution_line": [],
+      "appearance_scenarios": []
+    },
+    {
+      "id": "beast_트롤_unknown",
+      "layer": "canon",
+      "confidence": 0.7,
+      "source": "myeolsal_v1_full",
+      "volume": 1,
+      "tags": [
+        "???",
+        "인외종",
+        "트롤"
+      ],
+      "title": "트롤",
+      "grade": "???",
+      "species": "인외종",
+      "danger_class": "???",
+      "description": "높은 재생력을 가진 거대 인외종. 팔다리를 잘라도 다시 붙으며, 재생을 막으려면 화염으로 상처를 지져야 한다.",
+      "combat_patterns": [
+        {
+          "name": "난폭한 휘두르기",
+          "trigger": "always",
+          "description": "긴 팔로 주변을 마구 휘두른다.",
+          "damage_type": "물리",
+          "cooldown": null
+        },
+        {
+          "name": "재생",
+          "trigger": "passive",
+          "description": "모든 상처가 빠르게 회복된다.",
+          "damage_type": null,
+          "cooldown": null
+        }
+      ],
+      "survival_guide": "화염으로 재생을 막아야 한다. 불 없이는 절대 이길 수 없다.",
+      "warnings": [
+        "등급 미상, 화염 없이 처치 불가"
+      ],
+      "lore_notes": "",
+      "stats": {
+        "hp": "???",
+        "atk": "???",
+        "defense": "???",
+        "spd": "???",
+        "spc": "???"
+      },
+      "weaknesses": [
+        "화염"
+      ],
+      "resistances": [
+        "물리"
+      ],
+      "coin_reward_range": [
+        0,
+        0
+      ],
+      "related_entries": [],
+      "evolution_line": [],
+      "appearance_scenarios": []
+    },
+    {
+      "id": "beast_블랙_유니콘_unknown",
+      "layer": "canon",
+      "confidence": 0.7,
+      "source": "myeolsal_v1_full",
+      "volume": 1,
+      "tags": [
+        "???",
+        "괴수종",
+        "블랙 유니콘"
+      ],
+      "title": "블랙 유니콘",
+      "grade": "???",
+      "species": "괴수종",
+      "danger_class": "???",
+      "description": "검은 뿔을 가진 유니콘형 괴수. 일반 유니콘과 달리 공격적이며, 뿔에서 어둠 속성 에너지를 방출한다. 전설의 존재로 목격 사례가 극히 드물다.",
+      "combat_patterns": [
+        {
+          "name": "어둠 뿔 돌진",
+          "trigger": "always",
+          "description": "어둠 에너지를 두른 뿔로 돌진.",
+          "damage_type": "어둠",
+          "cooldown": null
+        }
+      ],
+      "survival_guide": "빛이나 신성 속성이 유효할 것으로 추정.",
+      "warnings": [
+        "등급 미상"
+      ],
+      "lore_notes": "",
+      "stats": {
+        "hp": "???",
+        "atk": "???",
+        "defense": "???",
+        "spd": "???",
+        "spc": "???"
+      },
+      "weaknesses": [
+        "신성",
+        "빛"
+      ],
+      "resistances": [
+        "어둠"
+      ],
+      "coin_reward_range": [
+        0,
+        0
+      ],
+      "related_entries": [],
+      "evolution_line": [],
+      "appearance_scenarios": []
+    },
+    {
+      "id": "beast_일곤킨의_뱀_unknown",
+      "layer": "canon",
+      "confidence": 0.7,
+      "source": "myeolsal_v1_full",
+      "volume": 1,
+      "tags": [
+        "???",
+        "괴수종",
+        "일곤킨의 뱀"
+      ],
+      "title": "일곤킨의 뱀",
+      "grade": "???",
+      "species": "괴수종",
+      "danger_class": "???",
+      "description": "토착 신화에서 유래한 거대 뱀형 괴수. 대지를 감싸안을 정도로 거대하다는 기록이 있으나, 실체를 확인한 생존자가 없다.",
+      "combat_patterns": [
+        {
+          "name": "???",
+          "trigger": "???",
+          "description": "알려진 전투 패턴 없음.",
+          "damage_type": "???",
+          "cooldown": null
+        }
+      ],
+      "survival_guide": "정보 부족. 교전 회피 권장.",
+      "warnings": [
+        "등급 미상"
+      ],
+      "lore_notes": "",
+      "stats": {
+        "hp": "???",
+        "atk": "???",
+        "defense": "???",
+        "spd": "???",
+        "spc": "???"
+      },
+      "weaknesses": [],
+      "resistances": [],
+      "coin_reward_range": [
+        0,
+        0
+      ],
+      "related_entries": [],
+      "evolution_line": [],
+      "appearance_scenarios": []
+    },
+    {
+      "id": "beast_사스콰치_unknown",
+      "layer": "canon",
+      "confidence": 0.7,
+      "source": "myeolsal_v1_full",
+      "volume": 1,
+      "tags": [
+        "???",
+        "인외종",
+        "사스콰치"
+      ],
+      "title": "사스콰치",
+      "grade": "???",
+      "species": "인외종",
+      "danger_class": "???",
+      "description": "설산에 서식하는 거대 유인원형 인외종. 극한의 추위에 적응해 빙결 속성에 대한 강한 내성을 가지고 있다. 조용히 다가와 기습하는 습성이 있다.",
+      "combat_patterns": [
+        {
+          "name": "바위 투척",
+          "trigger": "always",
+          "description": "거대한 바위를 던져 원거리 공격.",
+          "damage_type": "물리",
+          "cooldown": null
+        }
+      ],
+      "survival_guide": "화염 속성이 유효할 것으로 추정. 설산 탐사 시 경계 필수.",
+      "warnings": [
+        "등급 미상"
+      ],
+      "lore_notes": "",
+      "stats": {
+        "hp": "???",
+        "atk": "???",
+        "defense": "???",
+        "spd": "???",
+        "spc": "???"
+      },
+      "weaknesses": [
+        "화염"
+      ],
+      "resistances": [
+        "빙결"
+      ],
+      "coin_reward_range": [
+        0,
+        0
+      ],
+      "related_entries": [],
+      "evolution_line": [],
+      "appearance_scenarios": []
+    },
+    {
+      "id": "beast_아귀_unknown",
+      "layer": "canon",
+      "confidence": 0.7,
+      "source": "myeolsal_v1_full",
+      "volume": 1,
+      "tags": [
+        "???",
+        "괴수종",
+        "아귀"
+      ],
+      "title": "아귀",
+      "grade": "???",
+      "species": "괴수종",
+      "danger_class": "???",
+      "description": "넓은 입으로 닥치는 대로 삼키는 괴수. 현재 데이터의 '진흙 아귀'는 이 종의 변종이다. 본체의 등급과 상세 정보는 미상이다.",
+      "combat_patterns": [
+        {
+          "name": "포식",
+          "trigger": "always",
+          "description": "거대한 입으로 대상을 통째로 삼킨다.",
+          "damage_type": "물리",
+          "cooldown": null
+        }
+      ],
+      "survival_guide": "입 안에 약점이 있다는 기록이 있으나 확인되지 않음.",
+      "warnings": [
+        "등급 미상"
+      ],
+      "lore_notes": "",
+      "stats": {
+        "hp": "???",
+        "atk": "???",
+        "defense": "???",
+        "spd": "???",
+        "spc": "???"
+      },
+      "weaknesses": [],
+      "resistances": [],
+      "coin_reward_range": [
+        0,
+        0
+      ],
+      "related_entries": [],
+      "evolution_line": [],
+      "appearance_scenarios": []
+    },
+    {
+      "id": "beast_만년화리_unknown",
+      "layer": "canon",
+      "confidence": 0.7,
+      "source": "myeolsal_v1_full",
+      "volume": 1,
+      "tags": [
+        "???",
+        "괴수종",
+        "만년화리"
+      ],
+      "title": "만년화리",
+      "grade": "???",
+      "species": "괴수종",
+      "danger_class": "???",
+      "description": "만 년을 산 것으로 추정되는 고대 괴수. 이름 외에 알려진 정보가 거의 없으며, 기록에서도 존재 자체가 의문시되는 전설적 괴수이다.",
+      "combat_patterns": [
+        {
+          "name": "???",
+          "trigger": "???",
+          "description": "알려진 전투 패턴 없음.",
+          "damage_type": "???",
+          "cooldown": null
+        }
+      ],
+      "survival_guide": "정보 부족. 교전 회피 권장.",
+      "warnings": [
+        "등급 미상"
+      ],
+      "lore_notes": "",
+      "stats": {
+        "hp": "???",
+        "atk": "???",
+        "defense": "???",
+        "spd": "???",
+        "spc": "???"
+      },
+      "weaknesses": [],
+      "resistances": [],
+      "coin_reward_range": [
+        0,
+        0
+      ],
+      "related_entries": [],
+      "evolution_line": [],
+      "appearance_scenarios": []
     }
   ]
 }

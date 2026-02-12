@@ -1,7 +1,7 @@
 """
 멸살법 시드 데이터 로드 스크립트
 
-Canon 괴수 데이터를 ChromaDB와 Neo4j에 로드
+Canon 괴수 데이터를 Pinecone과 Neo4j에 로드
 """
 import asyncio
 import json
@@ -13,9 +13,8 @@ sys.path.insert(0, str(Path(__file__).parent.parent.parent.parent))
 
 from domain.myeolsal.models import BeastEntry
 from domain.myeolsal.container import (
-    get_chroma_repository,
+    get_pinecone_repository,
     get_neo4j_repository,
-    get_embeddings,
 )
 
 
@@ -29,9 +28,8 @@ async def load_canon_beasts():
         return
 
     # 저장소 초기화
-    chroma_repo = get_chroma_repository()
+    pinecone_repo = get_pinecone_repository()
     neo4j_repo = get_neo4j_repository()
-    embeddings = get_embeddings()
 
     # Neo4j 연결 확인 및 제약 조건 생성
     if await neo4j_repo.verify_connectivity():
@@ -42,12 +40,12 @@ async def load_canon_beasts():
         print("Warning: Neo4j 연결 실패, 관계 데이터는 저장되지 않습니다")
 
     # 기존 데이터 확인
-    existing_count = chroma_repo.count()
+    existing_count = pinecone_repo.count()
     if existing_count > 0:
         print(f"기존 데이터 {existing_count}개 발견")
         response = input("기존 데이터를 삭제하고 다시 로드하시겠습니까? (y/n): ")
         if response.lower() == 'y':
-            chroma_repo.clear()
+            pinecone_repo.clear()
             await neo4j_repo.clear_all_beasts()
             print("기존 데이터 삭제 완료")
         else:
@@ -68,12 +66,8 @@ async def load_canon_beasts():
             # BeastEntry 생성
             beast = BeastEntry(**beast_data)
 
-            # 임베딩 생성
-            text = beast.get_searchable_text()
-            embedding = await embeddings.aembed_query(text)
-
-            # ChromaDB 저장
-            chroma_repo.add_beast(beast, embedding)
+            # Pinecone 저장 (임베딩 자동 생성)
+            pinecone_repo.add_beast(beast)
 
             # Neo4j 저장
             await neo4j_repo.create_beast_node(beast)
@@ -121,7 +115,7 @@ async def load_canon_beasts():
             print(f"  - {err['id']}: {err['error']}")
 
     # 통계 출력
-    stats = chroma_repo.get_stats()
+    stats = pinecone_repo.get_stats()
     print(f"\n========== 저장소 통계 ==========")
     print(f"총 괴수 수: {stats['total_count']}")
     print(f"등급 분포: {stats['grade_distribution']}")
@@ -130,11 +124,11 @@ async def load_canon_beasts():
 
 async def check_data():
     """저장된 데이터 확인"""
-    chroma_repo = get_chroma_repository()
+    pinecone_repo = get_pinecone_repository()
     neo4j_repo = get_neo4j_repository()
 
-    print("========== ChromaDB 상태 ==========")
-    stats = chroma_repo.get_stats()
+    print("========== Pinecone 상태 ==========")
+    stats = pinecone_repo.get_stats()
     print(f"총 괴수 수: {stats['total_count']}")
     print(f"등급 분포: {stats['grade_distribution']}")
     print(f"종 분포: {stats['species_distribution']}")

@@ -1,8 +1,8 @@
 """멸살법 저장소"""
-from .chroma_repository import ChromaBeastRepository
+from .pinecone_repository import PineconeBeastRepository
 from .neo4j_repository import Neo4jMyeolsalRepository
 
 __all__ = [
-    "ChromaBeastRepository",
+    "PineconeBeastRepository",
     "Neo4jMyeolsalRepository",
 ]

@@ -13,7 +13,7 @@ from langchain_openai import ChatOpenAI
 
 from server.config import get_settings
 from domain.myeolsal.models import MyeolsalRules
-from domain.myeolsal.repository import ChromaBeastRepository, Neo4jMyeolsalRepository
+from domain.myeolsal.repository import PineconeBeastRepository, Neo4jMyeolsalRepository
 from domain.myeolsal.agents import (
     BeastGeneratorAgent,
     BeastRetrieverAgent,
@@ -38,15 +38,14 @@ def get_myeolsal_rules() -> MyeolsalRules:
 
 
 @lru_cache
-def get_chroma_repository() -> ChromaBeastRepository:
-    """ChromaDB 저장소 (기본 임베딩 함수 사용)"""
+def get_pinecone_repository() -> PineconeBeastRepository:
+    """Pinecone 벡터 저장소"""
     settings = get_settings()
-    # data_dir 설정이 있으면 사용, 없으면 기본 경로
-    persist_dir = getattr(settings, 'data_dir', './data') + "/chroma_myeolsal"
 
-    return ChromaBeastRepository(
-        persist_directory=persist_dir,
-        collection_name="myeolsal_beasts"
+    return PineconeBeastRepository(
+        api_key=settings.pinecone_api_key,
+        index_name=settings.pinecone_index_name,
+        openai_api_key=settings.openai_api_key,
     )
 
 
@@ -90,7 +89,7 @@ def get_llm() -> Union[ChatOpenAI, ChatAnthropic]:
 def get_retriever() -> BeastRetrieverAgent:
     """괴수 검색 에이전트"""
     return BeastRetrieverAgent(
-        chroma_repo=get_chroma_repository(),
+        vector_repo=get_pinecone_repository(),
         neo4j_repo=get_neo4j_repository()
     )
 
@@ -127,7 +126,7 @@ def get_workflow() -> MyeolsalWorkflow:
 def get_myeolsal_service() -> MyeolsalService:
     """멸살법 서비스"""
     return MyeolsalService(
-        chroma_repo=get_chroma_repository(),
+        vector_repo=get_pinecone_repository(),
         neo4j_repo=get_neo4j_repository(),
         retriever=get_retriever(),
         generator=get_generator(),

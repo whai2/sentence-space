@@ -1,33 +1,33 @@
 """
 괴수 RAG 검색 에이전트
 
-ChromaDB + Neo4j 통합 검색
-ChromaDB 기본 임베딩 함수 사용 (API 키 불필요)
+Pinecone + Neo4j 통합 검색
+OpenAI text-embedding-3-small 임베딩 사용
 """
 from typing import Any
 
 from domain.myeolsal.models import BeastEntry
-from domain.myeolsal.repository import ChromaBeastRepository, Neo4jMyeolsalRepository
+from domain.myeolsal.repository import PineconeBeastRepository, Neo4jMyeolsalRepository
 
 
 class BeastRetrieverAgent:
     """
     괴수 RAG 검색 에이전트
 
-    벡터 검색(ChromaDB) + 관계 검색(Neo4j) 통합
+    벡터 검색(Pinecone) + 관계 검색(Neo4j) 통합
     """
 
     def __init__(
         self,
-        chroma_repo: ChromaBeastRepository,
+        vector_repo: PineconeBeastRepository,
         neo4j_repo: Neo4jMyeolsalRepository,
     ):
         """
         Args:
-            chroma_repo: ChromaDB 저장소
+            vector_repo: Pinecone 벡터 저장소
             neo4j_repo: Neo4j 저장소
         """
-        self.chroma_repo = chroma_repo
+        self.vector_repo = vector_repo
         self.neo4j_repo = neo4j_repo
 
     async def search(
@@ -49,8 +49,8 @@ class BeastRetrieverAgent:
         Returns:
             검색 결과 리스트
         """
-        # ChromaDB 시맨틱 검색 (자동 임베딩)
-        chroma_results = self.chroma_repo.search(
+        # Pinecone 시맨틱 검색
+        search_results = self.vector_repo.search(
             query=query,
             n_results=n_results,
             filters=filters
@@ -58,7 +58,7 @@ class BeastRetrieverAgent:
 
         # Neo4j 관계 보강 (선택적)
         if include_relations:
-            for result in chroma_results:
+            for result in search_results:
                 beast_id = result.get("id", "")
                 # 청크 ID에서 원본 ID 추출
                 if "_desc" in beast_id or "_combat" in beast_id or "_survival" in beast_id:
@@ -78,11 +78,11 @@ class BeastRetrieverAgent:
                     result["evolution_tree"] = []
                     result["scenarios"] = []
 
-        return chroma_results
+        return search_results
 
     async def search_by_grade(self, grade: str, limit: int = 10) -> list[dict]:
         """등급별 검색"""
-        return self.chroma_repo.search(
+        return self.vector_repo.search(
             query=f"{grade} 괴수",
             n_results=limit,
             filters={"grade": grade}
@@ -90,7 +90,7 @@ class BeastRetrieverAgent:
 
     async def search_by_species(self, species: str, limit: int = 10) -> list[dict]:
         """종별 검색"""
-        return self.chroma_repo.search(
+        return self.vector_repo.search(
             query=species,
             n_results=limit,
             filters={"species": species}
@@ -98,7 +98,7 @@ class BeastRetrieverAgent:
 
     async def search_by_weakness(self, weakness: str, limit: int = 10) -> list[dict]:
         """약점 기반 검색"""
-        results = self.chroma_repo.search(
+        results = self.vector_repo.search(
             query=f"{weakness} 속성에 약한 괴수",
             n_results=limit * 2  # 필터링 후 줄어들 수 있으므로
         )
@@ -133,7 +133,7 @@ class BeastRetrieverAgent:
         """
         query_text = beast.get_searchable_text()
 
-        results = self.chroma_repo.search(
+        results = self.vector_repo.search(
             query=query_text,
             n_results=n_results + (1 if exclude_self else 0)
         )
@@ -155,7 +155,7 @@ class BeastRetrieverAgent:
             전투 관련 정보
         """
         # combat 청크 필터링
-        results = self.chroma_repo.search(
+        results = self.vector_repo.search(
             query=f"전투 패턴 공략 {query}",
             n_results=n_results * 2,
             filters={"chunk_type": "combat"}
@@ -163,7 +163,7 @@ class BeastRetrieverAgent:
 
         if len(results) < n_results:
             # combat 청크가 부족하면 일반 검색 추가
-            general_results = self.chroma_repo.search(
+            general_results = self.vector_repo.search(
                 query=f"전투 패턴 공략 {query}",
                 n_results=n_results
             )
@@ -187,14 +187,14 @@ class BeastRetrieverAgent:
         Returns:
             생존 관련 정보
         """
-        results = self.chroma_repo.search(
+        results = self.vector_repo.search(
             query=f"생존 가이드 대처법 {query}",
             n_results=n_results * 2,
             filters={"chunk_type": "survival"}
         )
 
         if len(results) < n_results:
-            general_results = self.chroma_repo.search(
+            general_results = self.vector_repo.search(
                 query=f"생존 가이드 대처법 {query}",
                 n_results=n_results
             )

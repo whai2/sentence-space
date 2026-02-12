@@ -53,7 +53,7 @@ def setup_events(app: FastAPI) -> None:
     @app.on_event("startup")
     async def on_startup():
         await startup()
-        # 멸살법 서비스 초기화 (ChromaDB가 비어있으면 시드 데이터 자동 로드)
+        # 멸살법 서비스 초기화 (Pinecone이 비어있으면 시드 데이터 자동 로드)
         try:
             from domain.myeolsal.container import get_myeolsal_service
             service = get_myeolsal_service()
