@@ -80,7 +80,10 @@ export default function MyeolsalViewer({ onBack: _onBack }: { onBack: () => void
   const [selectedBeast, setSelectedBeast] = useState<BeastResult | null>(null);
   const [stats, setStats] = useState<Stats | null>(null);
   const [graphData, setGraphData] = useState<GraphData | null>(null);
-  const [searchFilter, setSearchFilter] = useState({ grade: '', species: '', scenario: '' });
+  const [searchFilter, setSearchFilter] = useState({ grade: '', species: '' });
+  const [beastListTotal, setBeastListTotal] = useState(0);
+  const [beastListHasMore, setBeastListHasMore] = useState(false);
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
 
   const containerRef = useRef<HTMLDivElement>(null);
   const networkRef = useRef<Network | null>(null);
@@ -173,21 +176,41 @@ export default function MyeolsalViewer({ onBack: _onBack }: { onBack: () => void
     }
   };
 
-  const loadBeasts = async (searchQuery: string) => {
+  const loadBeasts = async (_searchQuery?: string) => {
     setIsLoading(true);
     try {
-      const params = new URLSearchParams({ q: searchQuery || '괴수', limit: '50' });
+      const params = new URLSearchParams({ offset: '0', limit: '50' });
       if (searchFilter.grade) params.append('grade', searchFilter.grade);
       if (searchFilter.species) params.append('species', searchFilter.species);
-      if (searchFilter.scenario) params.append('scenario', searchFilter.scenario);
 
-      const res = await fetch(`${API_URL}/api/myeolsal/beasts?${params}`);
+      const res = await fetch(`${API_URL}/api/myeolsal/beasts/list?${params}`);
       const data = await res.json();
       setBeasts(data.results || []);
+      setBeastListTotal(data.total || 0);
+      setBeastListHasMore(data.has_more || false);
     } catch (err) {
       console.error('Failed to load beasts:', err);
     }
     setIsLoading(false);
+  };
+
+  const loadMoreBeasts = async () => {
+    setIsLoadingMore(true);
+    try {
+      const nextOffset = beasts.length;
+      const params = new URLSearchParams({ offset: String(nextOffset), limit: '50' });
+      if (searchFilter.grade) params.append('grade', searchFilter.grade);
+      if (searchFilter.species) params.append('species', searchFilter.species);
+
+      const res = await fetch(`${API_URL}/api/myeolsal/beasts/list?${params}`);
+      const data = await res.json();
+      setBeasts((prev) => [...prev, ...(data.results || [])]);
+      setBeastListTotal(data.total || 0);
+      setBeastListHasMore(data.has_more || false);
+    } catch (err) {
+      console.error('Failed to load more beasts:', err);
+    }
+    setIsLoadingMore(false);
   };
 
   const loadGraph = async () => {
@@ -370,28 +393,6 @@ export default function MyeolsalViewer({ onBack: _onBack }: { onBack: () => void
                   <option key={s} value={s}>{s}</option>
                 ))}
               </select>
-              <select
-                value={searchFilter.scenario}
-                onChange={(e) => {
-                  setSearchFilter((prev) => ({ ...prev, scenario: e.target.value }));
-                }}
-              >
-                <option value="">전체 시나리오</option>
-                {stats?.pinecone.scenario_distribution &&
-                  Object.entries(stats.pinecone.scenario_distribution)
-                    .sort(([a], [b]) => {
-                      // scenario_main_001 형식에서 숫자 추출하여 정렬
-                      const numA = parseInt(a.split('_').pop() || '0');
-                      const numB = parseInt(b.split('_').pop() || '0');
-                      return numA - numB;
-                    })
-                    .map(([scenario, count]) => (
-                      <option key={scenario} value={scenario}>
-                        {formatScenarioName(scenario)} ({count})
-                      </option>
-                    ))
-                }
-              </select>
               <button onClick={() => loadBeasts('')}>적용</button>
             </div>
 
@@ -443,6 +444,18 @@ export default function MyeolsalViewer({ onBack: _onBack }: { onBack: () => void
                 </div>
               )}
             </div>
+
+            {/* 페이지네이션 */}
+            {beasts.length > 0 && (
+              <div className="beasts-pagination">
+                <span className="beasts-count">{beasts.length} / {beastListTotal}종</span>
+                {beastListHasMore && (
+                  <button className="load-more-btn" onClick={loadMoreBeasts} disabled={isLoadingMore}>
+                    {isLoadingMore ? '불러오는 중...' : '더 보기'}
+                  </button>
+                )}
+              </div>
+            )}
           </div>
         )}
 

@@ -92,6 +92,20 @@ async def search_beasts(
     return SearchResponse(results=results, count=len(results))
 
 
+@router.get("/beasts/list")
+async def list_beasts(
+    offset: int = Query(default=0, ge=0, description="오프셋"),
+    limit: int = Query(default=50, ge=1, le=100, description="페이지 크기"),
+    grade: str | None = Query(default=None, description="등급 필터"),
+    species: str | None = Query(default=None, description="종 필터"),
+):
+    """괴수 전체 목록 (페이지네이션)"""
+    service = get_myeolsal_service()
+    return service.list_beasts(
+        offset=offset, limit=limit, grade=grade, species=species,
+    )
+
+
 @router.get("/beasts/{beast_id}")
 async def get_beast(beast_id: str):
     """괴수 상세 조회"""

@@ -661,6 +661,41 @@
   font-size: 0.9rem;
 }
 
+/* === 페이지네이션 === */
+.beasts-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1.5rem 0;
+}
+
+.beasts-count {
+  font-size: 0.9rem;
+  color: #718096;
+}
+
+.load-more-btn {
+  padding: 0.6rem 2rem;
+  background: rgba(99, 179, 237, 0.15);
+  border: 1px solid rgba(99, 179, 237, 0.3);
+  border-radius: 8px;
+  color: #63b3ed;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.load-more-btn:hover:not(:disabled) {
+  background: rgba(99, 179, 237, 0.25);
+  border-color: #63b3ed;
+}
+
+.load-more-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 /* === 반응형 === */
 @media (max-width: 768px) {
   .myeolsal-header {

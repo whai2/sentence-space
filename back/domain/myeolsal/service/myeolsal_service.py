@@ -243,6 +243,29 @@ class MyeolsalService:
         return True
 
     # ============================================
+    # 괴수 목록 (페이지네이션)
+    # ============================================
+
+    def list_beasts(
+        self,
+        offset: int = 0,
+        limit: int = 50,
+        grade: str | None = None,
+        species: str | None = None,
+    ) -> dict:
+        """전체 괴수 목록 조회 (페이지네이션)"""
+        results, total = self.vector_repo.list_beasts(
+            offset=offset, limit=limit, grade=grade, species=species,
+        )
+        return {
+            "results": results,
+            "total": total,
+            "offset": offset,
+            "limit": limit,
+            "has_more": offset + limit < total,
+        }
+
+    # ============================================
     # 통계/정보
     # ============================================
 

@@ -251,6 +251,64 @@ class PineconeBeastRepository:
         """모든 괴수 ID 조회 (원본 ID로 반환)"""
         return [self._from_pinecone_id(pid) for pid in self._get_raw_pinecone_ids()]
 
+    # === 전체 목록 조회 (캐시 기반) ===
+
+    _all_beasts_cache: list[dict] | None = None
+
+    def _fetch_all_beasts(self) -> list[dict]:
+        """모든 괴수 메타데이터를 가져와 캐시"""
+        raw_ids = self._get_raw_pinecone_ids()
+        all_beasts = []
+
+        for i in range(0, len(raw_ids), 100):
+            batch = raw_ids[i : i + 100]
+            result = self.index.fetch(ids=batch)
+            for pid in batch:
+                if pid not in result.vectors:
+                    continue
+                vec_data = result.vectors[pid]
+                metadata = dict(vec_data.metadata) if vec_data.metadata else {}
+                document = metadata.pop("document", None)
+                original_id = metadata.pop("original_id", None) or self._from_pinecone_id(pid)
+                metadata = self._parse_json_fields(metadata)
+                all_beasts.append({
+                    "id": original_id,
+                    "document": document,
+                    "metadata": metadata,
+                })
+
+        return all_beasts
+
+    def invalidate_cache(self) -> None:
+        """캐시 무효화 (괴수 추가/삭제 시 호출)"""
+        self._all_beasts_cache = None
+
+    def list_beasts(
+        self,
+        offset: int = 0,
+        limit: int = 50,
+        grade: str | None = None,
+        species: str | None = None,
+    ) -> tuple[list[dict], int]:
+        """
+        전체 괴수 목록 조회 (페이지네이션 + 필터)
+
+        Returns:
+            (결과 리스트, 필터 적용 후 총 개수)
+        """
+        if self._all_beasts_cache is None:
+            self._all_beasts_cache = self._fetch_all_beasts()
+
+        filtered = self._all_beasts_cache
+        if grade:
+            filtered = [b for b in filtered if b["metadata"].get("grade") == grade]
+        if species:
+            filtered = [b for b in filtered if b["metadata"].get("species") == species]
+
+        total = len(filtered)
+        page = filtered[offset : offset + limit]
+        return page, total
+
     def delete(self, beast_id: str) -> bool:
         """
         괴수 삭제
