@@ -55,7 +55,7 @@ interface GraphData {
 }
 
 interface Stats {
-  chroma: {
+  pinecone: {
     total_count: number;
     grade_distribution: Record<string, number>;
     species_distribution: Record<string, number>;
@@ -264,7 +264,7 @@ export default function MyeolsalViewer({ onBack: _onBack }: { onBack: () => void
         <div className="header-stats">
           {stats && (
             <>
-              <span className="stat-badge">괴수 {stats.chroma.total_count}종</span>
+              <span className="stat-badge">괴수 {stats.pinecone.total_count}종</span>
               <span className="stat-badge">등급 {stats.rules.grades}개</span>
             </>
           )}
@@ -305,7 +305,7 @@ export default function MyeolsalViewer({ onBack: _onBack }: { onBack: () => void
                       "스틸울프 생존법"
                     </button>
                   </div>
-                  {stats?.chroma.total_count === 0 && (
+                  {stats?.pinecone.total_count === 0 && (
                     <button className="init-btn" onClick={initializeData} disabled={isLoading}>
                       {isLoading ? '로딩 중...' : '📥 시드 데이터 로드'}
                     </button>
@@ -363,8 +363,8 @@ export default function MyeolsalViewer({ onBack: _onBack }: { onBack: () => void
                 }}
               >
                 <option value="">전체 종</option>
-                {(stats?.chroma.species_distribution
-                  ? Object.keys(stats.chroma.species_distribution).sort()
+                {(stats?.pinecone.species_distribution
+                  ? Object.keys(stats.pinecone.species_distribution).sort()
                   : ['괴수종', '악마종', '해수종', '충왕종', '거신', '재앙']
                 ).map((s) => (
                   <option key={s} value={s}>{s}</option>
@@ -377,8 +377,8 @@ export default function MyeolsalViewer({ onBack: _onBack }: { onBack: () => void
                 }}
               >
                 <option value="">전체 시나리오</option>
-                {stats?.chroma.scenario_distribution &&
-                  Object.entries(stats.chroma.scenario_distribution)
+                {stats?.pinecone.scenario_distribution &&
+                  Object.entries(stats.pinecone.scenario_distribution)
                     .sort(([a], [b]) => {
                       // scenario_main_001 형식에서 숫자 추출하여 정렬
                       const numA = parseInt(a.split('_').pop() || '0');
@@ -401,10 +401,10 @@ export default function MyeolsalViewer({ onBack: _onBack }: { onBack: () => void
                 <div className="stats-section">
                   <h4>등급 분포</h4>
                   <div className="stats-bars">
-                    {Object.entries(stats.chroma.grade_distribution).map(([grade, count]) => (
+                    {Object.entries(stats.pinecone.grade_distribution).map(([grade, count]) => (
                       <div key={grade} className="stat-bar">
                         <span className="stat-label">{grade}</span>
-                        <div className="stat-fill" style={{ width: `${(count / stats.chroma.total_count) * 100}%` }} />
+                        <div className="stat-fill" style={{ width: `${(count / stats.pinecone.total_count) * 100}%` }} />
                         <span className="stat-count">{count}</span>
                       </div>
                     ))}
