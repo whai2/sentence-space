@@ -146,6 +146,25 @@ body {
   font-weight: 600;
 }
 
+.game-card.orv-v3 {
+  background: linear-gradient(135deg, #0a2818 0%, #1a3e2e 100%);
+  border: 2px solid #10b981;
+}
+
+.game-card.orv-v3:hover {
+  box-shadow: 0 8px 32px rgba(16, 185, 129, 0.3);
+}
+
+.game-card.orv-v3 h2 {
+  color: #10b981;
+}
+
+.game-card.orv-v3 .game-tag {
+  background: rgba(16, 185, 129, 0.2);
+  color: #10b981;
+  font-weight: 600;
+}
+
 .game-card.myeolsal {
   background: linear-gradient(135deg, #0a1a28 0%, #1a2e3e 100%);
   border: 2px solid #63b3ed;
@@ -162,6 +181,25 @@ body {
 .game-card.myeolsal .game-tag {
   background: rgba(99, 179, 237, 0.2);
   color: #63b3ed;
+  font-weight: 600;
+}
+
+.game-card.scenario-guide {
+  background: linear-gradient(135deg, #1a0f28 0%, #2e1a40 100%);
+  border: 2px solid #d6bcfa;
+}
+
+.game-card.scenario-guide:hover {
+  box-shadow: 0 8px 32px rgba(214, 188, 250, 0.3);
+}
+
+.game-card.scenario-guide h2 {
+  color: #d6bcfa;
+}
+
+.game-card.scenario-guide .game-tag {
+  background: rgba(214, 188, 250, 0.2);
+  color: #d6bcfa;
   font-weight: 600;
 }
 

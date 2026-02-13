@@ -1,0 +1,312 @@
+/* ORV v3 Narrator Test Viewer */
+
+.narrator-test {
+  display: flex;
+  height: 100vh;
+  background: #0f0f1a;
+  color: #e0e0e0;
+}
+
+/* === 설정 패널 === */
+.narrator-settings {
+  width: 360px;
+  min-width: 360px;
+  background: #161625;
+  border-right: 1px solid #2a2a3e;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  transition: min-width 0.2s, width 0.2s;
+}
+
+.narrator-settings.collapsed {
+  width: 48px;
+  min-width: 48px;
+}
+
+.settings-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #2a2a3e;
+  background: #1a1a2e;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: #888;
+  cursor: pointer;
+  font-size: 0.85rem;
+  padding: 0.25rem 0.5rem;
+}
+
+.back-btn:hover {
+  color: #10b981;
+}
+
+.settings-title {
+  flex: 1;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #10b981;
+}
+
+.collapsed .settings-title,
+.collapsed .back-btn {
+  display: none;
+}
+
+.toggle-btn {
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid #10b981;
+  color: #10b981;
+  cursor: pointer;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+
+.settings-body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.setting-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.setting-group label {
+  font-size: 0.8rem;
+  color: #10b981;
+  font-weight: 600;
+}
+
+.setting-group select {
+  background: #1e1e32;
+  border: 1px solid #2a2a3e;
+  color: #e0e0e0;
+  padding: 0.5rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+}
+
+.setting-group textarea {
+  background: #1e1e32;
+  border: 1px solid #2a2a3e;
+  color: #e0e0e0;
+  padding: 0.5rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.setting-group textarea:focus,
+.setting-group select:focus {
+  outline: none;
+  border-color: #10b981;
+}
+
+.custom-stage {
+  margin-top: 0.25rem;
+}
+
+/* === 채팅 영역 === */
+.narrator-chat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1.5rem;
+  border-bottom: 1px solid #2a2a3e;
+  background: #1a1a2e;
+  font-size: 0.85rem;
+}
+
+.stage-badge {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.reset-btn {
+  margin-left: auto;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid #555;
+  color: #aaa;
+  cursor: pointer;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+}
+
+.reset-btn:hover {
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
+/* === 메시지 영역 === */
+.narrator-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.empty-state {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #666;
+}
+
+.empty-state p {
+  margin: 0.3rem 0;
+}
+
+.empty-state .hint {
+  font-size: 0.85rem;
+  color: #555;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+.narrator-msg {
+  max-width: 800px;
+}
+
+.narrator-msg.user {
+  align-self: flex-end;
+  max-width: 600px;
+}
+
+.narrator-msg.system {
+  align-self: center;
+  max-width: 600px;
+}
+
+.msg-label {
+  font-size: 0.7rem;
+  color: #10b981;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.narrator-msg.user .msg-content {
+  background: #1a2e1a;
+  border: 1px solid #2a5a2a;
+  border-radius: 12px 12px 4px 12px;
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.narrator-msg.assistant .msg-content {
+  background: #1a1a2e;
+  border: 1px solid #2a2a4e;
+  border-radius: 4px 12px 12px 12px;
+  padding: 1rem 1.25rem;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  white-space: pre-wrap;
+}
+
+.narrator-msg.system .msg-content {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  color: #ef4444;
+  text-align: center;
+}
+
+.msg-meta {
+  font-size: 0.7rem;
+  color: #555;
+  margin-top: 0.25rem;
+  text-align: right;
+}
+
+.loading-dots {
+  color: #666;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+/* === 입력 영역 === */
+.narrator-input-area {
+  display: flex;
+  gap: 0.5rem;
+  padding: 1rem 1.5rem;
+  border-top: 1px solid #2a2a3e;
+  background: #161625;
+}
+
+.narrator-input-area textarea {
+  flex: 1;
+  background: #1e1e32;
+  border: 1px solid #2a2a3e;
+  color: #e0e0e0;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  resize: none;
+  line-height: 1.5;
+}
+
+.narrator-input-area textarea:focus {
+  outline: none;
+  border-color: #10b981;
+}
+
+.narrator-input-area button {
+  background: #10b981;
+  border: none;
+  color: #fff;
+  padding: 0 1.25rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.narrator-input-area button:hover:not(:disabled) {
+  background: #059669;
+}
+
+.narrator-input-area button:disabled {
+  background: #333;
+  color: #666;
+  cursor: not-allowed;
+}

@@ -2,10 +2,12 @@ import { useState, useRef, useEffect } from 'react'
 import './App.css'
 import ScenarioGraphViewer from './components/ScenarioGraphViewer'
 import MyeolsalViewer from './components/MyeolsalViewer'
+import NarratorTestViewer from './components/NarratorTestViewer'
+import ScenarioGuideViewer from './components/ScenarioGuideViewer'
 
 const API_BASE = import.meta.env.VITE_API_BASE
 
-type GameType = 'red-desert' | 'orv' | 'orv-v2' | 'myeolsal' | null
+type GameType = 'red-desert' | 'orv' | 'orv-v2' | 'orv-v3' | 'myeolsal' | 'scenario-guide' | null
 
 // === 공통 타입 ===
 interface Coordinate {
@@ -201,7 +203,7 @@ function calculateDistance(coord1: Coordinate, coord2: Coordinate): number {
 }
 
 function App() {
-  const [gameType, setGameType] = useState<GameType>('myeolsal')
+  const [gameType, setGameType] = useState<GameType>(null)
   const [sessionId, setSessionId] = useState<string | null>(null)
   const [gameState, setGameState] = useState<GameState | null>(null)
   const [messages, setMessages] = useState<Message[]>([])
@@ -382,6 +384,16 @@ function App() {
     return <MyeolsalViewer onBack={() => setGameType(null)} />
   }
 
+  // 시나리오 설명집
+  if (gameType === 'scenario-guide') {
+    return <ScenarioGuideViewer onBack={() => setGameType(null)} />
+  }
+
+  // ORV v3 나레이터 테스트
+  if (gameType === 'orv-v3') {
+    return <NarratorTestViewer onBack={() => setGameType(null)} />
+  }
+
   // 게임 선택 화면
   if (!gameType) {
     return (
@@ -389,6 +401,15 @@ function App() {
         <h1>Sentence Space</h1>
         <p>전지적 독자 시점 세계관</p>
         <div className="game-cards">
+          <div className="game-card orv-v3" onClick={() => setGameType('orv-v3')}>
+            <h2>나레이터 테스트</h2>
+            <p className="game-desc">
+              [ORV v3 - Step ①]<br />
+              웹소설 나레이터 에이전트.<br />
+              장면 하나를 잘 쓰는지 테스트.
+            </p>
+            <span className="game-tag orv-v3">v3</span>
+          </div>
           <div className="game-card myeolsal" onClick={() => setGameType('myeolsal')}>
             <h2>tls123의 괴수 백과</h2>
             <p className="game-desc">
@@ -397,6 +418,15 @@ function App() {
               괴수 정보 검색 및 열람.
             </p>
             <span className="game-tag myeolsal">도감</span>
+          </div>
+          <div className="game-card scenario-guide" onClick={() => setGameType('scenario-guide')}>
+            <h2>시나리오 설명집</h2>
+            <p className="game-desc">
+              [메인 시나리오 아카이브]<br />
+              시나리오 규칙과 해석 레이어.<br />
+              표면 해석 vs 숨겨진 해법.
+            </p>
+            <span className="game-tag scenario-guide">설명집</span>
           </div>
         </div>
       </div>

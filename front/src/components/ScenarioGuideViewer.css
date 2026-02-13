@@ -1,0 +1,732 @@
+/* 시나리오 설명집 뷰어 스타일 */
+
+.scenario-viewer {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f0a1a 0%, #1a1525 50%, #110d17 100%);
+  color: #e0e0e0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* === 헤더 === */
+.scenario-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid #3a2f5f;
+}
+
+.scenario-header .back-btn {
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: 1px solid #4a5568;
+  border-radius: 6px;
+  color: #a0aec0;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.scenario-header .back-btn:hover {
+  border-color: #d6bcfa;
+  color: #fff;
+}
+
+.scenario-header h1 {
+  flex: 1;
+  margin: 0;
+  font-size: 1.5rem;
+  background: linear-gradient(135deg, #d6bcfa 0%, #f6ad55 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.header-stats {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.stat-badge {
+  padding: 0.4rem 0.8rem;
+  background: rgba(214, 188, 250, 0.15);
+  border: 1px solid rgba(214, 188, 250, 0.3);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: #d6bcfa;
+}
+
+/* === 탭 네비게이션 === */
+.scenario-tabs {
+  display: flex;
+  background: rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid #3a2f5f;
+}
+
+.scenario-tabs button {
+  flex: 1;
+  padding: 1rem;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: #718096;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.scenario-tabs button:hover {
+  color: #e0e0e0;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.scenario-tabs button.active {
+  color: #d6bcfa;
+  border-bottom-color: #d6bcfa;
+  background: rgba(214, 188, 250, 0.1);
+}
+
+/* === 메인 콘텐츠 === */
+.scenario-content {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* === 시나리오 목록 뷰 === */
+.scenarios-view {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.scenarios-filter {
+  display: flex;
+  gap: 0.8rem;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.scenarios-filter select {
+  padding: 0.6rem 1rem;
+  background: #1a1025;
+  border: 1px solid #3a2f5f;
+  border-radius: 6px;
+  color: #e0e0e0;
+  font-size: 0.9rem;
+}
+
+.scenarios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1rem;
+}
+
+/* === 시나리오 카드 === */
+.scenario-card {
+  background: rgba(26, 22, 44, 0.8);
+  border: 1px solid #3a2f5f;
+  border-radius: 12px;
+  padding: 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.scenario-card:hover {
+  transform: translateY(-4px);
+  border-color: #d6bcfa;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.scenario-card.main {
+  border-left: 4px solid #f6ad55;
+}
+
+.scenario-card.sub {
+  border-left: 4px solid #63b3ed;
+}
+
+.scenario-card.hidden {
+  border-left: 4px solid #9f7aea;
+}
+
+.scenario-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.scenario-id-badge {
+  padding: 0.2rem 0.5rem;
+  background: rgba(214, 188, 250, 0.2);
+  border: 1px solid rgba(214, 188, 250, 0.3);
+  border-radius: 4px;
+  font-size: 0.7rem;
+  color: #d6bcfa;
+  font-family: monospace;
+}
+
+.scenario-type-badge {
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.scenario-type-badge.main {
+  background: rgba(246, 173, 85, 0.2);
+  color: #f6ad55;
+}
+
+.scenario-type-badge.sub {
+  background: rgba(99, 179, 237, 0.2);
+  color: #63b3ed;
+}
+
+.scenario-type-badge.hidden {
+  background: rgba(159, 122, 234, 0.2);
+  color: #9f7aea;
+}
+
+.scenario-card-name {
+  font-size: 0.85rem;
+  color: #718096;
+  margin: 0 0 0.3rem 0;
+}
+
+.scenario-card-title {
+  margin: 0 0 0.8rem 0;
+  font-size: 1.2rem;
+  color: #e0e0e0;
+}
+
+.scenario-card-objective {
+  font-size: 0.85rem;
+  color: #a0aec0;
+  margin-bottom: 0.8rem;
+  line-height: 1.4;
+  padding: 0.6rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  border-left: 2px solid #d6bcfa;
+}
+
+.scenario-card-footer {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.scenario-card-footer .tag {
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+}
+
+.tag.stage {
+  background: rgba(72, 187, 120, 0.2);
+  color: #48bb78;
+}
+
+.tag.time {
+  background: rgba(245, 101, 101, 0.2);
+  color: #f56565;
+}
+
+.tag.penalty {
+  background: rgba(245, 101, 101, 0.15);
+  color: #fc8181;
+}
+
+/* === 시나리오 상세 모달 === */
+.scenario-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  z-index: 1000;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.scenario-modal {
+  background: linear-gradient(135deg, #1a1525 0%, #2d2540 100%);
+  border: 1px solid #4a3f6f;
+  border-radius: 16px;
+  max-width: 720px;
+  width: 100%;
+  margin: 2rem auto;
+  position: relative;
+}
+
+.scenario-modal .close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 32px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 50%;
+  color: #a0aec0;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  z-index: 1;
+}
+
+.scenario-modal .close-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.scenario-modal-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  border-bottom: 1px solid #4a3f6f;
+}
+
+.scenario-modal-header .header-badges {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.scenario-modal-header h2 {
+  margin: 0;
+  font-size: 1.6rem;
+  color: #e0e0e0;
+}
+
+.scenario-modal-header .subtitle {
+  color: #718096;
+  font-size: 0.9rem;
+}
+
+.scenario-modal-body {
+  padding: 1.5rem;
+}
+
+.scenario-modal-body section {
+  margin-bottom: 1.8rem;
+}
+
+.scenario-modal-body h4 {
+  margin: 0 0 0.8rem 0;
+  color: #d6bcfa;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.scenario-modal-body p {
+  margin: 0;
+  line-height: 1.6;
+  color: #e0e0e0;
+}
+
+/* 규칙 블록 */
+.rule-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+}
+
+.rule-item {
+  padding: 0.6rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+}
+
+.rule-item .rule-label {
+  font-size: 0.75rem;
+  color: #718096;
+  margin-bottom: 0.3rem;
+}
+
+.rule-item .rule-value {
+  font-size: 0.9rem;
+  color: #e0e0e0;
+}
+
+.rule-item.full-width {
+  grid-column: 1 / -1;
+}
+
+.constraints-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0 0;
+}
+
+.constraints-list li {
+  padding: 0.3rem 0;
+  padding-left: 1rem;
+  position: relative;
+  color: #a0aec0;
+  font-size: 0.85rem;
+}
+
+.constraints-list li::before {
+  content: '!';
+  position: absolute;
+  left: 0;
+  color: #f56565;
+  font-weight: bold;
+}
+
+/* 해석 레이어 */
+.interpretation-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.interp-item {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.interp-toggle {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid #3a2f5f;
+  border-radius: 8px;
+  color: #e0e0e0;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.interp-toggle:hover {
+  background: rgba(214, 188, 250, 0.1);
+  border-color: #d6bcfa;
+}
+
+.interp-toggle.open {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-color: #d6bcfa;
+}
+
+.interp-toggle .arrow {
+  transition: transform 0.2s;
+}
+
+.interp-toggle.open .arrow {
+  transform: rotate(90deg);
+}
+
+.interp-content {
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.15);
+  border: 1px solid #3a2f5f;
+  border-top: none;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  color: #c0c0c0;
+  line-height: 1.6;
+  font-size: 0.9rem;
+}
+
+.interp-item.surface .interp-toggle {
+  border-left: 3px solid #f56565;
+}
+
+.interp-item.hidden-sol .interp-toggle {
+  border-left: 3px solid #48bb78;
+}
+
+.interp-item.advantage .interp-toggle {
+  border-left: 3px solid #63b3ed;
+}
+
+/* 플레이어 경로 테이블 */
+.paths-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.paths-table th {
+  padding: 0.6rem 0.8rem;
+  background: rgba(0, 0, 0, 0.3);
+  color: #d6bcfa;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.paths-table td {
+  padding: 0.6rem 0.8rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  color: #c0c0c0;
+}
+
+.paths-table tr:hover td {
+  background: rgba(214, 188, 250, 0.05);
+}
+
+.moral-cost-high {
+  color: #f56565;
+}
+
+.moral-cost-medium {
+  color: #ecc94b;
+}
+
+.moral-cost-low, .moral-cost-none {
+  color: #48bb78;
+}
+
+/* 무대 정보 */
+.stage-block {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.stage-name {
+  font-size: 1rem;
+  color: #e0e0e0;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.stage-desc {
+  color: #a0aec0;
+  line-height: 1.5;
+  margin-bottom: 0.8rem;
+  font-size: 0.9rem;
+}
+
+.terrain-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.8rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.terrain-list li {
+  padding: 0.3rem 0.6rem;
+  background: rgba(72, 187, 120, 0.15);
+  border: 1px solid rgba(72, 187, 120, 0.3);
+  border-radius: 4px;
+  font-size: 0.8rem;
+  color: #48bb78;
+}
+
+.atmosphere-text {
+  font-style: italic;
+  color: #a78bfa;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  border-left: 2px solid #a78bfa;
+  padding-left: 0.8rem;
+}
+
+/* 서사 정보 */
+.narrative-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.narrative-meta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.narrative-meta .meta-tag {
+  padding: 0.4rem 0.8rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  font-size: 0.85rem;
+}
+
+.narrative-meta .meta-tag .meta-label {
+  color: #718096;
+  margin-right: 0.4rem;
+}
+
+.events-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.events-list li {
+  padding: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+  color: #c0c0c0;
+  font-size: 0.9rem;
+  border-left: 2px solid #3a2f5f;
+}
+
+.events-list li::before {
+  content: '';
+  position: absolute;
+  left: -5px;
+  top: 0.7rem;
+  width: 8px;
+  height: 8px;
+  background: #d6bcfa;
+  border-radius: 50%;
+}
+
+.hooks-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.hooks-list li {
+  padding: 0.4rem 0.8rem;
+  margin-bottom: 0.4rem;
+  background: rgba(246, 173, 85, 0.1);
+  border: 1px solid rgba(246, 173, 85, 0.2);
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: #f6ad55;
+}
+
+.previous-summary {
+  padding: 0.8rem;
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: #718096;
+  font-style: italic;
+}
+
+/* 연결된 괴수 */
+.linked-beasts-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.linked-beast-tag {
+  padding: 0.4rem 0.8rem;
+  background: rgba(99, 179, 237, 0.15);
+  border: 1px solid rgba(99, 179, 237, 0.3);
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: #63b3ed;
+}
+
+/* === 그래프 뷰 === */
+.graph-view {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.graph-legend {
+  display: flex;
+  gap: 1rem;
+  padding: 0.8rem 1rem;
+  background: rgba(0, 0, 0, 0.3);
+  font-size: 0.85rem;
+}
+
+.graph-legend span {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.graph-legend .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.dot.scenario { background: #f6ad55; }
+.dot.beast { background: #63b3ed; }
+
+.graph-container {
+  flex: 1;
+  background: #0d0917;
+}
+
+/* === 빈 상태 / 로딩 === */
+.empty-state {
+  text-align: center;
+  padding: 3rem;
+  color: #718096;
+  grid-column: 1 / -1;
+}
+
+.empty-state button {
+  margin-top: 1rem;
+  padding: 0.8rem 1.5rem;
+  background: #9f7aea;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.loading-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #718096;
+  font-size: 1.2rem;
+}
+
+/* === 반응형 === */
+@media (max-width: 768px) {
+  .scenario-header {
+    flex-direction: column;
+    gap: 0.8rem;
+    text-align: center;
+  }
+
+  .scenario-header h1 {
+    font-size: 1.2rem;
+  }
+
+  .scenario-tabs button {
+    padding: 0.8rem 0.5rem;
+    font-size: 0.85rem;
+  }
+
+  .scenarios-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rule-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .scenario-modal {
+    margin: 1rem;
+  }
+}
