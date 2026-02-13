@@ -70,7 +70,7 @@ interface Stats {
 
 type ViewTab = 'chat' | 'beasts' | 'graph';
 
-export default function MyeolsalViewer({ onBack: _onBack }: { onBack: () => void }) {
+export default function MyeolsalViewer({ onBack }: { onBack: () => void }) {
   // === 상태 ===
   const [viewTab, setViewTab] = useState<ViewTab>('chat');
   const [query, setQuery] = useState('');
@@ -283,6 +283,7 @@ export default function MyeolsalViewer({ onBack: _onBack }: { onBack: () => void
     <div className="myeolsal-viewer">
       {/* 헤더 */}
       <header className="myeolsal-header">
+        <button className="back-btn" onClick={onBack}>← 돌아가기</button>
         <h1>tls123의 괴수 백과 [신간]</h1>
         <div className="header-stats">
           {stats && (
