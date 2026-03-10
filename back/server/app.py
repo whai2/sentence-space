@@ -56,7 +56,10 @@ def setup_events(app: FastAPI) -> None:
 
     @app.on_event("startup")
     async def on_startup():
-        await startup()
+        try:
+            await startup()
+        except Exception as e:
+            print(f"[ORV v2] Startup error (MongoDB/Neo4j unavailable): {e}")
         # 멸살법 서비스 초기화 (Pinecone이 비어있으면 시드 데이터 자동 로드)
         try:
             from domain.myeolsal.container import get_myeolsal_service
@@ -77,7 +80,10 @@ def setup_events(app: FastAPI) -> None:
 
     @app.on_event("shutdown")
     async def on_shutdown():
-        await shutdown()
+        try:
+            await shutdown()
+        except Exception as e:
+            print(f"[ORV v2] Shutdown error: {e}")
 
 
 app = create_app()
