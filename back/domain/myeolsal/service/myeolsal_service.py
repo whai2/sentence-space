@@ -252,18 +252,22 @@ class MyeolsalService:
         limit: int = 50,
         grade: str | None = None,
         species: str | None = None,
+        include_stats: bool = False,
     ) -> dict:
         """전체 괴수 목록 조회 (페이지네이션)"""
         results, total = self.vector_repo.list_beasts(
             offset=offset, limit=limit, grade=grade, species=species,
         )
-        return {
+        data: dict = {
             "results": results,
             "total": total,
             "offset": offset,
             "limit": limit,
             "has_more": offset + limit < total,
         }
+        if include_stats:
+            data["stats"] = self.get_stats()
+        return data
 
     # ============================================
     # 통계/정보
@@ -315,6 +319,10 @@ class MyeolsalService:
             data_dir = Path(__file__).parent.parent / "data"
             seed_result = await self.load_seed_data(data_dir)
             vector_count = self.vector_repo.count()
+
+        # 캐시 워밍 (첫 요청 시 대기 시간 제거)
+        if vector_count > 0:
+            self.vector_repo.warm_cache()
 
         return {
             "neo4j": neo4j_ok,

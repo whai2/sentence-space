@@ -98,11 +98,13 @@ async def list_beasts(
     limit: int = Query(default=50, ge=1, le=100, description="페이지 크기"),
     grade: str | None = Query(default=None, description="등급 필터"),
     species: str | None = Query(default=None, description="종 필터"),
+    include_stats: bool = Query(default=False, description="통계 포함 여부"),
 ):
     """괴수 전체 목록 (페이지네이션)"""
     service = get_myeolsal_service()
     return service.list_beasts(
         offset=offset, limit=limit, grade=grade, species=species,
+        include_stats=include_stats,
     )
 
 

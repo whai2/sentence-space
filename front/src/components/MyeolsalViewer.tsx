@@ -89,10 +89,9 @@ export default function MyeolsalViewer({ onBack }: { onBack: () => void }) {
   const networkRef = useRef<Network | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // === 초기 로드 ===
+  // === 초기 로드 (단일 API 호출) ===
   useEffect(() => {
-    loadStats();
-    loadBeasts('');
+    loadBeastsWithStats();
   }, []);
 
   useEffect(() => {
@@ -166,14 +165,23 @@ export default function MyeolsalViewer({ onBack }: { onBack: () => void }) {
   }, [viewTab, graphData]);
 
   // === API 호출 ===
-  const loadStats = async () => {
+  const loadBeastsWithStats = async () => {
+    setIsLoading(true);
     try {
-      const res = await fetch(`${API_URL}/api/myeolsal/stats`);
+      const params = new URLSearchParams({ offset: '0', limit: '50', include_stats: 'true' });
+      if (searchFilter.grade) params.append('grade', searchFilter.grade);
+      if (searchFilter.species) params.append('species', searchFilter.species);
+
+      const res = await fetch(`${API_URL}/api/myeolsal/beasts/list?${params}`);
       const data = await res.json();
-      setStats(data);
+      setBeasts(data.results || []);
+      setBeastListTotal(data.total || 0);
+      setBeastListHasMore(data.has_more || false);
+      if (data.stats) setStats(data.stats);
     } catch (err) {
-      console.error('Failed to load stats:', err);
+      console.error('Failed to load beasts:', err);
     }
+    setIsLoading(false);
   };
 
   const loadBeasts = async (_searchQuery?: string) => {
@@ -262,8 +270,7 @@ export default function MyeolsalViewer({ onBack }: { onBack: () => void }) {
     setIsLoading(true);
     try {
       await fetch(`${API_URL}/api/myeolsal/seed`, { method: 'POST' });
-      await loadStats();
-      await loadBeasts('');
+      await loadBeastsWithStats();
       setMessages((prev) => [...prev, { role: 'system', content: '시드 데이터가 로드되었습니다.' }]);
     } catch (err) {
       setMessages((prev) => [...prev, { role: 'system', content: '초기화 실패' }]);

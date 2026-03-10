@@ -283,6 +283,11 @@ class PineconeBeastRepository:
         """캐시 무효화 (괴수 추가/삭제 시 호출)"""
         self._all_beasts_cache = None
 
+    def warm_cache(self) -> None:
+        """캐시 워밍 (서버 시작 시 호출)"""
+        if self._all_beasts_cache is None:
+            self._all_beasts_cache = self._fetch_all_beasts()
+
     def list_beasts(
         self,
         offset: int = 0,
@@ -335,36 +340,29 @@ class PineconeBeastRepository:
         self.index.delete(delete_all=True)
 
     def get_stats(self) -> dict:
-        """저장소 통계 조회"""
-        total = self.count()
+        """저장소 통계 조회 (캐시 활용)"""
+        if self._all_beasts_cache is None:
+            self._all_beasts_cache = self._fetch_all_beasts()
 
-        grade_dist = {}
-        species_dist = {}
-        scenario_dist = {}
+        beasts = self._all_beasts_cache
+        grade_dist: dict[str, int] = {}
+        species_dist: dict[str, int] = {}
+        scenario_dist: dict[str, int] = {}
 
-        if total > 0:
-            raw_ids = self._get_raw_pinecone_ids()
-            # Pinecone fetch는 한 번에 최대 1000개
-            for i in range(0, len(raw_ids), 100):
-                batch = raw_ids[i : i + 100]
-                result = self.index.fetch(ids=batch)
-                for vec_data in result.vectors.values():
-                    meta = vec_data.metadata or {}
-                    grade = meta.get("grade", "unknown")
-                    species = meta.get("species", "unknown")
-                    grade_dist[grade] = grade_dist.get(grade, 0) + 1
-                    species_dist[species] = species_dist.get(species, 0) + 1
+        for b in beasts:
+            meta = b.get("metadata", {})
+            grade = meta.get("grade", "unknown")
+            species = meta.get("species", "unknown")
+            grade_dist[grade] = grade_dist.get(grade, 0) + 1
+            species_dist[species] = species_dist.get(species, 0) + 1
 
-                    scenarios_raw = meta.get("appearance_scenarios", "[]")
-                    try:
-                        scenarios = json.loads(scenarios_raw) if isinstance(scenarios_raw, str) else scenarios_raw
-                        for scenario in scenarios:
-                            scenario_dist[scenario] = scenario_dist.get(scenario, 0) + 1
-                    except (json.JSONDecodeError, TypeError):
-                        pass
+            scenarios = meta.get("appearance_scenarios", [])
+            if isinstance(scenarios, list):
+                for scenario in scenarios:
+                    scenario_dist[scenario] = scenario_dist.get(scenario, 0) + 1
 
         return {
-            "total_count": total,
+            "total_count": len(beasts),
             "grade_distribution": grade_dist,
             "species_distribution": species_dist,
             "scenario_distribution": scenario_dist,
