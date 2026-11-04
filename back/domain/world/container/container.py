@@ -1,9 +1,9 @@
 from functools import lru_cache
 
-from server.config import get_settings
 from domain.world.interface import IGameService
 from domain.world.repository import GameRepository
 from domain.world.service import GameService
+from server.config import get_settings
 
 
 class Container:

@@ -6,15 +6,14 @@ GPT-4o 기반 웹소설 서술 에이전트
 - 전지적 독자 시점 스타일
 - 분위기 조성 및 선택지 제안
 """
+from langchain_core.messages import HumanMessage, SystemMessage
 from langchain_openai import ChatOpenAI
-from langchain_core.messages import SystemMessage, HumanMessage
 
 from domain.orv_v2.models import (
     GameState,
-    OrchestratorDecision,
     NarratorOutput,
+    OrchestratorDecision,
 )
-
 
 # ============================================
 # Narrator 프롬프트

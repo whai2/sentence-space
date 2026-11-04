@@ -197,10 +197,10 @@ def print_concepts(concepts: list[BeastConcept]) -> None:
         bar = "#" * grade_counts.get(g, 0)
         print(f"  {g:4s}: {grade_counts.get(g, 0):2d} {bar}")
 
-    print(f"\n  === 종 분포 ===")
+    print("\n  === 종 분포 ===")
     for sp, cnt in sorted(species_counts.items(), key=lambda x: -x[1]):
         print(f"  {sp}: {cnt}")
 
-    print(f"\n  === 테마 분포 ===")
+    print("\n  === 테마 분포 ===")
     for th, cnt in sorted(theme_counts.items(), key=lambda x: -x[1]):
         print(f"  {th}: {cnt}")

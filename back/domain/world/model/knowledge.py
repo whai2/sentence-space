@@ -1,6 +1,6 @@
 from pydantic import BaseModel, Field
 
-from domain.world.model.state import Coordinate, SEOUL_COORDINATES
+from domain.world.model.state import SEOUL_COORDINATES, Coordinate
 
 
 class BugInfo(BaseModel):

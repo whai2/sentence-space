@@ -4,9 +4,8 @@
 각 섹션을 조합하여 최종 시스템 프롬프트를 생성.
 섹션별로 독립적으로 교체 가능한 모듈형 구조.
 """
-from .style_guide import STYLE_GUIDE
 from .reference_texts import REFERENCE_TEXTS
-
+from .style_guide import STYLE_GUIDE
 
 # ============================================
 # Section 1: 역할 정의 (Role Definition)

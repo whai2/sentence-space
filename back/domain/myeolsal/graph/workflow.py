@@ -3,20 +3,20 @@
 
 질문 → 분류 → 검색/생성 → 검증 → 응답
 """
-from typing import Literal, TypedDict, Any
+from typing import Literal, TypedDict
 
 from langchain_anthropic import ChatAnthropic
 from langchain_core.prompts import ChatPromptTemplate
-from langgraph.graph import StateGraph, END
+from langgraph.graph import END, StateGraph
 from pydantic import BaseModel, Field
 
-from domain.myeolsal.models import BeastEntry
 from domain.myeolsal.agents import (
     BeastGeneratorAgent,
     BeastRetrieverAgent,
     BeastValidatorAgent,
     GenerationRequest,
 )
+from domain.myeolsal.models import BeastEntry
 
 
 class MyeolsalGraphState(TypedDict):

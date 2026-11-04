@@ -5,10 +5,7 @@
 """
 import json
 from pathlib import Path
-from typing import Any
 
-from domain.myeolsal.models import BeastEntry, BeastLayer, MyeolsalRules
-from domain.myeolsal.repository import PineconeBeastRepository, Neo4jMyeolsalRepository
 from domain.myeolsal.agents import (
     BeastGeneratorAgent,
     BeastRetrieverAgent,
@@ -16,6 +13,8 @@ from domain.myeolsal.agents import (
     GenerationRequest,
 )
 from domain.myeolsal.graph import MyeolsalWorkflow
+from domain.myeolsal.models import BeastEntry, MyeolsalRules
+from domain.myeolsal.repository import Neo4jMyeolsalRepository, PineconeBeastRepository
 
 
 class MyeolsalService:

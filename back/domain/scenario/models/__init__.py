@@ -1,10 +1,10 @@
 from .scenario import (
+    Interpretation,
+    Narrative,
+    PlayerPath,
     ScenarioPackage,
     ScenarioRule,
-    Interpretation,
-    PlayerPath,
     Stage,
-    Narrative,
 )
 
 __all__ = [

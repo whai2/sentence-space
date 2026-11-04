@@ -203,6 +203,25 @@ body {
   font-weight: 600;
 }
 
+.game-card.run {
+  background: linear-gradient(135deg, #0f0a28 0%, #1a1a3e 100%);
+  border: 2px solid #8b8bff;
+}
+
+.game-card.run:hover {
+  box-shadow: 0 8px 32px rgba(139, 139, 255, 0.3);
+}
+
+.game-card.run h2 {
+  color: #8b8bff;
+}
+
+.game-card.run .game-tag {
+  background: rgba(139, 139, 255, 0.2);
+  color: #8b8bff;
+  font-weight: 600;
+}
+
 /* 시작 화면 (로딩) */
 .start-screen {
   min-height: 100vh;

@@ -1,5 +1,6 @@
-from pydantic import BaseModel, Field
 import math
+
+from pydantic import BaseModel, Field
 
 
 class Coordinate(BaseModel):

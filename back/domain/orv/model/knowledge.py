@@ -1,6 +1,6 @@
 from pydantic import BaseModel, Field
 
-from domain.orv.model.state import Coordinate, SUBWAY_COORDINATES
+from domain.orv.model.state import SUBWAY_COORDINATES, Coordinate
 
 
 class ScenarioInfo(BaseModel):

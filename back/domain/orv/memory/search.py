@@ -7,7 +7,6 @@ TF-IDF 스타일의 키워드 매칭 + 가중치 조합.
 
 import math
 from collections import Counter
-from datetime import datetime
 
 from domain.orv.model.memory import MemoryEntry
 

@@ -8,17 +8,16 @@ import uuid
 from typing import Optional
 
 from domain.orv.model import (
+    PHASE_TARGET_TENSION,
     GameState,
-    StoryPhase,
+    PlotPoint,
+    PlotPointStatus,
+    PlotPointType,
     StoryArc,
     StoryBeat,
-    PlotPoint,
-    PlotPointType,
-    PlotPointStatus,
-    TensionLevel,
     StoryContext,
-    PHASE_TONE_GUIDANCE,
-    PHASE_TARGET_TENSION,
+    StoryPhase,
+    TensionLevel,
 )
 
 

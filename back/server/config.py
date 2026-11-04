@@ -35,6 +35,7 @@ class Settings(BaseSettings):
     # Pinecone 설정 (벡터 DB)
     pinecone_api_key: str = ""
     pinecone_index_name: str = "myeolsal-beasts"
+    pinecone_run_index_name: str = "run-worldbuilding"
 
     # 데이터 저장 디렉토리 (기억 영속성)
     data_dir: str = "data"

@@ -4,8 +4,8 @@ Neo4j Graph Database Repository
 시나리오 지식 그래프 저장 및 조회
 """
 from typing import Any
-from neo4j import AsyncGraphDatabase, AsyncDriver, AsyncSession
-from pydantic import BaseModel
+
+from neo4j import AsyncDriver, AsyncGraphDatabase
 
 
 class Neo4jGraphRepository:

@@ -7,31 +7,31 @@ Director 에이전트
 
 import json
 import re
-from typing import Any, Optional, TYPE_CHECKING
+from typing import TYPE_CHECKING, Optional
 
 from langchain_core.messages import HumanMessage, SystemMessage
 from langchain_openai import ChatOpenAI
 
-from domain.orv.model.state import GameState, NPCInstance
-from domain.orv.model.memory import (
-    TurnContext,
-    TurnPlan,
-    NPCInteraction,
-    NPCDecision,
-    NPCContext,
-)
-from domain.orv.model.story import StoryContext
-from domain.orv.memory.store import MemoryManager
 from domain.orv.agent.npc_agent import NPCAgent
 from domain.orv.agent.prompts import (
-    DIRECTOR_SYSTEM_PROMPT,
-    DIRECTOR_PLAN_PROMPT,
-    DIRECTOR_COMPOSE_PROMPT,
-    DIRECTOR_STORY_CONTEXT_PROMPT,
-    BATCH_NPC_SYSTEM_PROMPT,
     BATCH_NPC_PROMPT,
+    BATCH_NPC_SYSTEM_PROMPT,
+    DIRECTOR_COMPOSE_PROMPT,
+    DIRECTOR_PLAN_PROMPT,
+    DIRECTOR_STORY_CONTEXT_PROMPT,
+    DIRECTOR_SYSTEM_PROMPT,
     format_npc_for_director,
 )
+from domain.orv.memory.store import MemoryManager
+from domain.orv.model.memory import (
+    NPCContext,
+    NPCDecision,
+    NPCInteraction,
+    TurnContext,
+    TurnPlan,
+)
+from domain.orv.model.state import GameState, NPCInstance
+from domain.orv.model.story import StoryContext
 
 if TYPE_CHECKING:
     from domain.orv.story.manager import StoryManager

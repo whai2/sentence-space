@@ -8,32 +8,31 @@ check_scenario → story_beat → director_plan → npc_phase → compose_narrat
 """
 
 import json
-import re
 import random
+import re
 import uuid
-from typing import Annotated, TypedDict, Any, Optional
+from typing import Annotated, Optional, TypedDict
 
-from langchain_core.messages import AIMessage, HumanMessage, SystemMessage
+from langchain_core.messages import AIMessage, HumanMessage
 from langchain_openai import ChatOpenAI
 from langgraph.graph import END, StateGraph
 from langgraph.graph.message import add_messages
 
+from domain.orv.agent.constellation_agent import ConstellationAgent
+from domain.orv.agent.director import DirectorAgent
+from domain.orv.agent.dokkaebi_agent import DokkaebiAgent
+from domain.orv.memory.persistence import SessionPersistence
+from domain.orv.memory.store import MemoryManager
+from domain.orv.model.knowledge import WorldKnowledge
+from domain.orv.model.memory import NPCDecision, TurnPlan
 from domain.orv.model.state import (
+    SUBWAY_COORDINATES,
     GameState,
+    ItemInstance,
     NPCInstance,
     ScenarioState,
-    ConstellationChannel,
-    ItemInstance,
-    SUBWAY_COORDINATES,
 )
-from domain.orv.model.knowledge import WorldKnowledge
-from domain.orv.model.memory import TurnPlan, NPCDecision
-from domain.orv.model.story import StoryContext, PlotPoint
-from domain.orv.memory.store import MemoryManager
-from domain.orv.memory.persistence import SessionPersistence
-from domain.orv.agent.director import DirectorAgent
-from domain.orv.agent.constellation_agent import ConstellationAgent
-from domain.orv.agent.dokkaebi_agent import DokkaebiAgent
+from domain.orv.model.story import PlotPoint, StoryContext
 from domain.orv.story.manager import StoryManager
 from domain.orv.story.presets import create_scenario_1_arc
 

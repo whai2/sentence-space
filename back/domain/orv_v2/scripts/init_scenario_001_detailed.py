@@ -4,6 +4,7 @@
 나무위키 분석 결과를 바탕으로 Neo4j에 상세한 스토리 구조 저장
 """
 import asyncio
+
 from domain.orv_v2.repository.neo4j_repository import Neo4jGraphRepository
 from server.config import get_settings
 

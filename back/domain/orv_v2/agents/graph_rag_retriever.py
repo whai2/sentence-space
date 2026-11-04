@@ -5,15 +5,16 @@ Neo4j 지식 그래프에서 시나리오 정보를 검색하여
 EnrichedScenarioContext를 생성합니다.
 """
 import logging
-from domain.orv_v2.repository.neo4j_repository import Neo4jGraphRepository
+
 from domain.orv_v2.models.scenario import (
-    EnrichedScenarioContext,
+    AlternativeSolution,
     CharacterInfo,
+    EnrichedScenarioContext,
+    LocationInfo,
     RuleInfo,
     TrickInfo,
-    AlternativeSolution,
-    LocationInfo,
 )
+from domain.orv_v2.repository.neo4j_repository import Neo4jGraphRepository
 
 logger = logging.getLogger(__name__)
 
@@ -182,7 +183,7 @@ class GraphRAGRetriever:
             narrative_hints=narrative_hints,
         )
 
-        logger.info(f"🎯 [GraphRAG] 시나리오 컨텍스트 생성 완료:")
+        logger.info("🎯 [GraphRAG] 시나리오 컨텍스트 생성 완료:")
         logger.info(f"   - 캐릭터: {len(key_characters)}개, 위치: {len(locations)}개")
         logger.info(f"   - 승리조건: {len(win_conditions)}개, 실패조건: {len(fail_conditions)}개")
         logger.info(f"   - 주인공 트릭: {len(protagonist_tricks)}개, 대안 솔루션: {len(alternative_solutions)}개")

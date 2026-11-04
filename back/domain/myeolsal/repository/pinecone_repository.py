@@ -8,8 +8,8 @@ import json
 from typing import Any
 from urllib.parse import quote, unquote
 
-from pinecone import Pinecone, ServerlessSpec
 from langchain_openai import OpenAIEmbeddings
+from pinecone import Pinecone, ServerlessSpec
 
 from domain.myeolsal.models import BeastEntry
 

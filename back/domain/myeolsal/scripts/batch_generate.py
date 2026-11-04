@@ -25,6 +25,13 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_openai import ChatOpenAI
 from pydantic import BaseModel, Field
 
+from domain.myeolsal.agents.beast_generator import SYSTEM_PROMPT, GeneratedBeast
+from domain.myeolsal.agents.beast_validator import BeastValidatorAgent
+from domain.myeolsal.container import (
+    get_myeolsal_rules,
+    get_pinecone_repository,
+    get_validator,
+)
 from domain.myeolsal.models import (
     BeastEntry,
     BeastLayer,
@@ -32,20 +39,12 @@ from domain.myeolsal.models import (
     CombatPattern,
     MyeolsalRules,
 )
-from domain.myeolsal.agents.beast_generator import GeneratedBeast, SYSTEM_PROMPT
-from domain.myeolsal.agents.beast_validator import BeastValidatorAgent
-from domain.myeolsal.container import (
-    get_myeolsal_rules,
-    get_pinecone_repository,
-    get_validator,
-)
 from domain.myeolsal.scripts.concept_matrix import (
+    BeastConcept,
     generate_concepts,
     print_concepts,
-    BeastConcept,
 )
 from server.config import get_settings
-
 
 # === 배치 생성용 모델 ===
 
@@ -341,7 +340,7 @@ async def main():
 
     if args.dry_run:
         print_concepts(concepts)
-        print(f"\n  --dry-run 모드: 실제 생성하지 않음")
+        print("\n  --dry-run 모드: 실제 생성하지 않음")
         return
 
     # 의존성
@@ -414,14 +413,14 @@ async def main():
 
         except Exception as e:
             print(f"\n  !!! Batch {batch_idx+1} 실패: {e}")
-            print(f"  진행 상황 저장됨. --resume 으로 재개 가능.")
+            print("  진행 상황 저장됨. --resume 으로 재개 가능.")
             save_progress(progress)
             break
 
     # 결과
     total_elapsed = time.time() - total_start
     print(f"\n{'='*60}")
-    print(f"  생성 완료!")
+    print("  생성 완료!")
     print(f"  총 소요 시간: {total_elapsed:.1f}s")
     print(f"  생성 성공: {len(all_beasts)}마리")
     print(f"  기존 + 신규: {len(existing_names)}마리")
@@ -433,7 +432,7 @@ async def main():
     grade_dist: dict[str, int] = {}
     for b in all_beasts:
         grade_dist[b.grade] = grade_dist.get(b.grade, 0) + 1
-    print(f"\n  === 신규 등급 분포 ===")
+    print("\n  === 신규 등급 분포 ===")
     for g in ["9급", "8급", "7급", "6급", "5급", "4급", "3급", "2급", "1급", "특급"]:
         cnt = grade_dist.get(g, 0)
         bar = "#" * cnt
@@ -442,7 +441,7 @@ async def main():
     # 진행 파일 정리
     if PROGRESS_FILE.exists():
         PROGRESS_FILE.unlink()
-        print(f"\n  진행 파일 삭제됨")
+        print("\n  진행 파일 삭제됨")
 
 
 if __name__ == "__main__":

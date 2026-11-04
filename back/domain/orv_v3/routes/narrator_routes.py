@@ -9,9 +9,9 @@ import logging
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, Field
 
-from server.config import get_settings
 from domain.orv_v3.config import NarratorConfig, create_narrator_llm
 from domain.orv_v3.narrator import NarratorAgent, SceneInput
+from server.config import get_settings
 
 logger = logging.getLogger(__name__)
 

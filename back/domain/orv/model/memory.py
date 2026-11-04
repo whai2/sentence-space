@@ -5,6 +5,7 @@ NPC의 장기/단기 기억, 관계 기억, 목표 등을 관리하는 모델들
 """
 
 from datetime import datetime
+
 from pydantic import BaseModel, Field
 
 

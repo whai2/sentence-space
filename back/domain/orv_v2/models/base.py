@@ -3,10 +3,10 @@
 
 MongoDB 문서 구조와 1:1 매핑되는 Pydantic 모델
 """
-from enum import Enum
-from pydantic import BaseModel, Field
 from datetime import datetime
+from enum import Enum
 
+from pydantic import BaseModel, Field
 
 # ============================================
 # 좌표 및 위치

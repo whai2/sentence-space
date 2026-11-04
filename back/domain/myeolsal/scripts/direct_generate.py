@@ -22,9 +22,9 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent.parent.parent))
 
-from domain.myeolsal.models import BeastEntry, BeastLayer, BeastStats, CombatPattern
 from domain.myeolsal.agents.beast_validator import BeastValidatorAgent
-from domain.myeolsal.container import get_myeolsal_rules, get_pinecone_repository, get_validator
+from domain.myeolsal.container import get_pinecone_repository, get_validator
+from domain.myeolsal.models import BeastEntry, BeastLayer, BeastStats, CombatPattern
 
 # ===================================================================
 # CONSTANTS
@@ -776,7 +776,7 @@ async def main():
             bar = "#" * gc.get(g, 0)
             print(f"  {g:4s}: {gc.get(g, 0):3d} {bar}")
         print(f"\n  총: {sum(gc.values())}마리")
-        print(f"  --dry-run: 실제 생성하지 않음")
+        print("  --dry-run: 실제 생성하지 않음")
         return
 
     # Dependencies
@@ -820,7 +820,7 @@ async def main():
 
     elapsed = time.time() - start_time
     print(f"\n{'='*60}")
-    print(f"  생성 완료!")
+    print("  생성 완료!")
     print(f"  소요 시간: {elapsed:.1f}s")
     print(f"  성공: {len(generated)}마리 / 실패: {failed}마리")
     print(f"  기존 + 신규: {len(existing_names)}마리")
@@ -830,7 +830,7 @@ async def main():
 
     # Grade distribution
     gc = Counter(b.grade for b in generated)
-    print(f"\n  === 신규 등급 분포 ===")
+    print("\n  === 신규 등급 분포 ===")
     for g in ["9급", "8급", "7급", "6급", "5급", "4급", "3급", "2급", "1급", "특급"]:
         cnt = gc.get(g, 0)
         bar = "#" * min(cnt, 60)
@@ -838,7 +838,7 @@ async def main():
 
     # Species distribution
     sc = Counter(b.species for b in generated)
-    print(f"\n  === 신규 종 분포 ===")
+    print("\n  === 신규 종 분포 ===")
     for sp, cnt in sc.most_common():
         print(f"  {sp}: {cnt}")
 

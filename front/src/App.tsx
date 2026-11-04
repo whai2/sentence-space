@@ -4,10 +4,11 @@ import ScenarioGraphViewer from './components/ScenarioGraphViewer'
 import MyeolsalViewer from './components/MyeolsalViewer'
 import NarratorTestViewer from './components/NarratorTestViewer'
 import ScenarioGuideViewer from './components/ScenarioGuideViewer'
+import RunViewer from './components/RunViewer'
 
 const API_BASE = import.meta.env.VITE_API_BASE
 
-type GameType = 'red-desert' | 'orv' | 'orv-v2' | 'orv-v3' | 'myeolsal' | 'scenario-guide' | null
+type GameType = 'red-desert' | 'orv' | 'orv-v2' | 'orv-v3' | 'myeolsal' | 'scenario-guide' | 'run' | null
 
 // === 공통 타입 ===
 interface Coordinate {
@@ -394,6 +395,11 @@ function App() {
     return <NarratorTestViewer onBack={() => setGameType(null)} />
   }
 
+  // 런 세계관
+  if (gameType === 'run') {
+    return <RunViewer onBack={() => setGameType(null)} />
+  }
+
   // 게임 선택 화면
   if (!gameType) {
     return (
@@ -427,6 +433,15 @@ function App() {
               표면 해석 vs 숨겨진 해법.
             </p>
             <span className="game-tag scenario-guide">설명집</span>
+          </div>
+          <div className="game-card run" onClick={() => setGameType('run')}>
+            <h2>런 세계관</h2>
+            <p className="game-desc">
+              [소설 「런」 세계관 에이전트]<br />
+              커넥톰·오펀·기억 경제의 세계.<br />
+              세계관 질의 및 지식 그래프.
+            </p>
+            <span className="game-tag run">세계관</span>
           </div>
         </div>
       </div>

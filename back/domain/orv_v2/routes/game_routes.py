@@ -4,14 +4,14 @@ ORV v2 API Routes
 FastAPI 라우트
 """
 import logging
-from fastapi import APIRouter, HTTPException, Depends
+
+from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel
 
 logger = logging.getLogger(__name__)
 
-from domain.orv_v2.service import ORVGameService
 from domain.orv_v2.container import get_game_service
-
+from domain.orv_v2.service import ORVGameService
 
 router = APIRouter(prefix="/orv/v2", tags=["ORV v2"])
 

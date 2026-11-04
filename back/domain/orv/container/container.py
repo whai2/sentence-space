@@ -1,10 +1,10 @@
 from functools import lru_cache
 
-from server.config import get_settings
+from domain.orv.interface import IORVGameService
 from domain.orv.repository import ORVGameRepository
 from domain.orv.service import ORVGameService
 from domain.orv.story import StoryManager
-from domain.orv.interface import IORVGameService
+from server.config import get_settings
 
 
 @lru_cache

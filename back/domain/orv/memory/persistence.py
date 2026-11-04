@@ -6,14 +6,14 @@ JSON 파일로 기억을 저장하고 로드합니다.
 """
 
 import json
-from pathlib import Path
 from datetime import datetime
+from pathlib import Path
 
 from domain.orv.model.memory import (
     MemoryEntry,
+    NPCGoal,
     NPCMemoryStore,
     RelationshipMemory,
-    NPCGoal,
 )
 
 

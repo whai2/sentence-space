@@ -5,22 +5,21 @@ ORV v2 Dependency Injection Container
 """
 from functools import lru_cache
 
-from server.config import get_settings
-from domain.orv_v2.config import LLMFactory
 from domain.orv_v2.agents import (
-    OrchestratorAgent,
-    NarratorAgent,
-    NPCAgent,
     AutoNarratorAgent,
     GraphRAGRetriever,
+    NarratorAgent,
+    NPCAgent,
+    OrchestratorAgent,
 )
-from domain.orv_v2.agents.story_planner import StoryPlannerAgent
 from domain.orv_v2.agents.story_executor import StoryExecutorAgent
+from domain.orv_v2.agents.story_planner import StoryPlannerAgent
+from domain.orv_v2.config import LLMFactory
+from domain.orv_v2.graph import GameWorkflow
 from domain.orv_v2.repository import MongoDBGameRepository
 from domain.orv_v2.repository.neo4j_repository import Neo4jGraphRepository
-from domain.orv_v2.graph import GameWorkflow
 from domain.orv_v2.service import ORVGameService
-
+from server.config import get_settings
 
 # ============================================
 # Singletons

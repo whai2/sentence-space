@@ -11,16 +11,16 @@ from typing import Union
 from langchain_anthropic import ChatAnthropic
 from langchain_openai import ChatOpenAI
 
-from server.config import get_settings
-from domain.myeolsal.models import MyeolsalRules
-from domain.myeolsal.repository import PineconeBeastRepository, Neo4jMyeolsalRepository
 from domain.myeolsal.agents import (
     BeastGeneratorAgent,
     BeastRetrieverAgent,
     BeastValidatorAgent,
 )
 from domain.myeolsal.graph import MyeolsalWorkflow
+from domain.myeolsal.models import MyeolsalRules
+from domain.myeolsal.repository import Neo4jMyeolsalRepository, PineconeBeastRepository
 from domain.myeolsal.service import MyeolsalService
+from server.config import get_settings
 
 
 @lru_cache

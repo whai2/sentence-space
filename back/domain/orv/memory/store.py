@@ -5,13 +5,12 @@ NPC 기억 저장소 관리
 """
 
 import uuid
-from datetime import datetime
 
 from domain.orv.model.memory import (
     MemoryEntry,
+    NPCGoal,
     NPCMemoryStore,
     RelationshipMemory,
-    NPCGoal,
 )
 
 

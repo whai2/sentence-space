@@ -5,9 +5,9 @@
 """
 from functools import lru_cache
 
-from server.config import get_settings
 from domain.scenario.repository import Neo4jScenarioRepository
 from domain.scenario.service import ScenarioService
+from server.config import get_settings
 
 
 @lru_cache

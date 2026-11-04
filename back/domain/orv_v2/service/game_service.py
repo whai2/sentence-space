@@ -4,8 +4,9 @@ ORV v2 게임 서비스
 GameWorkflow를 래핑하고 비즈니스 로직 제공
 """
 import logging
-from domain.orv_v2.models import GameState, GameMode
+
 from domain.orv_v2.graph import GameWorkflow
+from domain.orv_v2.models import GameMode
 from domain.orv_v2.repository import MongoDBGameRepository
 
 logger = logging.getLogger(__name__)
@@ -36,8 +37,9 @@ class ORVGameService:
         game_state = await self.repository.create_session()
 
         # 초기 NPC 스폰 (예시: 3호선 객차에 학생 2명)
-        from domain.orv_v2.models import NPCState, Coordinate, NPCPersonality, NPCRelationship
         import uuid
+
+        from domain.orv_v2.models import Coordinate, NPCPersonality, NPCRelationship, NPCState
 
         # 학생 1
         student1 = NPCState(

@@ -8,7 +8,7 @@ from langgraph.graph import END, StateGraph
 from langgraph.graph.message import add_messages
 
 from domain.world.interface import IGameService
-from domain.world.model import GameState, WorldKnowledge, BugInstance, Coordinate, SEOUL_COORDINATES
+from domain.world.model import SEOUL_COORDINATES, BugInstance, Coordinate, GameState, WorldKnowledge
 from domain.world.repository import GameRepository
 
 # 거리 임계값 (미터)

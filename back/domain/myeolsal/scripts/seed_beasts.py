@@ -5,17 +5,18 @@ Canon 괴수 데이터를 Pinecone과 Neo4j에 로드
 """
 import asyncio
 import json
-from pathlib import Path
 
 # 프로젝트 루트를 path에 추가
 import sys
+from pathlib import Path
+
 sys.path.insert(0, str(Path(__file__).parent.parent.parent.parent))
 
-from domain.myeolsal.models import BeastEntry
 from domain.myeolsal.container import (
-    get_pinecone_repository,
     get_neo4j_repository,
+    get_pinecone_repository,
 )
+from domain.myeolsal.models import BeastEntry
 
 
 async def load_canon_beasts():
@@ -105,7 +106,7 @@ async def load_canon_beasts():
             print(f"  ✗ {from_id} → {to_id}: {e}")
 
     # 결과 출력
-    print(f"\n========== 로드 완료 ==========")
+    print("\n========== 로드 완료 ==========")
     print(f"성공: {success}개")
     print(f"실패: {len(errors)}개")
 
@@ -116,7 +117,7 @@ async def load_canon_beasts():
 
     # 통계 출력
     stats = pinecone_repo.get_stats()
-    print(f"\n========== 저장소 통계 ==========")
+    print("\n========== 저장소 통계 ==========")
     print(f"총 괴수 수: {stats['total_count']}")
     print(f"등급 분포: {stats['grade_distribution']}")
     print(f"종 분포: {stats['species_distribution']}")

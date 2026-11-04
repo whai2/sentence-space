@@ -4,9 +4,8 @@
 시나리오 시작 시 전체 스토리 구조를 미리 계획하고,
 각 턴마다 이 계획에 따라 진행
 """
-from pydantic import BaseModel, Field
-from enum import Enum
 
+from pydantic import BaseModel, Field
 
 # ============================================
 # Story Phase & Event

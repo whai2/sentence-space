@@ -7,7 +7,7 @@ OpenAI text-embedding-3-small 임베딩 사용
 from typing import Any
 
 from domain.myeolsal.models import BeastEntry
-from domain.myeolsal.repository import PineconeBeastRepository, Neo4jMyeolsalRepository
+from domain.myeolsal.repository import Neo4jMyeolsalRepository, PineconeBeastRepository
 
 
 class BeastRetrieverAgent:

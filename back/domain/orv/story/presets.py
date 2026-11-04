@@ -7,11 +7,9 @@
 from domain.orv.model import (
     PlotPoint,
     PlotPointType,
-    PlotPointStatus,
     StoryArc,
     StoryPhase,
 )
-
 
 # ============================================================================
 # 시나리오 1: 지하철 3호선 - 초기 복선

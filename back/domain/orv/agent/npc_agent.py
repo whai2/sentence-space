@@ -6,28 +6,27 @@ NPC 에이전트
 
 import json
 import re
-from typing import Any
 
 from langchain_core.messages import HumanMessage, SystemMessage
 from langchain_openai import ChatOpenAI
 
-from domain.orv.model.state import NPCInstance, NPCPersonality
-from domain.orv.model.memory import (
-    NPCMemoryStore,
-    NPCContext,
-    NPCDecision,
-    MemoryEntry,
-    RelationshipMemory,
-)
-from domain.orv.memory.search import KeywordMemorySearch
 from domain.orv.agent.prompts import (
-    NPC_SYSTEM_PROMPT,
     NPC_DECIDE_PROMPT,
     NPC_RESPOND_PROMPT,
+    NPC_SYSTEM_PROMPT,
+    format_goal_for_context,
     format_memory_for_context,
     format_relationship_for_context,
-    format_goal_for_context,
 )
+from domain.orv.memory.search import KeywordMemorySearch
+from domain.orv.model.memory import (
+    MemoryEntry,
+    NPCContext,
+    NPCDecision,
+    NPCMemoryStore,
+    RelationshipMemory,
+)
+from domain.orv.model.state import NPCInstance, NPCPersonality
 
 
 class NPCAgent:

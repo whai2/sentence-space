@@ -3,8 +3,9 @@
 
 멸살법 제1권: 괴수종 생존 도감의 핵심 스키마
 """
-from enum import Enum
 from datetime import datetime
+from enum import Enum
+
 from pydantic import BaseModel, Field
 
 

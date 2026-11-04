@@ -4,14 +4,9 @@ Story Executor Agent
 각 턴마다 스토리 플랜을 확인하고 다음에 일어나야 할 이벤트를 결정
 """
 from pydantic import BaseModel, Field
-from domain.orv_v2.models.story_plan import (
-    StoryPlan,
-    StoryProgress,
-    StoryPhase,
-    StoryEvent
-)
-from domain.orv_v2.models import GameState
 
+from domain.orv_v2.models import GameState
+from domain.orv_v2.models.story_plan import StoryEvent, StoryPhase, StoryPlan, StoryProgress
 
 # ============================================
 # Executor Output

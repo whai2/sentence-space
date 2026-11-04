@@ -8,23 +8,23 @@ Multi-Agent 시스템을 조율하는 워크플로우
 import asyncio
 import logging
 from typing import Literal
-from langgraph.graph import StateGraph, END
+
+from langgraph.graph import END, StateGraph
 
 logger = logging.getLogger(__name__)
 
-from domain.orv_v2.models import GraphState, GameState, ScenarioContext, GameMode
-from domain.orv_v2.models.story_plan import StoryPlan, StoryProgress
 from domain.orv_v2.agents import (
-    OrchestratorAgent,
+    AutoNarratorAgent,
+    GraphRAGRetriever,
     NarratorAgent,
     NPCAgent,
     NPCDecision,
-    AutoNarratorAgent,
-    GraphRAGRetriever,
+    OrchestratorAgent,
 )
-from domain.orv_v2.agents.story_planner import StoryPlannerAgent
 from domain.orv_v2.agents.story_executor import StoryExecutorAgent
-
+from domain.orv_v2.agents.story_planner import StoryPlannerAgent
+from domain.orv_v2.models import GameMode, GameState, GraphState, ScenarioContext
+from domain.orv_v2.models.story_plan import StoryPlan, StoryProgress
 
 # ============================================
 # Repository (임시, 나중에 실제 MongoDB로 교체)
@@ -219,7 +219,7 @@ class GameWorkflow:
         - AutoNarratorAgent가 player_action과 narrative를 모두 생성
         - 시나리오 시작 감지 시 모드 전환 준비
         """
-        logger.info(f"🤖 [Workflow] Auto-Narrative 노드 시작")
+        logger.info("🤖 [Workflow] Auto-Narrative 노드 시작")
         game_state = state["game_state"]
         scenario_context = state.get("scenario_context")
 
@@ -239,13 +239,13 @@ class GameWorkflow:
                 try:
                     logger.info(f"📖 [Workflow] 스토리 플랜 생성 시작: scenario_id={game_state.current_scenario.scenario_id}")
                     # Neo4j에서 시나리오 상세 정보 조회
-                    logger.info(f"🔍 [Workflow] Neo4j에서 시나리오 데이터 조회 중...")
+                    logger.info("🔍 [Workflow] Neo4j에서 시나리오 데이터 조회 중...")
                     scenario_data = await self.repository.get_scenario_from_neo4j(
                         game_state.current_scenario.scenario_id
                     )
 
                     # Planner로 전체 스토리 플랜 생성
-                    logger.info(f"📋 [Workflow] StoryPlanner 호출...")
+                    logger.info("📋 [Workflow] StoryPlanner 호출...")
                     planner_output = await self.story_planner.create_story_plan(
                         scenario_id=game_state.current_scenario.scenario_id,
                         scenario_data=scenario_data,
@@ -256,7 +256,7 @@ class GameWorkflow:
 
                     # Phases 검증
                     if not story_plan.phases:
-                        logger.warning(f"⚠️  [Workflow] 스토리 플랜이 비어있습니다 (Haiku 생성 실패). StoryPlanner 없이 진행합니다.")
+                        logger.warning("⚠️  [Workflow] 스토리 플랜이 비어있습니다 (Haiku 생성 실패). StoryPlanner 없이 진행합니다.")
                         story_plan = None
                     else:
                         await self.repository.save_story_plan(story_plan)
@@ -314,15 +314,15 @@ class GameWorkflow:
                     remaining_time=scenario_context.remaining_time if scenario_context else None,
                     current_phase=scenario_context.current_phase if scenario_context else None,
                 )
-                logger.info(f"✅ [Workflow] GraphRAG 컨텍스트 조회 완료")
+                logger.info("✅ [Workflow] GraphRAG 컨텍스트 조회 완료")
             except Exception as e:
                 # GraphRAG 실패 시 기본 컨텍스트 사용 (graceful degradation)
                 logger.warning(f"⚠️  [Workflow] GraphRAG 조회 실패 (기본 컨텍스트 사용): {e}", exc_info=True)
         else:
             if not self.graph_rag_retriever:
-                logger.info(f"ℹ️  [Workflow] GraphRAG retriever가 설정되지 않음")
+                logger.info("ℹ️  [Workflow] GraphRAG retriever가 설정되지 않음")
             elif not game_state.current_scenario:
-                logger.info(f"ℹ️  [Workflow] 현재 시나리오가 없음 (GraphRAG 스킵)")
+                logger.info("ℹ️  [Workflow] 현재 시나리오가 없음 (GraphRAG 스킵)")
 
         # ============================================
         # 4. AutoNarrator 호출 (Story Guidance 포함)
@@ -572,9 +572,9 @@ class GameWorkflow:
         }
 
         # Graph 실행
-        logger.info(f"▶️  [Workflow] LangGraph 워크플로우 실행 시작...")
+        logger.info("▶️  [Workflow] LangGraph 워크플로우 실행 시작...")
         result = await self.graph.ainvoke(initial_state)
-        logger.info(f"✅ [Workflow] LangGraph 워크플로우 실행 완료")
+        logger.info("✅ [Workflow] LangGraph 워크플로우 실행 완료")
 
         # 검증 실패 시
         if not result["validation_passed"]:

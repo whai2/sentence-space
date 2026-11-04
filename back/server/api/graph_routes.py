@@ -8,7 +8,6 @@ from pydantic import BaseModel
 
 from domain.orv_v2.container.container import get_neo4j_repository
 
-
 router = APIRouter(prefix="/api/graph", tags=["graph"])
 
 

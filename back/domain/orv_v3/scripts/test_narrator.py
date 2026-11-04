@@ -24,7 +24,6 @@ load_dotenv(project_root / ".env")
 from domain.orv_v3.config import NarratorConfig, create_narrator_llm
 from domain.orv_v3.narrator import NarratorAgent, SceneInput
 
-
 # ============================================
 # 샘플 입력 데이터 (전지적 독자 시점 세계관)
 # ============================================

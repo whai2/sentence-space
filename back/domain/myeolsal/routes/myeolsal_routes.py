@@ -8,7 +8,6 @@ from pydantic import BaseModel, Field
 
 from domain.myeolsal.container import get_myeolsal_service
 
-
 router = APIRouter(prefix="/myeolsal", tags=["멸살법"])
 
 

@@ -4,10 +4,10 @@
 전지적_독자_시점시나리오.json 파일의 나무위키 마크업을 파싱하여
 구조화된 시나리오 데이터로 변환
 """
-import re
 import json
+import re
 from pathlib import Path
-from typing import List, Dict, Optional
+from typing import Dict, List, Optional
 
 
 class NamuwikiScenarioParser:

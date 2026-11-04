@@ -1,0 +1,437 @@
+.run-viewer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: #0a0a0f;
+  color: #e0e0e0;
+  font-family: 'Pretendard', -apple-system, sans-serif;
+}
+
+/* 헤더 */
+.run-viewer .header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  background: #111118;
+  border-bottom: 1px solid #1a1a2e;
+}
+
+.run-viewer .back-btn {
+  background: none;
+  border: none;
+  color: #8888aa;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 4px 8px;
+}
+
+.run-viewer .back-btn:hover {
+  color: #c0c0ff;
+}
+
+.run-viewer .header h1 {
+  font-size: 18px;
+  margin: 0;
+  color: #c0c0ff;
+  font-weight: 600;
+}
+
+.run-viewer .header .stats-badge {
+  margin-left: auto;
+  font-size: 12px;
+  color: #666;
+  background: #1a1a2e;
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+
+/* 탭 */
+.run-viewer .tabs {
+  display: flex;
+  gap: 0;
+  background: #111118;
+  border-bottom: 1px solid #1a1a2e;
+  padding: 0 20px;
+}
+
+.run-viewer .tabs button {
+  background: none;
+  border: none;
+  color: #666;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 13px;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+
+.run-viewer .tabs button.active {
+  color: #c0c0ff;
+  border-bottom-color: #c0c0ff;
+}
+
+.run-viewer .tabs button:hover {
+  color: #aaaacc;
+}
+
+/* 메인 영역 */
+.run-viewer .main {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* === 질의 탭 === */
+.run-viewer .chat-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.run-viewer .messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.run-viewer .message {
+  max-width: 85%;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.run-viewer .message.user {
+  align-self: flex-end;
+  background: #2a2a4e;
+  color: #ddd;
+  border-bottom-right-radius: 4px;
+}
+
+.run-viewer .message.assistant {
+  align-self: flex-start;
+  background: #1a1a28;
+  color: #ccc;
+  border-bottom-left-radius: 4px;
+  border: 1px solid #252540;
+}
+
+.run-viewer .message.assistant .entity-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #252540;
+}
+
+.run-viewer .entity-chip {
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 10px;
+  background: #252545;
+  color: #aab;
+  cursor: pointer;
+}
+
+.run-viewer .entity-chip:hover {
+  background: #353565;
+}
+
+.run-viewer .entity-chip.concept { border-left: 2px solid #7c6fff; }
+.run-viewer .entity-chip.character { border-left: 2px solid #ff6b8a; }
+.run-viewer .entity-chip.event { border-left: 2px solid #4ecdc4; }
+.run-viewer .entity-chip.world_setting { border-left: 2px solid #ffd93d; }
+
+.run-viewer .input-area {
+  display: flex;
+  gap: 8px;
+  padding: 12px 20px;
+  background: #111118;
+  border-top: 1px solid #1a1a2e;
+}
+
+.run-viewer .input-area input {
+  flex: 1;
+  background: #1a1a28;
+  border: 1px solid #252540;
+  color: #ddd;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+}
+
+.run-viewer .input-area input:focus {
+  border-color: #4a4a7e;
+}
+
+.run-viewer .input-area button {
+  background: #3a3a6e;
+  border: none;
+  color: #ddd;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.run-viewer .input-area button:hover {
+  background: #4a4a8e;
+}
+
+.run-viewer .input-area button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* === 엔티티 탭 === */
+.run-viewer .entities-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.run-viewer .filter-bar {
+  display: flex;
+  gap: 8px;
+  padding: 12px 20px;
+  background: #111118;
+  border-bottom: 1px solid #1a1a2e;
+  flex-wrap: wrap;
+}
+
+.run-viewer .filter-bar .type-btn {
+  background: #1a1a28;
+  border: 1px solid #252540;
+  color: #888;
+  padding: 6px 14px;
+  border-radius: 16px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.2s;
+}
+
+.run-viewer .filter-bar .type-btn.active {
+  background: #2a2a4e;
+  border-color: #4a4a7e;
+  color: #c0c0ff;
+}
+
+.run-viewer .filter-bar .search-input {
+  flex: 1;
+  min-width: 200px;
+  background: #1a1a28;
+  border: 1px solid #252540;
+  color: #ddd;
+  padding: 6px 14px;
+  border-radius: 16px;
+  font-size: 12px;
+  outline: none;
+}
+
+.run-viewer .entity-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.run-viewer .entity-card {
+  background: #141420;
+  border: 1px solid #1e1e35;
+  border-radius: 10px;
+  padding: 14px 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.run-viewer .entity-card:hover {
+  border-color: #3a3a6e;
+  background: #1a1a2e;
+}
+
+.run-viewer .entity-card .card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.run-viewer .entity-card .type-badge {
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.run-viewer .type-badge.concept { background: #2a1f5e; color: #9d8fff; }
+.run-viewer .type-badge.character { background: #3e1525; color: #ff8aa5; }
+.run-viewer .type-badge.event { background: #0f3533; color: #6eeee4; }
+.run-viewer .type-badge.world_setting { background: #3e3510; color: #ffe95d; }
+
+.run-viewer .entity-card .card-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ddd;
+}
+
+.run-viewer .entity-card .card-excerpt {
+  font-size: 12px;
+  color: #777;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.run-viewer .entity-card .card-tags {
+  display: flex;
+  gap: 4px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.run-viewer .entity-card .tag {
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: #1a1a2e;
+  color: #888;
+}
+
+/* 엔티티 상세 모달 */
+.run-viewer .entity-detail-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.run-viewer .entity-detail {
+  background: #141420;
+  border: 1px solid #252540;
+  border-radius: 14px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 24px;
+}
+
+.run-viewer .entity-detail .detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.run-viewer .entity-detail h2 {
+  font-size: 20px;
+  margin: 0;
+  color: #e0e0f0;
+}
+
+.run-viewer .entity-detail .close-btn {
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.run-viewer .entity-detail .detail-content {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #bbb;
+  white-space: pre-wrap;
+}
+
+.run-viewer .entity-detail .relations-section {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #252540;
+}
+
+.run-viewer .entity-detail .relations-section h3 {
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 8px;
+}
+
+.run-viewer .entity-detail .relation-item {
+  font-size: 12px;
+  color: #777;
+  padding: 4px 0;
+}
+
+/* === 그래프 탭 === */
+.run-viewer .graph-panel {
+  flex: 1;
+  position: relative;
+}
+
+.run-viewer .graph-container {
+  width: 100%;
+  height: 100%;
+}
+
+.run-viewer .graph-legend {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(20, 20, 32, 0.9);
+  border: 1px solid #252540;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 11px;
+}
+
+.run-viewer .graph-legend .legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 4px 0;
+  color: #aaa;
+}
+
+.run-viewer .graph-legend .legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+/* 로딩 */
+.run-viewer .loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  color: #666;
+}
+
+.run-viewer .empty-state {
+  text-align: center;
+  padding: 40px;
+  color: #555;
+  font-size: 14px;
+}

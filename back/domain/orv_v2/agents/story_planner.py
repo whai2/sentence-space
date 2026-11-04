@@ -4,16 +4,12 @@ Story Planner Agent
 시나리오 시작 시 Neo4j 지식 그래프를 기반으로 전체 스토리 플랜 생성
 """
 import logging
-from langchain_openai import ChatOpenAI
-from langchain_core.messages import SystemMessage, HumanMessage
 
-from domain.orv_v2.models.story_plan import (
-    StoryPlan,
-    StoryPhase,
-    StoryEvent,
-    PlannerOutput
-)
+from langchain_core.messages import HumanMessage, SystemMessage
+from langchain_openai import ChatOpenAI
+
 from domain.orv_v2.models import GameState
+from domain.orv_v2.models.story_plan import PlannerOutput
 
 logger = logging.getLogger(__name__)
 
@@ -247,7 +243,7 @@ class StoryPlannerAgent:
         logger.info(f"   - Neo4j 데이터: Phase={phases_count}, Character={characters_count}, Event={events_count}, Trick={tricks_count}")
 
         if phases_count == 0:
-            logger.warning(f"⚠️  [StoryPlanner] Phase 데이터가 없습니다. 나무위키 데이터만 사용합니다.")
+            logger.warning("⚠️  [StoryPlanner] Phase 데이터가 없습니다. 나무위키 데이터만 사용합니다.")
 
         prompt = create_planner_prompt(
             scenario_id=scenario_id,
@@ -263,7 +259,7 @@ class StoryPlannerAgent:
         logger.info(f"🤖 [StoryPlanner] LLM 호출 중... (model={self.llm.model_name})")
         output: PlannerOutput = await self.structured_llm.ainvoke(messages)
 
-        logger.info(f"✅ [StoryPlanner] 스토리 플랜 생성 완료")
+        logger.info("✅ [StoryPlanner] 스토리 플랜 생성 완료")
         logger.info(f"   - Phases: {len(output.story_plan.phases)}개")
         logger.info(f"   - Initial Choices: {len(output.initial_choices)}개")
 

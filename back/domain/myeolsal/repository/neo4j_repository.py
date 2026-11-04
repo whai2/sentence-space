@@ -5,7 +5,7 @@ Neo4j 멸살법 저장소
 """
 from typing import Any
 
-from neo4j import AsyncGraphDatabase, AsyncDriver
+from neo4j import AsyncDriver, AsyncGraphDatabase
 
 from domain.myeolsal.models import BeastEntry
 

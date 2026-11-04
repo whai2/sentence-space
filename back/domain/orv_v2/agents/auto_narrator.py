@@ -5,13 +5,12 @@ GPT-4o 기반 자동 스토리 진행 에이전트
 - 사용자 입력 없이 자동으로 멀티턴 스토리 생성
 - 시나리오 시작 시점 감지 및 모드 전환 제안
 """
-from pydantic import BaseModel, Field
+from langchain_core.messages import HumanMessage, SystemMessage
 from langchain_openai import ChatOpenAI
-from langchain_core.messages import SystemMessage, HumanMessage
+from pydantic import BaseModel, Field
 
 from domain.orv_v2.models import GameState, ScenarioContext
 from domain.orv_v2.models.scenario import EnrichedScenarioContext
-
 
 # ============================================
 # Auto-Narrator Structured Output

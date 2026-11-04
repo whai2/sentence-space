@@ -6,7 +6,6 @@ GraphRAG 로깅 테스트 스크립트
 import asyncio
 import logging
 import sys
-from pathlib import Path
 
 # 로깅 설정
 logging.basicConfig(
@@ -62,7 +61,7 @@ async def test_graphrag_workflow():
 
         print("\n" + "=" * 80)
         if result["success"]:
-            logger.info(f"✅ Auto-Narrative 완료")
+            logger.info("✅ Auto-Narrative 완료")
             logger.info(f"   - 서술: {result['narrative'][:100]}...")
             logger.info(f"   - 선택지 개수: {len(result['choices'])}")
         else:

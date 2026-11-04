@@ -5,17 +5,15 @@
 시나리오 안내, 클리어 판정, 보상 지급을 담당합니다.
 """
 
-import json
-import re
-from typing import Optional
-from pydantic import BaseModel, Field
 from datetime import datetime
+from typing import Optional
 
 from langchain_core.messages import HumanMessage, SystemMessage
 from langchain_openai import ChatOpenAI
+from pydantic import BaseModel, Field
 
-from domain.orv.model.state import GameState, ScenarioState
 from domain.orv.model.knowledge import ScenarioInfo
+from domain.orv.model.state import GameState, ScenarioState
 
 
 class ScenarioClearRecord(BaseModel):
@@ -707,7 +705,7 @@ E급: 한강 대교
             ])
             return response.content
         except Exception:
-            return f"""━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            return """━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 [사망]
 
 참가자가 사망하였습니다.

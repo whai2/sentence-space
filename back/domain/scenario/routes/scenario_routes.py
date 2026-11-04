@@ -7,7 +7,6 @@ from fastapi import APIRouter, HTTPException, Query
 
 from domain.scenario.container import get_scenario_service
 
-
 router = APIRouter(prefix="/scenario", tags=["시나리오 설명집"])
 
 

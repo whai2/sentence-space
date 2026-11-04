@@ -7,15 +7,15 @@ MongoDB Repository
 """
 import uuid
 from datetime import datetime
+
 from motor.motor_asyncio import AsyncIOMotorClient, AsyncIOMotorDatabase
 
 from domain.orv_v2.models import (
     GameState,
+    NPCState,
     PlayerState,
-    CurrentScenario,
     ScenarioContext,
     ScenarioSummary,
-    NPCState,
     StateChange,
 )
 from domain.orv_v2.models.story_plan import StoryPlan, StoryProgress

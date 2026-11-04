@@ -1,16 +1,16 @@
 """멸살법 데이터 모델"""
 from .beast import (
+    BeastEntry,
     BeastLayer,
-    StatGrade,
     BeastStats,
     CombatPattern,
-    BeastEntry,
+    StatGrade,
 )
 from .rules import (
-    GradeStatRange,
-    SpeciesTraits,
     ElementalAffinity,
+    GradeStatRange,
     MyeolsalRules,
+    SpeciesTraits,
 )
 
 __all__ = [

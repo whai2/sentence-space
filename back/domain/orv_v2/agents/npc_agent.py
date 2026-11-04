@@ -6,12 +6,11 @@ Claude Haiku 4.5 기반 개별 NPC 의사결정 에이전트
 - 성격/기억 기반 행동 결정
 - 비용 절감 (Haiku)
 """
-from pydantic import BaseModel, Field
+from langchain_core.messages import HumanMessage, SystemMessage
 from langchain_openai import ChatOpenAI
-from langchain_core.messages import SystemMessage, HumanMessage
+from pydantic import BaseModel, Field
 
-from domain.orv_v2.models import NPCState, GameState
-
+from domain.orv_v2.models import GameState, NPCState
 
 # ============================================
 # NPC 의사결정 Output

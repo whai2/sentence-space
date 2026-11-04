@@ -7,16 +7,15 @@ Claude Sonnet 4.5 기반 최상위 의사결정 에이전트
 - NPC 활성화 결정
 - Narrator에게 서술 지시
 """
+from langchain_core.messages import HumanMessage, SystemMessage
 from langchain_openai import ChatOpenAI
-from langchain_core.messages import SystemMessage, HumanMessage
 
 from domain.orv_v2.models import (
     GameState,
-    ScenarioContext,
     OrchestratorDecision,
+    ScenarioContext,
     StateChange,
 )
-
 
 # ============================================
 # Orchestrator 프롬프트

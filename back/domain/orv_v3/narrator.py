@@ -9,8 +9,8 @@ Gemini 2.5 Flash 기반 웹소설 서술 에이전트 (Step ①)
 """
 from dataclasses import dataclass
 
+from langchain_core.messages import HumanMessage, SystemMessage
 from langchain_openai import ChatOpenAI
-from langchain_core.messages import SystemMessage, HumanMessage
 
 from domain.orv_v3.prompts import build_system_prompt
 

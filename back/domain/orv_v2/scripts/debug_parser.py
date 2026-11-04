@@ -26,7 +26,7 @@ section_match = re.search(section_pattern, raw_text)
 if section_match:
     print(f"✅ 8612 행성계 섹션 발견! 위치: {section_match.start()}")
     # 섹션 이후 500자 출력
-    print(f"\n섹션 이후 500자:")
+    print("\n섹션 이후 500자:")
     print(raw_text[section_match.start():section_match.start() + 500])
 else:
     print("❌ 8612 행성계 섹션을 찾을 수 없습니다.")
@@ -34,7 +34,7 @@ else:
     if "8612" in raw_text:
         pos = raw_text.find("8612")
         print(f"\n'8612' 문자열 발견! 위치: {pos}")
-        print(f"주변 텍스트:")
+        print("주변 텍스트:")
         print(raw_text[max(0, pos-50):pos+100])
 
 # 2. 메인 시나리오 패턴 테스트

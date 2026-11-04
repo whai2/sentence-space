@@ -3,9 +3,9 @@ ORV v2 설정
 
 Agent별 모델 할당 - 직접 API 호출 (OpenRouter보다 빠름)
 """
-from pydantic import BaseModel
-from langchain_openai import ChatOpenAI
 from langchain_anthropic import ChatAnthropic
+from langchain_openai import ChatOpenAI
+from pydantic import BaseModel
 
 
 class AgentModels(BaseModel):

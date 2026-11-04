@@ -4,12 +4,13 @@
 Hugging Face의 heegyu/namuwiki 데이터셋에서
 전지적 독자 시점 관련 문서를 검색하고 정보 추출
 """
-import re
 import json
-from pathlib import Path
+import re
 from datetime import datetime
+from pathlib import Path
+from typing import Dict, List
+
 from datasets import load_dataset
-from typing import List, Dict
 
 
 def search_orv_articles(dataset, keywords: List[str]) -> Dict[str, dict]:
@@ -147,7 +148,7 @@ def save_results_to_json(results: Dict, output_dir: Path):
     raw_dir = output_dir / "raw"
     raw_dir.mkdir(parents=True, exist_ok=True)
 
-    print(f"\n💾 개별 문서 저장 중...")
+    print("\n💾 개별 문서 저장 중...")
     for title, data in results.items():
         # 파일명에서 특수문자 제거
         safe_filename = re.sub(r'[^\w\s-]', '', title).strip().replace(' ', '_')
@@ -213,7 +214,7 @@ def save_results_to_json(results: Dict, output_dir: Path):
         print(f"✅ 캐릭터 정보: {characters_file.name} ({len(characters)}개)")
 
     print("\n" + "=" * 60)
-    print(f"📦 저장 완료!")
+    print("📦 저장 완료!")
     print(f"   위치: {output_dir.absolute()}")
     print("=" * 60)
 
@@ -324,7 +325,7 @@ if __name__ == "__main__":
             print("\n\n" + "=" * 60)
             print("✨ 추출 완료!")
             print("=" * 60)
-            print(f"\n다음 단계:")
+            print("\n다음 단계:")
             print("1. data/namuwiki_orv/raw/ 에서 개별 문서 확인")
             print("2. data/namuwiki_orv/processed/ 에서 가공된 데이터 확인")
             print("3. 필요시 Neo4j에 저장하는 스크립트 작성")

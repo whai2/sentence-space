@@ -8,14 +8,14 @@ import json
 import random
 import re
 from typing import Optional
-from pydantic import BaseModel, Field
 
 from langchain_core.messages import HumanMessage, SystemMessage
 from langchain_openai import ChatOpenAI
+from pydantic import BaseModel
 
-from domain.orv.model.state import GameState, ConstellationChannel
 from domain.orv.model.knowledge import ConstellationInfo
 from domain.orv.model.memory import NPCDecision
+from domain.orv.model.state import ConstellationChannel, GameState
 
 
 class ConstellationReaction(BaseModel):
